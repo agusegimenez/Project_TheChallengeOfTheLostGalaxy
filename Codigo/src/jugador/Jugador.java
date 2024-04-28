@@ -21,15 +21,12 @@ public class Jugador {
 	}
 	
 	public void disparar() {
-		
 	}
 	
 	public void recargarCombustible() {
-		
 	}
 	
 	public void visitarPlaneta() {
-		
 	}
 	public Nave getNave() {
 		return(this.nave);

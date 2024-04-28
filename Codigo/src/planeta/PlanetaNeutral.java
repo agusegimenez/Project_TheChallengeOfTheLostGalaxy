@@ -6,11 +6,26 @@ public class PlanetaNeutral extends Planeta{
 	
 	private Arma arma;
 	private Escudo escudo;
-	
-	public PlanetaNeutral(String id, int costo) {
-		super(id, costo);
-		//Implementar la creacion de los objetos que tendra a la venta
-		// ya sea que los pide en el constructor o los genera.
+
+	public PlanetaNeutral(String idPlaneta, boolean estaExplorado, int costoDeCombustible, Arma arma, Escudo escudo) {
+		super(idPlaneta, estaExplorado, costoDeCombustible);
+		this.arma = arma;
+		this.escudo = escudo;
 	}
 
+	public Arma getArma() {
+		return arma;
+	}
+
+	public void setArma(Arma arma) {
+		this.arma = arma;
+	}
+
+	public Escudo getEscudo() {
+		return escudo;
+	}
+
+	public void setEscudo(Escudo escudo) {
+		this.escudo = escudo;
+	}
 }

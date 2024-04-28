@@ -10,7 +10,6 @@ public class Enemigo {
 	}
 	
 	private void atacar() {
-		
 	}
 	
 	public void recibirDaño(int daño) {

@@ -1,12 +1,28 @@
 package planeta;
 
 public class PlanetaHostil extends Planeta{
-	
 	private Enemigo enemigo;
-	
-	public PlanetaHostil(String id, int costo) {
+	private boolean tieneTesoro;
+
+	public PlanetaHostil(String id, int costo, Enemigo enemigo, boolean tieneTesoro) {
 		super(id, costo);
-		// Implementar la creacion aleatoria de enemigo y ponerla dentro del construtcor.
+		this.enemigo = enemigo;
+		this.tieneTesoro = tieneTesoro;
 	}
 
+	public Enemigo getEnemigo() {
+		return enemigo;
+	}
+
+	public void setEnemigo(Enemigo enemigo) {
+		this.enemigo = enemigo;
+	}
+
+	public boolean isTieneTesoro() {
+		return tieneTesoro;
+	}
+
+	public void setTieneTesoro(boolean tieneTesoro) {
+		this.tieneTesoro = tieneTesoro;
+	}
 }
