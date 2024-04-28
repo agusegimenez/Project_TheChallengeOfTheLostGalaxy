@@ -10,10 +10,7 @@ public class Escudo {
 	}
 	
 	public void setProteccion(int x) {
-		this.proteccion = this.proteccion - x;
-		if (this.proteccion < 0) {
-			this.proteccion = 0;
-		}
+		this.proteccion = x;
 	}
 	
 	public int getProteccion() {
