@@ -5,7 +5,7 @@ import Nave.*;
 public class Jugador {
 	private String idJugador;
 	private Nave nave;
-	private int cantidadUadeCoins = 0;
+	private int cantidadUadeCoins = 50;
 	
 	public Jugador(String id) {
 		this.idJugador = id;
@@ -27,7 +27,9 @@ public class Jugador {
 	}
 	
 	public void visitarPlaneta() {
+	
 	}
+	
 	public Nave getNave() {
 		return(this.nave);
 	}

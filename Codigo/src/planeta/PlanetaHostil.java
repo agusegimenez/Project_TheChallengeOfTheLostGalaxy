@@ -1,28 +1,36 @@
 package planeta;
 
+import java.util.Random;
+
 public class PlanetaHostil extends Planeta{
 	private Enemigo enemigo;
 	private boolean tieneTesoro;
 
-	public PlanetaHostil(String id, int costo, Enemigo enemigo, boolean tieneTesoro) {
+	public PlanetaHostil(String id, int costo) {
 		super(id, costo);
-		this.enemigo = enemigo;
-		this.tieneTesoro = tieneTesoro;
+		tieneTesoro = definirSiTieneTesoro();
+		this.enemigo = crearEnemigo();
 	}
 
 	public Enemigo getEnemigo() {
 		return enemigo;
 	}
 
-	public void setEnemigo(Enemigo enemigo) {
-		this.enemigo = enemigo;
-	}
-
-	public boolean isTieneTesoro() {
+	public boolean tieneTesoro() {
 		return tieneTesoro;
 	}
-
-	public void setTieneTesoro(boolean tieneTesoro) {
-		this.tieneTesoro = tieneTesoro;
+	
+	private boolean definirSiTieneTesoro() {
+		Random numeroAleatorio = new Random();
+		int numero = numeroAleatorio.nextInt(6);
+		return( numero == 1);
 	}
+	
+	private Enemigo crearEnemigo() {
+		Random randomNumber = new Random();
+		int numeroAleatorio = randomNumber.nextInt(101) + 50;
+		Enemigo enemigo = new Enemigo(numeroAleatorio);
+		return(enemigo);
+	}
+	
 }

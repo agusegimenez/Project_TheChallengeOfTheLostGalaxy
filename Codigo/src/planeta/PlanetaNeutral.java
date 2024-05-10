@@ -7,8 +7,8 @@ public class PlanetaNeutral extends Planeta{
 	private Arma arma;
 	private Escudo escudo;
 
-	public PlanetaNeutral(String idPlaneta, boolean estaExplorado, int costoDeCombustible, Arma arma, Escudo escudo) {
-		super(idPlaneta, estaExplorado, costoDeCombustible);
+	public PlanetaNeutral(String idPlaneta, int costoDeCombustible, Arma arma, Escudo escudo) {
+		super(idPlaneta, costoDeCombustible);
 		this.arma = arma;
 		this.escudo = escudo;
 	}

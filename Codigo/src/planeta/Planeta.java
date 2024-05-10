@@ -4,10 +4,10 @@ public class Planeta {
 	private String idPlaneta;
 	private boolean estaExplorado = false;
 	private int costoDeCombustible;
+	
 
-	public Planeta(String idPlaneta, boolean estaExplorado, int costoDeCombustible) {
+	public Planeta(String idPlaneta, int costoDeCombustible) {
 		this.idPlaneta = idPlaneta;
-		this.estaExplorado = estaExplorado;
 		this.costoDeCombustible = costoDeCombustible;
 	}
 
@@ -23,8 +23,8 @@ public class Planeta {
 		return estaExplorado;
 	}
 
-	public void setEstaExplorado(boolean estaExplorado) {
-		this.estaExplorado = estaExplorado;
+	public void fueExplorado() {
+		this.estaExplorado = true;
 	}
 
 	public int getCostoDeCombustible() {
