@@ -9,8 +9,12 @@ public class Enemigo {
 		this.poderDeAtaque = poderAtaque;
 	}
 	
-	private void calcularPoderAtaque() {
-		this.poderDeAtaque = 0;
+	public int getPoderAtaque() {
+		return(this.poderDeAtaque);
+	}
+	
+	public int getVida() {
+		return(this.vida);
 	}
 	
 	private void atacar() {
@@ -18,6 +22,10 @@ public class Enemigo {
 	
 	public void recibirDaño(int daño) {
 		this.vida -= daño;
+	}
+	
+	public int calcularCantidadDeUadeCoins() {
+		return(this.poderDeAtaque*2);
 	}
 	
 }

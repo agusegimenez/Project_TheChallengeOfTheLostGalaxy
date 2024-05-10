@@ -37,4 +37,8 @@ public class Jugador {
 	public String getId() {
 		return(this.idJugador);
 	}
+	
+	public void setNave(Nave nave) {
+		this.nave = nave;
+	}
 }

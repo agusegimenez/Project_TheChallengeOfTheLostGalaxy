@@ -3,8 +3,8 @@ import equipamiento.*;
 
 public class NaveSwift extends Nave {
 
-    public NaveSwift( int combustible, int vida, int velocidad, Arma arma, Escudo escudo) {
-        super("Nave Swift", combustible, vida, velocidad, arma, escudo);
+    public NaveSwift(String id, int combustible, int vida, int velocidad, Arma arma, Escudo escudo) {
+        super(id, combustible, vida, velocidad, arma, escudo);
         // Asignar el resultado de calcularDañoNave a this.poderDeAtaque
         this.setPoderDeAtaque(calcularDañoNave(arma.getPoder(),velocidad,vida,combustible)) ;
     }
