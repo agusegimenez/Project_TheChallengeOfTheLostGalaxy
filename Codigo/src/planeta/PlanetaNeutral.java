@@ -28,4 +28,13 @@ public class PlanetaNeutral extends Planeta{
 	public void setEscudo(Escudo escudo) {
 		this.escudo = escudo;
 	}
+	
+	public boolean soyNeutral() {
+		return(true);
+	}
+	
+	public boolean soyHostil() {
+		return(false);
+	}
+	
 }

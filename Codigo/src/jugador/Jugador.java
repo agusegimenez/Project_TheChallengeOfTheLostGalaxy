@@ -1,11 +1,14 @@
 package jugador;
 
 import Nave.*;
+import planeta.*;
+
 
 public class Jugador {
 	private String idJugador;
 	private Nave nave;
 	private int cantidadUadeCoins = 50;
+	private Planeta planetaActual;
 	
 	public Jugador(String id) {
 		this.idJugador = id;
@@ -20,14 +23,23 @@ public class Jugador {
 		nave.getEscudo().setProteccion(0);
 	}
 	
-	public void disparar() {
+	public void disparar(Enemigo enemigo) {
+		int poderAtaqueNave = nave.getPoderDeAtaque();
+		enemigo.recibirDaño(poderAtaqueNave);
 	}
 	
-	public void recargarCombustible() {
+	public void recargarCombustible(int cantidadCombustible) {
+		if(this.cantidadUadeCoins >= cantidadCombustible) {
+			if(estoyEnPlanetaNeutral()) {
+				nave.cargarCombustible(cantidadCombustible);
+				this.cantidadUadeCoins = this.cantidadUadeCoins - cantidadCombustible;
+			} 
+		}
+			
 	}
 	
-	public void visitarPlaneta() {
-	
+	public void visitarPlaneta(Planeta planeta) {
+		this.planetaActual = planeta;
 	}
 	
 	public Nave getNave() {
@@ -40,5 +52,9 @@ public class Jugador {
 	
 	public void setNave(Nave nave) {
 		this.nave = nave;
+	}
+	
+	private boolean estoyEnPlanetaNeutral() {
+		return(planetaActual.soyNeutral());
 	}
 }

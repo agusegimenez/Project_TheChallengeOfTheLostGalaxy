@@ -48,8 +48,8 @@ public class Nave {
         return combustible;
     }
 
-    public void setCombustible(int combustible) {
-        this.combustible = combustible;
+    public void cargarCombustible(int combustible) {
+        this.combustible = this.combustible + combustible;
     }
 
     public int getVida() {

@@ -1,6 +1,6 @@
 package planeta;
 
-public class Planeta {
+public abstract class Planeta {
 	private String idPlaneta;
 	private boolean estaExplorado = false;
 	private int costoDeCombustible;
@@ -34,4 +34,7 @@ public class Planeta {
 	public void setCostoDeCombustible(int costoDeCombustible) {
 		this.costoDeCombustible = costoDeCombustible;
 	}
+	// Preguntar que tipo de planeta es para logica de compra y venta
+	public abstract boolean soyHostil();
+	public abstract boolean soyNeutral();
 }
