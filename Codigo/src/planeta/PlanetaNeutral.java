@@ -42,4 +42,8 @@ public class PlanetaNeutral extends Planeta{
 		throw new IllegalArgumentException("no es un planeta hostil");
 	}
 	
+	public boolean tieneTesoro() {
+		return(false);
+	}
+	
 }

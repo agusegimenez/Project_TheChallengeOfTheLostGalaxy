@@ -34,4 +34,8 @@ public class Enemigo {
 		return(this.poderDeAtaque*2);
 	}
 	
+	public int getUadeCoins() {
+		return(this.uadeCoin);
+	}
+	
 }

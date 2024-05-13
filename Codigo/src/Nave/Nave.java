@@ -9,13 +9,14 @@ public class Nave {
     private Escudo escudo;
     private int poderDeAtaque;
 
-    public Nave(String id, int combustible, int vida, int velocidad, Arma arma, Escudo escudo) {
+    public Nave(String id, int combustible, int vida, int velocidad) {
         this.id = id;
         this.combustible = combustible;
         this.vida = vida;
-        this.velocidad = velocidad;
-        this.arma = arma;
-        this.escudo = escudo;
+        this.velocidad = velocidad; 
+        // Le instaciamos a la Nave un arma y escudo basico
+        this.arma = new Arma(10, 0);
+        this.escudo = new Escudo(20, 0);
     }
 
     public void equiparArma(Arma arma){
@@ -92,4 +93,9 @@ public class Nave {
     protected void setPoderDeAtaque(int poderDeAtaque) {
         this.poderDeAtaque = poderDeAtaque;
     }
+    
+    public void consumirCombustible(int combustible) {
+    	this.combustible -= combustible;
+    }
+    
 }

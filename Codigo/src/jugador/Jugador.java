@@ -17,18 +17,22 @@ public class Jugador {
 	}
 	//Como hacemos para que objeto Arma de la nave quede vacio despues de la venta
     public void venderArma() {
-        // Sumamos el precio del arma al total de Uadecoins del jugador
-        this.cantidadUadeCoins += nave.getArma().getPrecio();
-        // Equipamos automáticamente un arma básica con atributos predeterminados
-        this.nave.equiparArma(new Arma(10, 0)); // Por ejemplo, un arma básica con poder 10 y precio 0
+    	if(estoyEnPlanetaNeutral()) {
+    		// Sumamos el precio del arma al total de Uadecoins del jugador
+        	this.cantidadUadeCoins += nave.getArma().getPrecio();
+        	// Equipamos automáticamente un arma básica con atributos predeterminados
+        	this.nave.equiparArma(new Arma(10, 0)); // Por ejemplo, un arma básica con poder 10 y precio 0
+    	}
     }
     
 	//Es el precio de la cantidad de escudo 1 a 1 con las monedas?
     public void venderEscudo() {
-        // Sumamos el precio del escudo al total de Uadecoins del jugador
-        this.cantidadUadeCoins += nave.getEscudo().getPrecio();
+        if(estoyEnPlanetaNeutral()) {
+    	// Sumamos el precio del escudo al total de Uadecoins del jugador
+        	this.cantidadUadeCoins += nave.getEscudo().getPrecio();
         // Equipamos automáticamente un escudo básico con atributos predeterminados
-        this.nave.equiparEscudo(new Escudo(20, 0)); // Por ejemplo, un escudo básica con defensa 20 y precio 0
+        	this.nave.equiparEscudo(new Escudo(20, 0)); // Por ejemplo, un escudo básica con defensa 20 y precio 0
+        }
     }
 	
 	public void disparar(Enemigo enemigo) {
@@ -41,10 +45,10 @@ public class Jugador {
 		if(this.cantidadUadeCoins >= cantidadCombustible) {
 			if(estoyEnPlanetaNeutral()) {
 				nave.cargarCombustible(cantidadCombustible);
-				this.cantidadUadeCoins = this.cantidadUadeCoins - cantidadCombustible;
+				restarUadeCoins(cantidadCombustible);
 			} 
 		}
-			
+	
 	}
 	
 	public void visitarPlaneta(Planeta planeta) {
@@ -70,4 +74,31 @@ public class Jugador {
 	public Planeta getPlanetaActual() {
 		return(this.planetaActual);
 	}
+	
+	public void sumarUadeCoins(int cantidad, int vidaPerdida) {
+		this.cantidadUadeCoins += cantidad - vidaPerdida;
+	}
+	
+	public void comprarArma(Arma arma) {
+		if(this.cantidadUadeCoins > arma.getPrecio()) {
+			restarUadeCoins(arma.getPrecio());
+			this.nave.setArma(arma);
+		}else {
+			System.out.println("Imposible realizar compra, uadeCoins insuficientes");
+		}
+	}
+	
+	public void comprarEscudo(Escudo escudo) {
+		if(this.cantidadUadeCoins > escudo.getPrecio()) {
+			restarUadeCoins(escudo.getPrecio());
+			this.nave.setEscudo(escudo);
+		}else {
+			System.out.println("Imposible realizar compra, uadeCoins insuficientes");
+		}
+	}
+	
+	private void restarUadeCoins(int cantidad) {
+		this.cantidadUadeCoins -= cantidad;
+	}
+	
 }

@@ -41,6 +41,7 @@ public abstract class Planeta {
 	public abstract boolean soyNeutral();
 	
 	public abstract Enemigo getEnemigo();
+	public abstract boolean tieneTesoro();
 	
 	
 }

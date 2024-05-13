@@ -6,6 +6,7 @@ import planeta.*;
 import java.util.ArrayList;
 import java.util.List;
 import equipamiento.*;
+import java.util.Scanner;
 
 public class GestorJuego {
 	private List<Planeta> planetas;
@@ -44,6 +45,7 @@ public class GestorJuego {
     
 	public Jugador crearJugador(String id) {
 		Jugador jugador = new Jugador(id);
+		this.jugador = jugador;
 		return(jugador);
 	}
 	
@@ -99,24 +101,44 @@ public class GestorJuego {
 		}
 	}
 	
-	public void verificarDerrota() {
 	
-	}
-	
-	
-	public void verificarVictoria() {
-	
+	public boolean verificarVictoria(Planeta planeta) {
+		return(planeta.tieneTesoro());
 	}
 	
 	public void encuentroConEnemigo() {
 		Planeta planetaActual = this.jugador.getPlanetaActual();
 		Nave naveJugador = this.jugador.getNave();
-			while(naveJugador.getVida() > 0 || planetaActual.getEnemigo().getVida()>0) {
-				this.
+		Enemigo enemigo = planetaActual.getEnemigo();
+		int vidaActual = naveJugador.getVida();
+		// El encuentro no termina hasta que alguna pierda toda la vida.
+			
+		while(naveJugador.getVida() > 0 || enemigo.getVida()>0) {
+				jugador.disparar(enemigo);
+				enemigo.atacar(naveJugador);
 			}
+		//Verifico victoria si encuentra tesoro y le suma uadeCoins ganadas.
+		
+		if(jugador.getNave().getVida() > 0) {
+			this.jugador.sumarUadeCoins(enemigo.getUadeCoins(), vidaActual - naveJugador.getVida());
+			verificarVictoria(planetaActual);
+		}else {
+			System.out.println("El jugador fue derrotado. Juego terminado.");
+		}
 		
 	}
 	
+	public Arma agregarArma(int poder, int precio) {
+		Arma arma = new Arma(poder, precio);
+		armas.add(arma);
+		return arma;
+	}
+	
+	public Escudo agregarEscudo(int defensa, int precio) {
+		Escudo escudo = new Escudo(defensa, precio);
+		escudos.add(escudo);	
+		return escudo;
+	}
 	
 }
 
