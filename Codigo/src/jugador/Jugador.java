@@ -2,6 +2,8 @@ package jugador;
 
 import Nave.*;
 import planeta.*;
+import equipamiento.Arma;
+import equipamiento.Escudo;
 
 
 public class Jugador {
@@ -14,14 +16,20 @@ public class Jugador {
 		this.idJugador = id;
 	}
 	//Como hacemos para que objeto Arma de la nave quede vacio despues de la venta
-	public void venderArma() {  
-		this.cantidadUadeCoins += nave.getArma().getPrecio();
-	}
+    public void venderArma() {
+        // Sumamos el precio del arma al total de Uadecoins del jugador
+        this.cantidadUadeCoins += nave.getArma().getPrecio();
+        // Equipamos automáticamente un arma básica con atributos predeterminados
+        this.nave.equiparArma(new Arma(10, 0)); // Por ejemplo, un arma básica con poder 10 y precio 0
+    }
+    
 	//Es el precio de la cantidad de escudo 1 a 1 con las monedas?
-	public void venderEscudo() {
-		this.cantidadUadeCoins += nave.getEscudo().getPrecio();
-		nave.getEscudo().setProteccion(0);
-	}
+    public void venderEscudo() {
+        // Sumamos el precio del escudo al total de Uadecoins del jugador
+        this.cantidadUadeCoins += nave.getEscudo().getPrecio();
+        // Equipamos automáticamente un escudo básico con atributos predeterminados
+        this.nave.equiparEscudo(new Escudo(20, 0)); // Por ejemplo, un escudo básica con defensa 20 y precio 0
+    }
 	
 	public void disparar(Enemigo enemigo) {
 		int poderAtaqueNave = nave.getPoderDeAtaque();
