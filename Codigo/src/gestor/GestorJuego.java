@@ -3,6 +3,7 @@ package gestor;
 import jugador.*;
 import Nave.*;
 import planeta.*;
+import java.util.ArrayList;
 import java.util.List;
 import equipamiento.*;
 
@@ -23,6 +24,23 @@ public class GestorJuego {
 																		// y instanciar los objetos
 	}
 	
+	//Agregado por Alexis
+    public GestorJuego() {
+        this.planetas = new ArrayList<>(); // Inicializa la lista de planetas
+        this.naves = new ArrayList<>(); // Inicializa la lista de naves
+    }
+    
+	//Agregado por Alexis
+    private void crearPlanetasYNaves() {
+        this.planetas = new ArrayList<>(); // Inicializa la lista de planetas
+        this.naves = new ArrayList<>(); // Inicializa la lista de naves
+    }
+    
+	//Agregado por Alexis
+    public void inicializarListas() {
+        crearPlanetasYNaves();
+    }
+    
 	public Jugador crearJugador(String id) {
 		Jugador jugador = new Jugador(id);
 		return(jugador);
@@ -59,7 +77,6 @@ public class GestorJuego {
 	}
 	public void verificarVictoria() {
 	}
-	
 	
 	
 }
