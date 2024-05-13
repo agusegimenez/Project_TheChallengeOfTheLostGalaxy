@@ -23,6 +23,7 @@ public class Enemigo {
 	public void atacar(Nave nave) {
 		int ataqueEnemigo = getPoderAtaque();
 		nave.recibirDaño(ataqueEnemigo);
+		System.out.println("Se le inflijo al jugador"+ataqueEnemigo+"puntos de daño");
 	}	
 	
 	public void recibirDaño(int daño) {

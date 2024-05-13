@@ -26,6 +26,7 @@ public class Jugador {
 	public void disparar(Enemigo enemigo) {
 		int poderAtaqueNave = nave.getPoderDeAtaque();
 		enemigo.recibirDaño(poderAtaqueNave);
+		System.out.println("Se le inflijo al enemigo"+poderAtaqueNave+"puntos de daño");
 	}
 	
 	public void recargarCombustible(int cantidadCombustible) {
@@ -56,5 +57,9 @@ public class Jugador {
 	
 	private boolean estoyEnPlanetaNeutral() {
 		return(planetaActual.soyNeutral());
+	}
+	
+	public Planeta getPlanetaActual() {
+		return(this.planetaActual);
 	}
 }

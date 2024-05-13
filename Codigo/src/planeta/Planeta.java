@@ -1,5 +1,7 @@
 package planeta;
 
+import Nave.Nave;
+
 public abstract class Planeta {
 	private String idPlaneta;
 	private boolean estaExplorado = false;
@@ -37,4 +39,8 @@ public abstract class Planeta {
 	// Preguntar que tipo de planeta es para logica de compra y venta
 	public abstract boolean soyHostil();
 	public abstract boolean soyNeutral();
+	
+	public abstract Enemigo getEnemigo();
+	
+	
 }

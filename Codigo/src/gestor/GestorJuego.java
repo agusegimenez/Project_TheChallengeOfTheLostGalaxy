@@ -10,6 +10,8 @@ public class GestorJuego {
 	private List<Planeta> planetas;
 	private List<Nave> naves;
 	private Jugador jugador;
+	private List<Arma> armas;
+	private List<Escudo> escudos;
 	
 	public Planeta generarPlanetaNeutral(String id, int cantCombustible, Arma arma, Escudo escudo) {
 		PlanetaNeutral planeta = new PlanetaNeutral(id, cantCombustible, arma, escudo); // aca estamos seteando valores? esto no deberiamos hacerlo en el main
@@ -18,9 +20,8 @@ public class GestorJuego {
 	}
 	public Planeta generarPlanetaHostil(String id, int cantCombustible) {
 		PlanetaHostil planeta = new PlanetaHostil(id, cantCombustible); 
-		planetas.add(planeta);											// aca estamos seteando valores? esto no deberiamos hacerlo en el main
-		return(planeta);												// no agus, la fachada se encarga de recibir los valores del main
-																		// y instanciar los objetos
+		planetas.add(planeta);	// aca estamos seteando valores? esto no deberiamos hacerlo en el main
+		return(planeta);
 	}
 	
 	public Jugador crearJugador(String id) {
@@ -56,8 +57,21 @@ public class GestorJuego {
 	
 	
 	public void verificarDerrota() {
+	
 	}
+	
+	
 	public void verificarVictoria() {
+	
+	}
+	
+	public void encuentroConEnemigo() {
+		Planeta planetaActual = this.jugador.getPlanetaActual();
+		Nave naveJugador = this.jugador.getNave();
+			while(naveJugador.getVida() > 0 || planetaActual.getEnemigo().getVida()>0) {
+				this.
+			}
+		
 	}
 	
 	

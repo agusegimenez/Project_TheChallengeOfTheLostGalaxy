@@ -36,5 +36,10 @@ public class PlanetaNeutral extends Planeta{
 	public boolean soyHostil() {
 		return(false);
 	}
+
+
+	public Enemigo getEnemigo() {
+		throw new IllegalArgumentException("no es un planeta hostil");
+	}
 	
 }

@@ -22,6 +22,7 @@ public class Nave {
         this.arma = arma;
         setPoderDeAtaque(arma.getPoder());
     }
+    
     public void equiparEscudo(Escudo escudo){
         this.escudo = escudo;
     }
