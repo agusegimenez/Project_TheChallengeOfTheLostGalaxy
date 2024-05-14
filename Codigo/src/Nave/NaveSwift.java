@@ -1,15 +1,15 @@
 package Nave;
-import equipamiento.*;
 
 public class NaveSwift extends Nave {
 
-    public NaveSwift(String id, int combustible, int vida, int velocidad, Arma arma, Escudo escudo) {
+    public NaveSwift(String id, int combustible, int vida, int velocidad) {
         super(id, combustible, vida, velocidad);
+        
         // Asignar el resultado de calcularDañoNave a this.poderDeAtaque
-        this.setPoderDeAtaque(calcularDañoNave(arma.getPoder(),velocidad,vida,combustible)) ;
+        this.poderDeAtaque = calcularDañoNave(this.arma.getPoder(),vida,velocidad, combustible);
     }
 
-    public int calcularDañoNave(int poderArma, int velocidad, int vida, int combustible) {
+    private int calcularDañoNave(int poderArma, int velocidad, int vida, int combustible) {
         return (poderArma * velocidad) + vida + combustible;
     }
 }

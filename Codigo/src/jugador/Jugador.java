@@ -38,7 +38,7 @@ public class Jugador {
 	public void disparar(Enemigo enemigo) {
 		int poderAtaqueNave = nave.getPoderDeAtaque();
 		enemigo.recibirDaño(poderAtaqueNave);
-		System.out.println("Se le inflijo al enemigo"+poderAtaqueNave+"puntos de daño");
+		System.out.println("Se le inflijo al enemigo "+ poderAtaqueNave + " puntos de daño");
 	}
 	
 	public void recargarCombustible(int cantidadCombustible) {
@@ -99,6 +99,18 @@ public class Jugador {
 	
 	private void restarUadeCoins(int cantidad) {
 		this.cantidadUadeCoins -= cantidad;
+	}
+	
+	public int getUadeCoins() {
+		return(this.cantidadUadeCoins);
+	}
+	
+	public void imprimirEstadoActual() {
+		System.out.println("Vida actual "+ this.getNave().getVida());
+		System.out.println("Escudo actual "+ this.getNave().getEscudo().getProteccion());
+		System.out.println("Uadecoins totales " + this.cantidadUadeCoins);
+		System.out.println("Poder de ataque de la nave " + this.nave.getPoderDeAtaque());
+		System.out.println("Nombre de la nave " + this.nave.getId());
 	}
 	
 }

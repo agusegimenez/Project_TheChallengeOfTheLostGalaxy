@@ -16,20 +16,22 @@ public class GestorJuego {
 	private List<Escudo> escudos;
 	
 	public Planeta generarPlanetaNeutral(String id, int cantCombustible, Arma arma, Escudo escudo) {
-		PlanetaNeutral planeta = new PlanetaNeutral(id, cantCombustible, arma, escudo); // aca estamos seteando valores? esto no deberiamos hacerlo en el main
+		PlanetaNeutral planeta = new PlanetaNeutral(id, cantCombustible, arma, escudo); 
 		planetas.add(planeta);
 		return(planeta);
 	}
 	public Planeta generarPlanetaHostil(String id, int cantCombustible) {
 		PlanetaHostil planeta = new PlanetaHostil(id, cantCombustible); 
-		planetas.add(planeta);	// aca estamos seteando valores? esto no deberiamos hacerlo en el main
+		planetas.add(planeta);	
 		return(planeta);
 	}
 	
 	//Agregado por Alexis
     public GestorJuego() {
-        this.planetas = new ArrayList<>(); // Inicializa la lista de planetas
-        this.naves = new ArrayList<>(); // Inicializa la lista de naves
+        this.planetas = new ArrayList<>(); // Inicializa la lista de todo
+        this.naves = new ArrayList<>(); 
+        this.armas = new ArrayList<>();
+        this.escudos = new ArrayList<>();
     }
 
 	//Agregado por Alexis
@@ -63,14 +65,14 @@ public class GestorJuego {
 		jugador.setNave(nave);
 	}
 	
-	public Nave crearNaveAegis(String id, int combustible, int vida, int velocidad, Arma arma, Escudo escudo) {
-		NaveAegis naveAegis = new NaveAegis(id, combustible, vida, velocidad, arma, escudo);
+	public Nave crearNaveAegis(String id, int combustible, int vida, int velocidad) {
+		NaveAegis naveAegis = new NaveAegis(id, combustible, vida, velocidad);
 		naves.add(naveAegis);
 		return(naveAegis);
 	}
 	
-	public Nave crearNaveSwift(String id, int combustible, int vida, int velocidad, Arma arma, Escudo escudo) {
-		NaveSwift naveSwift = new NaveSwift(id, combustible, vida, velocidad, arma, escudo);
+	public Nave crearNaveSwift(String id, int combustible, int vida, int velocidad) {
+		NaveSwift naveSwift = new NaveSwift(id, combustible, vida, velocidad);
 		naves.add(naveSwift);
 		return(naveSwift);
 	}
@@ -84,11 +86,12 @@ public class GestorJuego {
 
 		Scanner scanner = new Scanner(System.in);
 		int eleccion = scanner.nextInt();
+		scanner.close();
 		if (eleccion < 0 || eleccion >= planetas.size()) {
 			System.out.println("Elección inválida. Intenta de nuevo."); //validamos la entrada de datos
 			return;
 		}
-
+		
 		Planeta destino = planetas.get(eleccion);
 		int combustibleNecesario = destino.getCostoDeCombustible();
 
@@ -111,17 +114,24 @@ public class GestorJuego {
 		Nave naveJugador = this.jugador.getNave();
 		Enemigo enemigo = planetaActual.getEnemigo();
 		int vidaActual = naveJugador.getVida();
+		
+		
 		// El encuentro no termina hasta que alguna pierda toda la vida.
 			
-		while(naveJugador.getVida() > 0 || enemigo.getVida()>0) {
+		while (naveJugador.getVida() > 0 && enemigo.getVida() > 0) {
 				jugador.disparar(enemigo);
 				enemigo.atacar(naveJugador);
+				jugador.imprimirEstadoActual();
+				enemigo.imprimirEstadoEnemigo();
 			}
 		//Verifico victoria si encuentra tesoro y le suma uadeCoins ganadas.
 		
 		if(jugador.getNave().getVida() > 0) {
 			this.jugador.sumarUadeCoins(enemigo.getUadeCoins(), vidaActual - naveJugador.getVida());
-			verificarVictoria(planetaActual);
+			this.jugador.imprimirEstadoActual();
+			if(verificarVictoria(planetaActual)) {
+				System.out.println("Encontraste el tesoro, juego terminado");
+			}
 		}else {
 			System.out.println("El jugador fue derrotado. Juego terminado.");
 		}

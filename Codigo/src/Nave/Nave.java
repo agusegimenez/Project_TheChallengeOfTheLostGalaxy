@@ -1,13 +1,14 @@
 package Nave;
 import equipamiento.*;
-public class Nave {
-    private String id;
-    private int combustible;
-    private int vida;
-    private int velocidad;
-    private Arma arma;
-    private Escudo escudo;
-    private int poderDeAtaque;
+
+public abstract class Nave {
+	protected String id;
+    protected int combustible;
+    protected int vida;
+    protected int velocidad;
+    protected Arma arma;
+    protected Escudo escudo;
+    protected int poderDeAtaque;
 
     public Nave(String id, int combustible, int vida, int velocidad) {
         this.id = id;
@@ -97,5 +98,6 @@ public class Nave {
     public void consumirCombustible(int combustible) {
     	this.combustible -= combustible;
     }
+    
     
 }

@@ -1,17 +1,16 @@
 package Nave;
 
-import equipamiento.*;
-
 public class NaveAegis extends Nave {
 	
 	
-    public NaveAegis(String id, int combustible, int vida, int velocidad, Arma arma, Escudo escudo) {
+    public NaveAegis(String id, int combustible, int vida, int velocidad) {
         super(id, combustible, vida, velocidad);
         // Asignar el resultado de calcularDañoNave a this.poderDeAtaque
-        this.setPoderDeAtaque(calcularDañoNave(arma.getPoder(),vida,velocidad));
+        int dañoCalculado = calcularDañoNave(arma.getPoder(),vida, velocidad);
+        this.poderDeAtaque = dañoCalculado;
     }
 
-    public int calcularDañoNave(int poderArma, int vida, int velocidad) {
+    private int calcularDañoNave(int poderArma, int vida, int velocidad) {
         return (poderArma * vida) / velocidad;
     }
 }

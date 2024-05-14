@@ -27,7 +27,7 @@ public class Enemigo {
 	}	
 	
 	public void recibirDaño(int daño) {
-		this.vida -= daño;
+		this.vida = this.vida - daño;
 	}
 	
 	private int calcularCantidadDeUadeCoins() {
@@ -36,6 +36,10 @@ public class Enemigo {
 	
 	public int getUadeCoins() {
 		return(this.uadeCoin);
+	}
+	
+	public void imprimirEstadoEnemigo() {
+		System.out.println("Vida actual enemigo "+this.vida);
 	}
 	
 }
