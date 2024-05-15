@@ -24,8 +24,8 @@ public class Main {
         System.out.println("Arma actual de la nave: " + jugador.getNave().getArma().getPoder() + " de poder");
         System.out.println("Escudo actual de la nave: " + jugador.getNave().getEscudo().getProteccion() + " de protección");
         
-        Arma arma1 = gestor.agregarArma(50, 15);
-        Escudo escudo1 = gestor.agregarEscudo(25, 50);
+        Arma arma1 = gestor.agregarArma(50, 15, "arma1");
+        Escudo escudo1 = gestor.agregarEscudo(25, 50, "escudo1");
         System.out.println("Valores con nueva arma y escudo");
         naveAegis.setArma(arma1);
         naveAegis.setEscudo(escudo1);
@@ -36,7 +36,7 @@ public class Main {
         
         //Creamos un planeta y hacemos que el jugador lo visite.
         
-        Planeta planetaN1 = gestor.generarPlanetaNeutral("Planeta Neutral", 10, arma1, escudo1);
+        Planeta planetaN1 = gestor.generarPlanetaNeutral("Planeta Neutral", 10, "arma1", "escudo1");
         jugador.visitarPlaneta(planetaN1);
         
         // Hacemos que venda las armas y los escudos para ver si equipa los default

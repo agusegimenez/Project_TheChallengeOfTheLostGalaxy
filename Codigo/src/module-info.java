@@ -2,8 +2,8 @@
  * 
  */
 /**
- * @author User
+ * @author franc
  *
  */
-module Codigo {
+module uadeoria {
 }

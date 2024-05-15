@@ -21,17 +21,17 @@ public class Jugador {
     		// Sumamos el precio del arma al total de Uadecoins del jugador
         	this.cantidadUadeCoins += nave.getArma().getPrecio();
         	// Equipamos automáticamente un arma básica con atributos predeterminados
-        	this.nave.equiparArma(new Arma(10, 0)); // Por ejemplo, un arma básica con poder 10 y precio 0
+        	this.nave.equiparArma(new Arma(10, 0, "Arma Basica")); // Por ejemplo, un arma básica con poder 10 y precio 0
     	}
     }
     
-	//Es el precio de la cantidad de escudo 1 a 1 con las monedas?
+
     public void venderEscudo() {
         if(estoyEnPlanetaNeutral()) {
     	// Sumamos el precio del escudo al total de Uadecoins del jugador
         	this.cantidadUadeCoins += nave.getEscudo().getPrecio();
         // Equipamos automáticamente un escudo básico con atributos predeterminados
-        	this.nave.equiparEscudo(new Escudo(20, 0)); // Por ejemplo, un escudo básica con defensa 20 y precio 0
+        	this.nave.equiparEscudo(new Escudo(20, 0, "Escudo Basico")); // Por ejemplo, un escudo básica con defensa 20 y precio 0
         }
     }
 	
@@ -111,6 +111,10 @@ public class Jugador {
 		System.out.println("Uadecoins totales " + this.cantidadUadeCoins);
 		System.out.println("Poder de ataque de la nave " + this.nave.getPoderDeAtaque());
 		System.out.println("Nombre de la nave " + this.nave.getId());
+		System.out.println("Nombre del arma " + this.nave.getArma().getId());
+		System.out.println("Nombre del escudo " + this.nave.getEscudo().getId());
 	}
+	
+	
 	
 }

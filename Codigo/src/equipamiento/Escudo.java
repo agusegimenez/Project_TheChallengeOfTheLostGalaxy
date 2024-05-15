@@ -3,10 +3,12 @@ package equipamiento;
 public class Escudo {
 	private int proteccion;
 	private int uadeCoin;
+	private String id;
 	
-	public Escudo(int proteccion, int precio) {
+	public Escudo(int proteccion, int precio, String id) {
 		this.proteccion = proteccion;
 		this.uadeCoin = precio;
+		this.id = id;
 	}
 	
 	public void setProteccion(int x) {
@@ -21,4 +23,7 @@ public class Escudo {
 		return(this.uadeCoin);
 	}
 	
+	public String getId() {
+		return(this.id);
+	}
 }

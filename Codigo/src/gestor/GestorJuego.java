@@ -15,7 +15,9 @@ public class GestorJuego {
 	private List<Arma> armas;
 	private List<Escudo> escudos;
 	
-	public Planeta generarPlanetaNeutral(String id, int cantCombustible, Arma arma, Escudo escudo) {
+	public Planeta generarPlanetaNeutral(String id, int cantCombustible, String idArma, String idEscudo) {
+		Escudo escudo = buscarEscudo(idEscudo);
+		Arma arma = buscarArma(idArma);
 		PlanetaNeutral planeta = new PlanetaNeutral(id, cantCombustible, arma, escudo); 
 		planetas.add(planeta);
 		return(planeta);
@@ -138,17 +140,46 @@ public class GestorJuego {
 		
 	}
 	
-	public Arma agregarArma(int poder, int precio) {
-		Arma arma = new Arma(poder, precio);
+	public Arma agregarArma(int poder, int precio, String id) {
+		Arma arma = new Arma(poder, precio, id);
 		armas.add(arma);
 		return arma;
 	}
 	
-	public Escudo agregarEscudo(int defensa, int precio) {
-		Escudo escudo = new Escudo(defensa, precio);
+	public Escudo agregarEscudo(int defensa, int precio, String id) {
+		Escudo escudo = new Escudo(defensa, precio, id);
 		escudos.add(escudo);	
 		return escudo;
 	}
 	
+	public void comprarArma(String idArma) {
+		Arma arma = buscarArma(idArma);
+		this.jugador.comprarArma(arma);
+	}
+	
+	public void comprarEscudo(String idEscudo) {
+		Escudo escudo = buscarEscudo(idEscudo);
+		this.jugador.comprarEscudo(escudo);
+	}
+	
+	public Arma buscarArma(String idArma) {
+		for (Arma arma : armas) {
+			if(arma.getId()==idArma) {
+				return(arma);
+			}
+		}
+		throw new IllegalArgumentException("No se encontró una nave con el ID especificado: " + idArma);
+	
+	}
+	
+	public Escudo buscarEscudo(String idEscudo) {
+		for (Escudo escudo : escudos) {
+			if(escudo.getId()==idEscudo) {
+				return(escudo);
+			}
+		}
+		throw new IllegalArgumentException("No se encontró una nave con el ID especificado: " + idEscudo);
+	
+	}
 }
 

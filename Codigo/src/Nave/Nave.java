@@ -16,8 +16,8 @@ public abstract class Nave {
         this.vida = vida;
         this.velocidad = velocidad; 
         // Le instaciamos a la Nave un arma y escudo basico
-        this.arma = new Arma(10, 0);
-        this.escudo = new Escudo(20, 0);
+        this.arma = new Arma(10, 0, "Arma Basica");
+        this.escudo = new Escudo(20, 0, "Escudo Basico");
     }
 
     public void equiparArma(Arma arma){
