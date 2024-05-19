@@ -20,13 +20,9 @@ public abstract class Nave {
         this.escudo = new Escudo(20, 0, "Escudo Basico");
     }
 
-    public void equiparArma(Arma arma){
+    public void setArma(Arma arma){
         this.arma = arma;
         setPoderDeAtaque(calcularDañoNave(arma.getPoder(), vida,velocidad,combustible));
-    }
-    
-    public void equiparEscudo(Escudo escudo){
-        this.escudo = escudo;
     }
     
     public void recibirDaño(int daño){
@@ -36,6 +32,7 @@ public abstract class Nave {
             this.escudo.setProteccion(dañoFinal);
         }else { //Si dañoFinal es un numero positivo significa que no tengo mas escudo que el daño total por lo que resto vida de la nave.
             this.vida -= dañoFinal;
+            escudo.setProteccion(0);
         }
     }
 
@@ -75,10 +72,6 @@ public abstract class Nave {
         return arma;
     }
 
-    public void setArma(Arma arma) {
-        this.arma = arma;
-    }
-
     public Escudo getEscudo() {
         return escudo;
     }
@@ -99,7 +92,7 @@ public abstract class Nave {
     	this.combustible -= combustible;
     }
 
-    private int calcularDañoNave(int poderDeArma, int vida, int velocidad, int combustible){return 0;};
+    public abstract int calcularDañoNave(int poderDeArma, int vida, int velocidad, int combustible);
     
 
 }

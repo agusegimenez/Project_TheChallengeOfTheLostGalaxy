@@ -1,6 +1,7 @@
 package planeta;
 
 import java.util.Random;
+import equipamiento.*;
 
 public class PlanetaHostil extends Planeta{
 	private Enemigo enemigo;
@@ -20,7 +21,17 @@ public class PlanetaHostil extends Planeta{
 	public boolean tieneTesoro() {
 		return tieneTesoro;
 	}
-	
+
+	@Override
+	public Arma getArma() {
+		throw new IllegalArgumentException("No soy un planeta neutral");
+	}
+
+	@Override
+	public Escudo getEscudo() {
+		throw new IllegalArgumentException("No soy un planeta neutral");
+	}
+
 	private boolean definirSiTieneTesoro() {
 		Random numeroAleatorio = new Random();
 		int numero = numeroAleatorio.nextInt(6);

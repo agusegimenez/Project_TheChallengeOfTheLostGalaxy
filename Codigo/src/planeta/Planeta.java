@@ -1,6 +1,7 @@
 package planeta;
 
 import Nave.Nave;
+import equipamiento.*;
 
 public abstract class Planeta {
 	private String idPlaneta;
@@ -42,6 +43,7 @@ public abstract class Planeta {
 	
 	public abstract Enemigo getEnemigo();
 	public abstract boolean tieneTesoro();
-	
+	public abstract Arma getArma();
+	public abstract Escudo getEscudo();
 	
 }

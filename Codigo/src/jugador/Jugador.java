@@ -15,13 +15,13 @@ public class Jugador {
 	public Jugador(String id) {
 		this.idJugador = id;
 	}
-	//Como hacemos para que objeto Arma de la nave quede vacio despues de la venta
+
     public void venderArma() {
     	if(estoyEnPlanetaNeutral()) {
     		// Sumamos el precio del arma al total de Uadecoins del jugador
         	this.cantidadUadeCoins += nave.getArma().getPrecio();
         	// Equipamos automáticamente un arma básica con atributos predeterminados
-        	this.nave.equiparArma(new Arma(10, 0, "Arma Basica"));
+        	this.nave.setArma(new Arma(10, 0, "Arma Basica"));
     	}
     }
 
@@ -30,7 +30,7 @@ public class Jugador {
     	// Sumamos el precio del escudo al total de Uadecoins del jugador
         	this.cantidadUadeCoins += nave.getEscudo().getPrecio();
         // Equipamos automáticamente un escudo básico con atributos predeterminados
-        	this.nave.equiparEscudo(new Escudo(20, 0, "Escudo Basico")); // Por ejemplo, un escudo básica con defensa 20 y precio 0
+        	this.nave.setEscudo(new Escudo(20, 0, "Escudo Basico")); // Por ejemplo, un escudo básica con defensa 20 y precio 0
         }
     }
 	
@@ -78,8 +78,9 @@ public class Jugador {
 		this.cantidadUadeCoins += cantidad - vidaPerdida;
 	}
 	
-	public void comprarArma(Arma arma) {
-		if(this.cantidadUadeCoins > arma.getPrecio()) {
+	public void comprarArma() {
+		Arma arma = planetaActual.getArma();
+		if(this.cantidadUadeCoins > arma.getPrecio() && estoyEnPlanetaNeutral()) {
 			restarUadeCoins(arma.getPrecio());
 			this.nave.setArma(arma);
 		}else {
@@ -87,8 +88,9 @@ public class Jugador {
 		}
 	}
 	
-	public void comprarEscudo(Escudo escudo) {
-		if(this.cantidadUadeCoins > escudo.getPrecio()) {
+	public void comprarEscudo() {
+		Escudo escudo = planetaActual.getEscudo();
+		if(this.cantidadUadeCoins > escudo.getPrecio() && estoyEnPlanetaNeutral()) {
 			restarUadeCoins(escudo.getPrecio());
 			this.nave.setEscudo(escudo);
 		}else {

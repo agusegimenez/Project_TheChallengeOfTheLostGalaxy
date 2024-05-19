@@ -45,5 +45,6 @@ public class PlanetaNeutral extends Planeta{
 	public boolean tieneTesoro() {
 		return(false);
 	}
+
 	
 }

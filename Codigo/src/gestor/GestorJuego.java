@@ -124,13 +124,12 @@ public class GestorJuego {
 				jugador.disparar(enemigo);
 				enemigo.atacar(naveJugador);
 				jugador.imprimirEstadoActual();
-				enemigo.imprimirEstadoEnemigo();
 			}
 		//Verifico victoria si encuentra tesoro y le suma uadeCoins ganadas.
 		
 		if(jugador.getNave().getVida() > 0) {
 			this.jugador.sumarUadeCoins(enemigo.getUadeCoins(), vidaActual - naveJugador.getVida());
-			this.jugador.imprimirEstadoActual();
+			System.out.println("Enemigo vencido, vida total perdida: " + (vidaActual - naveJugador.getVida()) );
 			if(verificarVictoria(planetaActual)) {
 				System.out.println("Encontraste el tesoro, juego terminado");
 			}
@@ -152,14 +151,12 @@ public class GestorJuego {
 		return escudo;
 	}
 	
-	public void comprarArma(String idArma) {
-		Arma arma = buscarArma(idArma);
-		this.jugador.comprarArma(arma);
+	public void comprarArma() {
+		this.jugador.comprarArma();
 	}
 	
-	public void comprarEscudo(String idEscudo) {
-		Escudo escudo = buscarEscudo(idEscudo);
-		this.jugador.comprarEscudo(escudo);
+	public void comprarEscudo() {
+		this.jugador.comprarEscudo();
 	}
 	
 	public Arma buscarArma(String idArma) {

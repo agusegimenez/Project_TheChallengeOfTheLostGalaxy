@@ -49,9 +49,17 @@ public class Main {
         System.out.println("Escudo después de la venta: " + jugador.getNave().getEscudo().getProteccion() + " de protección");
         System.out.println("Monedas del jugador despues de la venta (arranca con 50 por default): "+ jugador.getUadeCoins());
         jugador.imprimirEstadoActual();
-        // Combate, aun con la impresion de los daño para revisar el comportamiento 
+
+        // Combate
+
         //Planeta planetaH = gestor.generarPlanetaHostil("Planeta Neutral", 10);
         //jugador.visitarPlaneta(planetaH);
         //gestor.encuentroConEnemigo();
+
+        // Viaje a planeta neutral y compra de arma y escudo.
+        jugador.visitarPlaneta(planetaN1);
+        gestor.comprarArma();
+        gestor.comprarEscudo();
+        jugador.imprimirEstadoActual();
     }
 }

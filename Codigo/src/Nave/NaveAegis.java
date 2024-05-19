@@ -10,8 +10,10 @@ public class NaveAegis extends Nave {
         this.poderDeAtaque = dañoCalculado;
     }
 
-    private int calcularDañoNave(int poderArma, int vida, int velocidad, int combustible) {
-        return (poderArma * vida) / velocidad;
+    @Override
+    public int calcularDañoNave(int poderDeArma, int vida, int velocidad, int combustible) {
+        return (poderDeArma * vida) / velocidad;
     }
+
 
 }
