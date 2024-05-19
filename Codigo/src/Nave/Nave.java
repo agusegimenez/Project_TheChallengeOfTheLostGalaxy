@@ -99,7 +99,7 @@ public abstract class Nave {
     	this.combustible -= combustible;
     }
 
-    public abstract int calcularDañoNave(int poderDeArma, int vida, int velocidad, int combustible);
+    private int calcularDañoNave(int poderDeArma, int vida, int velocidad, int combustible){return 0;};
     
 
 }

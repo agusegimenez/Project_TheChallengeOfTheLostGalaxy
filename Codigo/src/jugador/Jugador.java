@@ -24,7 +24,7 @@ public class Jugador {
         	this.nave.equiparArma(new Arma(10, 0, "Arma Basica"));
     	}
     }
-	
+
     public void venderEscudo() {
         if(estoyEnPlanetaNeutral()) {
     	// Sumamos el precio del escudo al total de Uadecoins del jugador

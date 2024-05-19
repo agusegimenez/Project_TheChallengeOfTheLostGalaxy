@@ -9,8 +9,7 @@ public class NaveSwift extends Nave {
         this.poderDeAtaque = calcularDañoNave(this.arma.getPoder(),vida,velocidad, combustible);
     }
 
-    @Override
-    public int calcularDañoNave(int poderArma, int vida, int velocidad, int combustible) {
+    private int calcularDañoNave(int poderArma, int vida, int velocidad, int combustible) {
         return (poderArma * velocidad) + vida + combustible;
     }
 }
