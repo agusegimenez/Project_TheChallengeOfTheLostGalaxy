@@ -21,11 +21,10 @@ public class Jugador {
     		// Sumamos el precio del arma al total de Uadecoins del jugador
         	this.cantidadUadeCoins += nave.getArma().getPrecio();
         	// Equipamos automáticamente un arma básica con atributos predeterminados
-        	this.nave.equiparArma(new Arma(10, 0, "Arma Basica")); // Por ejemplo, un arma básica con poder 10 y precio 0
+        	this.nave.equiparArma(new Arma(10, 0, "Arma Basica"));
     	}
     }
-    
-
+	
     public void venderEscudo() {
         if(estoyEnPlanetaNeutral()) {
     	// Sumamos el precio del escudo al total de Uadecoins del jugador
@@ -38,7 +37,7 @@ public class Jugador {
 	public void disparar(Enemigo enemigo) {
 		int poderAtaqueNave = nave.getPoderDeAtaque();
 		enemigo.recibirDaño(poderAtaqueNave);
-		System.out.println("Se le inflijo al enemigo "+ poderAtaqueNave + " puntos de daño");
+		System.out.println("Se le infringió al enemigo "+ poderAtaqueNave + " puntos de daño");
 	}
 	
 	public void recargarCombustible(int cantidadCombustible) {

@@ -2,7 +2,7 @@ package planeta;
 
 import Nave.*;
 
-public class Enemigo {
+public class  Enemigo {
 	private int poderDeAtaque;
 	private int uadeCoin;
 	private int vida = 100;

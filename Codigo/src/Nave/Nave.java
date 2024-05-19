@@ -22,7 +22,7 @@ public abstract class Nave {
 
     public void equiparArma(Arma arma){
         this.arma = arma;
-        setPoderDeAtaque(arma.getPoder());
+        setPoderDeAtaque(calcularDañoNave(arma.getPoder(), vida,velocidad,combustible));
     }
     
     public void equiparEscudo(Escudo escudo){
@@ -98,6 +98,8 @@ public abstract class Nave {
     public void consumirCombustible(int combustible) {
     	this.combustible -= combustible;
     }
+
+    public abstract int calcularDañoNave(int poderDeArma, int vida, int velocidad, int combustible);
     
-    
+
 }
