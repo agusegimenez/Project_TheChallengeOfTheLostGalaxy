@@ -79,39 +79,21 @@ public class GestorJuego {
 		return(naveSwift);
 	}
 
-	public void trasladarAPlaneta(Jugador jugador) {
-		System.out.println("Selecciona un planeta para viajar:");
-		for (int i = 0; i < planetas.size(); i++) {
-			Planeta p = planetas.get(i);
-			System.out.println(i + " - " + p.getIdPlaneta() + " (Combustible necesario: " + p.getCostoDeCombustible() + ")"); //aca basicamente estamos imprimiendo por pantalla los planetas disponibles con el combustible necesario
+	public void trasladarAPlaneta(String idPlaneta) {
+		Planeta planeta = buscarPlaneta(idPlaneta);
+		jugador.visitarPlaneta(planeta);
+		if(planeta.soyHostil()){
+			encuentroConEnemigo();
 		}
 
-		Scanner scanner = new Scanner(System.in);
-		int eleccion = scanner.nextInt();
-		scanner.close();
-		if (eleccion < 0 || eleccion >= planetas.size()) {
-			System.out.println("Elección inválida. Intenta de nuevo."); //validamos la entrada de datos
-			return;
-		}
-		
-		Planeta destino = planetas.get(eleccion);
-		int combustibleNecesario = destino.getCostoDeCombustible();
-
-		if (jugador.getNave().getCombustible() >= combustibleNecesario) { // en este if, si el combustible necesario es menor al que dispone, se trasalada
-			jugador.visitarPlaneta(destino);
-			jugador.getNave().consumirCombustible(combustibleNecesario);
-			System.out.println("Has viajado a " + destino.getIdPlaneta());
-		} else {
-			System.out.println("No tienes suficiente combustible para viajar a " + destino.getIdPlaneta());
-		}
 	}
-	
 	
 	public boolean verificarVictoria(Planeta planeta) {
 		return(planeta.tieneTesoro());
 	}
 	
-	public void encuentroConEnemigo() {
+	private void encuentroConEnemigo() {
+
 		Planeta planetaActual = this.jugador.getPlanetaActual();
 		Nave naveJugador = this.jugador.getNave();
 		Enemigo enemigo = planetaActual.getEnemigo();
@@ -158,6 +140,12 @@ public class GestorJuego {
 	public void comprarEscudo() {
 		this.jugador.comprarEscudo();
 	}
+	public void venderArma(){
+		this.jugador.venderArma();
+	}
+	public void venderEscudo(){
+		this.jugador.venderEscudo();
+	}
 	
 	public Arma buscarArma(String idArma) {
 		for (Arma arma : armas) {
@@ -171,12 +159,22 @@ public class GestorJuego {
 	
 	public Escudo buscarEscudo(String idEscudo) {
 		for (Escudo escudo : escudos) {
-			if(escudo.getId()==idEscudo) {
+			if(escudo.getId() == idEscudo) {
 				return(escudo);
 			}
 		}
 		throw new IllegalArgumentException("No se encontró una nave con el ID especificado: " + idEscudo);
 	
+	}
+
+	public Planeta buscarPlaneta(String idPlaneta) {
+		for (Planeta planeta : planetas) {
+			if(planeta.getIdPlaneta() == idPlaneta) {
+				return(planeta);
+			}
+		}
+		throw new IllegalArgumentException("No se encontró una nave con el ID especificado: " + idPlaneta);
+
 	}
 }
 

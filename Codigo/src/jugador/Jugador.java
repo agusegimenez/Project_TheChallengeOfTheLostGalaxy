@@ -9,7 +9,7 @@ import equipamiento.Escudo;
 public class Jugador {
 	private String idJugador;
 	private Nave nave;
-	private int cantidadUadeCoins = 50;
+	private int cantidadUadeCoins = 100;
 	private Planeta planetaActual;
 	
 	public Jugador(String id) {
@@ -52,6 +52,13 @@ public class Jugador {
 	
 	public void visitarPlaneta(Planeta planeta) {
 		this.planetaActual = planeta;
+		if (nave.getCombustible() >= planeta.getCostoDeCombustible()) { // en este if, si el combustible necesario es menor al que dispone, se trasalada
+			nave.consumirCombustible(planeta.getCostoDeCombustible());
+			System.out.println("Has viajado a " + planeta.getIdPlaneta());
+		} else {
+			throw new IllegalArgumentException("No tienes suficiente combustible para viajar a " + planeta.getIdPlaneta());
+		}
+
 	}
 	
 	public Nave getNave() {
