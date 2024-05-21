@@ -40,7 +40,6 @@ public abstract class Planeta {
 	// Preguntar que tipo de planeta es para logica de compra y venta
 	public abstract boolean soyHostil();
 	public abstract boolean soyNeutral();
-	
 	public abstract Enemigo getEnemigo();
 	public abstract boolean tieneTesoro();
 	public abstract Arma getArma();

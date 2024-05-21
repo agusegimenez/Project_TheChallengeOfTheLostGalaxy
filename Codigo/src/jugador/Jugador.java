@@ -11,10 +11,31 @@ public class Jugador {
 	private Nave nave;
 	private int cantidadUadeCoins = 100;
 	private Planeta planetaActual;
+
+	public Planeta getPlanetaActual() {
+		return(this.planetaActual);
+	}
 	
 	public Jugador(String id) {
 		this.idJugador = id;
 	}
+
+	public Nave getNave() {
+		return(this.nave);
+	}
+
+	public String getId() {
+		return(this.idJugador);
+	}
+
+	public void setNave(Nave nave) {
+		this.nave = nave;
+	}
+
+	public int getUadeCoins() {
+		return(this.cantidadUadeCoins);
+	}
+
 
     public void venderArma() {
     	if(estoyEnPlanetaNeutral()) {
@@ -47,7 +68,6 @@ public class Jugador {
 				restarUadeCoins(cantidadCombustible);
 			} 
 		}
-	
 	}
 	
 	public void visitarPlaneta(Planeta planeta) {
@@ -58,27 +78,10 @@ public class Jugador {
 		} else {
 			throw new IllegalArgumentException("No tienes suficiente combustible para viajar a " + planeta.getIdPlaneta());
 		}
-
-	}
-	
-	public Nave getNave() {
-		return(this.nave);
-	}
-	
-	public String getId() {
-		return(this.idJugador);
-	}
-	
-	public void setNave(Nave nave) {
-		this.nave = nave;
 	}
 	
 	private boolean estoyEnPlanetaNeutral() {
 		return(planetaActual.soyNeutral());
-	}
-	
-	public Planeta getPlanetaActual() {
-		return(this.planetaActual);
 	}
 	
 	public void sumarUadeCoins(int cantidad, int vidaPerdida) {
@@ -109,10 +112,6 @@ public class Jugador {
 		this.cantidadUadeCoins -= cantidad;
 	}
 	
-	public int getUadeCoins() {
-		return(this.cantidadUadeCoins);
-	}
-	
 	public void imprimirEstadoActual() {
 		System.out.println("Vida actual "+ this.getNave().getVida());
 		System.out.println("Escudo actual "+ this.getNave().getEscudo().getProteccion());
@@ -122,7 +121,5 @@ public class Jugador {
 		System.out.println("Nombre del arma " + this.nave.getArma().getId());
 		System.out.println("Nombre del escudo " + this.nave.getEscudo().getId());
 	}
-	
-	
-	
+
 }

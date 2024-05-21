@@ -14,21 +14,7 @@ public class GestorJuego {
 	private Jugador jugador;
 	private List<Arma> armas;
 	private List<Escudo> escudos;
-	
-	public Planeta generarPlanetaNeutral(String id, int cantCombustible, String idArma, String idEscudo) {
-		Escudo escudo = buscarEscudo(idEscudo);
-		Arma arma = buscarArma(idArma);
-		PlanetaNeutral planeta = new PlanetaNeutral(id, cantCombustible, arma, escudo); 
-		planetas.add(planeta);
-		return(planeta);
-	}
-	public Planeta generarPlanetaHostil(String id, int cantCombustible) {
-		PlanetaHostil planeta = new PlanetaHostil(id, cantCombustible); 
-		planetas.add(planeta);	
-		return(planeta);
-	}
-	
-	//Agregado por Alexis
+
     public GestorJuego() {
         this.planetas = new ArrayList<>(); // Inicializa la lista de todo
         this.naves = new ArrayList<>(); 
@@ -41,6 +27,37 @@ public class GestorJuego {
 		this.jugador = jugador;
 		return(jugador);
 	}
+
+	public Planeta generarPlanetaNeutral(String id, int cantCombustible, String idArma, String idEscudo) {
+		Escudo escudo = buscarEscudo(idEscudo);
+		Arma arma = buscarArma(idArma);
+		PlanetaNeutral planeta = new PlanetaNeutral(id, cantCombustible, arma, escudo);
+		planetas.add(planeta);
+		return(planeta);
+	}
+
+	public Planeta generarPlanetaHostil(String id, int cantCombustible) {
+		PlanetaHostil planeta = new PlanetaHostil(id, cantCombustible);
+		planetas.add(planeta);
+		return(planeta);
+	}
+
+	public Nave crearNaveAegis(String id, int combustible, int vida, int velocidad) {
+		NaveAegis naveAegis = new NaveAegis(id, combustible, vida, velocidad);
+		naves.add(naveAegis);
+		return(naveAegis);
+	}
+
+	public Nave crearNaveSwift(String id, int combustible, int vida, int velocidad) {
+		NaveSwift naveSwift = new NaveSwift(id, combustible, vida, velocidad);
+		naves.add(naveSwift);
+		return(naveSwift);
+	}
+
+	public void asignarNaveAJugador(String idNave) {
+		Nave nave = buscarNave(idNave);
+		jugador.setNave(nave);
+	}
 	
 	private Nave buscarNave(String idNave) {
 		for (Nave nave : naves) {
@@ -49,23 +66,6 @@ public class GestorJuego {
 			}
 		}
 		throw new IllegalArgumentException("No se encontró una nave con el ID especificado: " + idNave);
-	}
-	
-	public void asignarNaveAJugador(String idNave) {
-		Nave nave = buscarNave(idNave);
-		jugador.setNave(nave);
-	}
-	
-	public Nave crearNaveAegis(String id, int combustible, int vida, int velocidad) {
-		NaveAegis naveAegis = new NaveAegis(id, combustible, vida, velocidad);
-		naves.add(naveAegis);
-		return(naveAegis);
-	}
-	
-	public Nave crearNaveSwift(String id, int combustible, int vida, int velocidad) {
-		NaveSwift naveSwift = new NaveSwift(id, combustible, vida, velocidad);
-		naves.add(naveSwift);
-		return(naveSwift);
 	}
 
 	public void trasladarAPlaneta(String idPlaneta) {
@@ -87,8 +87,7 @@ public class GestorJuego {
 		Nave naveJugador = this.jugador.getNave();
 		Enemigo enemigo = planetaActual.getEnemigo();
 		int vidaActual = naveJugador.getVida();
-		
-		
+
 		// El encuentro no termina hasta que alguna pierda toda la vida.
 			
 		while (naveJugador.getVida() > 0 && enemigo.getVida() > 0) {
@@ -125,7 +124,6 @@ public class GestorJuego {
 	public void comprarArma() {
 		this.jugador.comprarArma();
 	}
-	
 	public void comprarEscudo() {
 		this.jugador.comprarEscudo();
 	}
@@ -143,7 +141,6 @@ public class GestorJuego {
 			}
 		}
 		throw new IllegalArgumentException("No se encontró una nave con el ID especificado: " + idArma);
-	
 	}
 	
 	public Escudo buscarEscudo(String idEscudo) {
@@ -153,7 +150,6 @@ public class GestorJuego {
 			}
 		}
 		throw new IllegalArgumentException("No se encontró una nave con el ID especificado: " + idEscudo);
-	
 	}
 
 	public Planeta buscarPlaneta(String idPlaneta) {
@@ -163,7 +159,6 @@ public class GestorJuego {
 			}
 		}
 		throw new IllegalArgumentException("No se encontró una nave con el ID especificado: " + idPlaneta);
-
 	}
 }
 

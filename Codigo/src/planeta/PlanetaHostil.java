@@ -9,7 +9,7 @@ public class PlanetaHostil extends Planeta{
 
 	public PlanetaHostil(String id, int costo) {
 		super(id, costo);
-		tieneTesoro = definirSiTieneTesoro();
+		this.tieneTesoro = definirSiTieneTesoro();
 		this.enemigo = crearEnemigo(); //Planeta crea su propio enemigo generado de manera 
 									   // aleatoria asi como pide el programa.
 	}
@@ -35,8 +35,9 @@ public class PlanetaHostil extends Planeta{
 	private boolean definirSiTieneTesoro() {
 		Random numeroAleatorio = new Random();
 		int numero = numeroAleatorio.nextInt(6);
-		return( numero == 1);
+		return(numero == 1);
 	}
+
 	//Crea y asigna de manera aleatoria el poderDeAtaque del enemigo
 	private Enemigo crearEnemigo() {  
 		Random randomNumber = new Random();

@@ -6,24 +6,29 @@ public class  Enemigo {
 	private int poderDeAtaque;
 	private int uadeCoin;
 	private int vida = 100;
-	
+
+	public int getPoderAtaque() {
+		return(this.poderDeAtaque);
+	}
+
+	public int getVida() {
+		return(this.vida);
+	}
+
+	public int getUadeCoins() {
+		return(this.uadeCoin);
+	}
+
+
 	public Enemigo(int poderAtaque) {
 		this.poderDeAtaque = poderAtaque;
 		this.uadeCoin = calcularCantidadDeUadeCoins();
 	}
-	
-	public int getPoderAtaque() {
-		return(this.poderDeAtaque);
-	}
-	
-	public int getVida() {
-		return(this.vida);
-	}
-	
+
 	public void atacar(Nave nave) {
 		int ataqueEnemigo = getPoderAtaque();
 		nave.recibirDaño(ataqueEnemigo);
-		System.out.println("Se le inflijo al jugador"+ataqueEnemigo+"puntos de daño");
+		System.out.println("Se le infringió al jugador"+ataqueEnemigo+"puntos de daño");
 	}	
 	
 	public void recibirDaño(int daño) {
@@ -32,10 +37,6 @@ public class  Enemigo {
 	
 	private int calcularCantidadDeUadeCoins() {
 		return(this.poderDeAtaque*2);
-	}
-	
-	public int getUadeCoins() {
-		return(this.uadeCoin);
 	}
 	
 	public void imprimirEstadoEnemigo() {
