@@ -35,17 +35,6 @@ public class GestorJuego {
         this.armas = new ArrayList<>();
         this.escudos = new ArrayList<>();
     }
-
-	//Agregado por Alexis
-    private void crearPlanetasYNaves() {
-        this.planetas = new ArrayList<>(); // Inicializa la lista de planetas
-        this.naves = new ArrayList<>(); // Inicializa la lista de naves
-    }
-    
-	//Agregado por Alexis
-    public void inicializarListas() {
-        crearPlanetasYNaves();
-    }
     
 	public Jugador crearJugador(String id) {
 		Jugador jugador = new Jugador(id);

@@ -13,7 +13,6 @@ public class Main {
     public static void main(String[] args) {
         // Creamos un gestor
         GestorJuego gestor = new GestorJuego();
-        gestor.inicializarListas();
 
         // Creamos un jugador y una nave Aegis (se generan con un arma y escudo default)
         Jugador jugador = gestor.crearJugador("Nombre del Jugador");
