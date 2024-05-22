@@ -4081,6 +4081,23 @@
 										},
 										{
 											"_type": "UMLOperationView",
+											"_id": "AAAAAAGPofj6FI3M6Zs=",
+											"_parent": {
+												"$ref": "AAAAAAGOs7GEf1myR60="
+											},
+											"model": {
+												"$ref": "AAAAAAGPofj5/o3DCjg="
+											},
+											"font": "Arial;13;0",
+											"left": 637,
+											"top": 139,
+											"width": 552.7001953125,
+											"height": 13,
+											"text": "+gestorJuego(): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
 											"_id": "AAAAAAGPlsc7V1PXq7Y=",
 											"_parent": {
 												"$ref": "AAAAAAGOs7GEf1myR60="
@@ -4090,7 +4107,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 637,
-											"top": 139,
+											"top": 154,
 											"width": 552.7001953125,
 											"height": 13,
 											"text": "+generarPlanetaNeutral(String id, int cantCombustible, String idArma, String idEscudo): Planeta",
@@ -4107,10 +4124,27 @@
 											},
 											"font": "Arial;13;0",
 											"left": 637,
-											"top": 154,
+											"top": 169,
 											"width": 552.7001953125,
 											"height": 13,
 											"text": "+generarPlanetaHostil(String id, int cantCombustible): Planeta",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGPlsgzp2PAIjM=",
+											"_parent": {
+												"$ref": "AAAAAAGOs7GEf1myR60="
+											},
+											"model": {
+												"$ref": "AAAAAAGPlsgziWO3ahU="
+											},
+											"font": "Arial;13;0",
+											"left": 637,
+											"top": 184,
+											"width": 552.7001953125,
+											"height": 13,
+											"text": "+crearJugador(String id): Jugador",
 											"horizontalAlignment": 0
 										},
 										{
@@ -4122,6 +4156,7 @@
 											"model": {
 												"$ref": "AAAAAAGPlsfr5FuEWOU="
 											},
+											"visible": false,
 											"font": "Arial;13;0",
 											"left": 637,
 											"top": 169,
@@ -4139,46 +4174,13 @@
 											"model": {
 												"$ref": "AAAAAAGPlsgPz17ENhU="
 											},
+											"visible": false,
 											"font": "Arial;13;0",
 											"left": 637,
 											"top": 184,
 											"width": 552.7001953125,
 											"height": 13,
 											"text": "+inicializarListas(): void",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLOperationView",
-											"_id": "AAAAAAGPlsgzp2PAIjM=",
-											"_parent": {
-												"$ref": "AAAAAAGOs7GEf1myR60="
-											},
-											"model": {
-												"$ref": "AAAAAAGPlsgziWO3ahU="
-											},
-											"font": "Arial;13;0",
-											"left": 637,
-											"top": 199,
-											"width": 552.7001953125,
-											"height": 13,
-											"text": "+crearJugador(String id): Jugador",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLOperationView",
-											"_id": "AAAAAAGPlshgB2nZM7w=",
-											"_parent": {
-												"$ref": "AAAAAAGOs7GEf1myR60="
-											},
-											"model": {
-												"$ref": "AAAAAAGPlshf8mnQILo="
-											},
-											"font": "Arial;13;0",
-											"left": 637,
-											"top": 214,
-											"width": 552.7001953125,
-											"height": 13,
-											"text": "+buscarNave(String idNave): Nave",
 											"horizontalAlignment": 0
 										},
 										{
@@ -4192,7 +4194,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 637,
-											"top": 229,
+											"top": 199,
 											"width": 552.7001953125,
 											"height": 13,
 											"text": "+asignarNaveAJugador(String idNave): void",
@@ -4209,7 +4211,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 637,
-											"top": 244,
+											"top": 214,
 											"width": 552.7001953125,
 											"height": 13,
 											"text": "+crearNaveAegis(String id, int combustible, int vida, int velocidad): Nave",
@@ -4226,7 +4228,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 637,
-											"top": 259,
+											"top": 229,
 											"width": 552.7001953125,
 											"height": 13,
 											"text": "+crearNaveSwift(String id, int combustible, int vida, int velocidad): Nave",
@@ -4243,27 +4245,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 637,
-											"top": 274,
+											"top": 244,
 											"width": 552.7001953125,
 											"height": 13,
 											"text": "+trasladarAPlaneta(Jugador jugador): void",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLOperationView",
-											"_id": "AAAAAAGPlsk5ToBGZAU=",
-											"_parent": {
-												"$ref": "AAAAAAGOs7GEf1myR60="
-											},
-											"model": {
-												"$ref": "AAAAAAGPlsk5Q4A9t5E="
-											},
-											"font": "Arial;13;0",
-											"left": 637,
-											"top": 289,
-											"width": 552.7001953125,
-											"height": 13,
-											"text": "+verificarVictoria(Planeta planeta): Boolean",
 											"horizontalAlignment": 0
 										},
 										{
@@ -4277,7 +4262,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 637,
-											"top": 304,
+											"top": 259,
 											"width": 552.7001953125,
 											"height": 13,
 											"text": "+agregarArma(int poder, int precio, String id): Arma",
@@ -4294,7 +4279,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 637,
-											"top": 319,
+											"top": 274,
 											"width": 552.7001953125,
 											"height": 13,
 											"text": "+agregarEscudo(int defensa, int precio, String id): Escudo",
@@ -4311,7 +4296,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 637,
-											"top": 334,
+											"top": 289,
 											"width": 552.7001953125,
 											"height": 13,
 											"text": "+comprarArma(String idArma): void",
@@ -4328,10 +4313,44 @@
 											},
 											"font": "Arial;13;0",
 											"left": 637,
-											"top": 349,
+											"top": 304,
 											"width": 552.7001953125,
 											"height": 13,
 											"text": "+comprarEscudo(String idEscudo): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGPlsk5ToBGZAU=",
+											"_parent": {
+												"$ref": "AAAAAAGOs7GEf1myR60="
+											},
+											"model": {
+												"$ref": "AAAAAAGPlsk5Q4A9t5E="
+											},
+											"font": "Arial;13;0",
+											"left": 637,
+											"top": 319,
+											"width": 552.7001953125,
+											"height": 13,
+											"text": "-verificarVictoria(Planeta planeta): Boolean",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGPlshgB2nZM7w=",
+											"_parent": {
+												"$ref": "AAAAAAGOs7GEf1myR60="
+											},
+											"model": {
+												"$ref": "AAAAAAGPlshf8mnQILo="
+											},
+											"font": "Arial;13;0",
+											"left": 637,
+											"top": 334,
+											"width": 552.7001953125,
+											"height": 13,
+											"text": "-buscarNave(String idNave): Nave",
 											"horizontalAlignment": 0
 										},
 										{
@@ -4345,10 +4364,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 637,
-											"top": 364,
+											"top": 349,
 											"width": 552.7001953125,
 											"height": 13,
-											"text": "+buscarArma(String idArma): Arma",
+											"text": "-buscarArma(String idArma): Arma",
 											"horizontalAlignment": 0
 										},
 										{
@@ -4362,10 +4381,27 @@
 											},
 											"font": "Arial;13;0",
 											"left": 637,
+											"top": 364,
+											"width": 552.7001953125,
+											"height": 13,
+											"text": "-buscarEscudo(String idEscudo): Escudo",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGPofo3E7YbjHM=",
+											"_parent": {
+												"$ref": "AAAAAAGOs7GEf1myR60="
+											},
+											"model": {
+												"$ref": "AAAAAAGPofo2/bYSVek="
+											},
+											"font": "Arial;13;0",
+											"left": 637,
 											"top": 379,
 											"width": 552.7001953125,
 											"height": 13,
-											"text": "+buscarEscudo(String idEscudo): Escudo",
+											"text": "-buscarPlaneta(String idPlaneta): Planeta",
 											"horizontalAlignment": 0
 										},
 										{
@@ -4382,7 +4418,7 @@
 											"top": 394,
 											"width": 552.7001953125,
 											"height": 13,
-											"text": "+encuentroConEnemigo(): void",
+											"text": "-encuentroConEnemigo(): void",
 											"horizontalAlignment": 0
 										}
 									],
@@ -9800,6 +9836,25 @@
 						},
 						{
 							"_type": "UMLOperation",
+							"_id": "AAAAAAGPofj5/o3DCjg=",
+							"_parent": {
+								"$ref": "AAAAAAGOs7GEf1mpndY="
+							},
+							"name": "gestorJuego",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGPoflRGpiwqdw=",
+									"_parent": {
+										"$ref": "AAAAAAGPofj5/o3DCjg="
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
 							"_id": "AAAAAAGPlsc7PVPOumk=",
 							"_parent": {
 								"$ref": "AAAAAAGOs7GEf1mpndY="
@@ -9896,6 +9951,36 @@
 						},
 						{
 							"_type": "UMLOperation",
+							"_id": "AAAAAAGPlsgziWO3ahU=",
+							"_parent": {
+								"$ref": "AAAAAAGOs7GEf1mpndY="
+							},
+							"name": "crearJugador",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGPlsg5UmWtnm4=",
+									"_parent": {
+										"$ref": "AAAAAAGPlsgziWO3ahU="
+									},
+									"name": "String id",
+									"type": ""
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGPlsuoHSh42l8=",
+									"_parent": {
+										"$ref": "AAAAAAGPlsgziWO3ahU="
+									},
+									"type": {
+										"$ref": "AAAAAAGOs68idEKj94I="
+									},
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
 							"_id": "AAAAAAGPlsfr5FuEWOU=",
 							"_parent": {
 								"$ref": "AAAAAAGOs7GEf1mpndY="
@@ -9928,66 +10013,6 @@
 										"$ref": "AAAAAAGPlsgPz17ENhU="
 									},
 									"type": "void",
-									"direction": "return"
-								}
-							]
-						},
-						{
-							"_type": "UMLOperation",
-							"_id": "AAAAAAGPlsgziWO3ahU=",
-							"_parent": {
-								"$ref": "AAAAAAGOs7GEf1mpndY="
-							},
-							"name": "crearJugador",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPlsg5UmWtnm4=",
-									"_parent": {
-										"$ref": "AAAAAAGPlsgziWO3ahU="
-									},
-									"name": "String id",
-									"type": ""
-								},
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPlsuoHSh42l8=",
-									"_parent": {
-										"$ref": "AAAAAAGPlsgziWO3ahU="
-									},
-									"type": {
-										"$ref": "AAAAAAGOs68idEKj94I="
-									},
-									"direction": "return"
-								}
-							]
-						},
-						{
-							"_type": "UMLOperation",
-							"_id": "AAAAAAGPlshf8mnQILo=",
-							"_parent": {
-								"$ref": "AAAAAAGOs7GEf1mpndY="
-							},
-							"name": "buscarNave",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPlshrUmulpcU=",
-									"_parent": {
-										"$ref": "AAAAAAGPlshf8mnQILo="
-									},
-									"name": "String idNave",
-									"type": ""
-								},
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPlsu5uSru2Kg=",
-									"_parent": {
-										"$ref": "AAAAAAGPlshf8mnQILo="
-									},
-									"type": {
-										"$ref": "AAAAAAGOs6ybwTu5A9o="
-									},
 									"direction": "return"
 								}
 							]
@@ -10164,34 +10189,6 @@
 						},
 						{
 							"_type": "UMLOperation",
-							"_id": "AAAAAAGPlsk5Q4A9t5E=",
-							"_parent": {
-								"$ref": "AAAAAAGOs7GEf1mpndY="
-							},
-							"name": "verificarVictoria",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPlslAToISO2A=",
-									"_parent": {
-										"$ref": "AAAAAAGPlsk5Q4A9t5E="
-									},
-									"name": "Planeta planeta",
-									"type": ""
-								},
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPlsxQsjltZBA=",
-									"_parent": {
-										"$ref": "AAAAAAGPlsk5Q4A9t5E="
-									},
-									"type": "Boolean",
-									"direction": "return"
-								}
-							]
-						},
-						{
-							"_type": "UMLOperation",
 							"_id": "AAAAAAGPlslfH4McghM=",
 							"_parent": {
 								"$ref": "AAAAAAGOs7GEf1mpndY="
@@ -10344,11 +10341,72 @@
 						},
 						{
 							"_type": "UMLOperation",
+							"_id": "AAAAAAGPlsk5Q4A9t5E=",
+							"_parent": {
+								"$ref": "AAAAAAGOs7GEf1mpndY="
+							},
+							"name": "verificarVictoria",
+							"visibility": "private",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGPlslAToISO2A=",
+									"_parent": {
+										"$ref": "AAAAAAGPlsk5Q4A9t5E="
+									},
+									"name": "Planeta planeta",
+									"type": ""
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGPlsxQsjltZBA=",
+									"_parent": {
+										"$ref": "AAAAAAGPlsk5Q4A9t5E="
+									},
+									"type": "Boolean",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGPlshf8mnQILo=",
+							"_parent": {
+								"$ref": "AAAAAAGOs7GEf1mpndY="
+							},
+							"name": "buscarNave",
+							"visibility": "private",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGPlshrUmulpcU=",
+									"_parent": {
+										"$ref": "AAAAAAGPlshf8mnQILo="
+									},
+									"name": "String idNave",
+									"type": ""
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGPlsu5uSru2Kg=",
+									"_parent": {
+										"$ref": "AAAAAAGPlshf8mnQILo="
+									},
+									"type": {
+										"$ref": "AAAAAAGOs6ybwTu5A9o="
+									},
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
 							"_id": "AAAAAAGPlsn71JH6cHI=",
 							"_parent": {
 								"$ref": "AAAAAAGOs7GEf1mpndY="
 							},
 							"name": "buscarArma",
+							"visibility": "private",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -10379,6 +10437,7 @@
 								"$ref": "AAAAAAGOs7GEf1mpndY="
 							},
 							"name": "buscarEscudo",
+							"visibility": "private",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -10404,11 +10463,43 @@
 						},
 						{
 							"_type": "UMLOperation",
+							"_id": "AAAAAAGPofo2/bYSVek=",
+							"_parent": {
+								"$ref": "AAAAAAGOs7GEf1mpndY="
+							},
+							"name": "buscarPlaneta",
+							"visibility": "private",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGPofpmVbc/28k=",
+									"_parent": {
+										"$ref": "AAAAAAGPofo2/bYSVek="
+									},
+									"type": {
+										"$ref": "AAAAAAGOs60qcTyVjng="
+									},
+									"direction": "return"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGPofqGurjR1ns=",
+									"_parent": {
+										"$ref": "AAAAAAGPofo2/bYSVek="
+									},
+									"name": "String idPlaneta",
+									"type": ""
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
 							"_id": "AAAAAAGPl5VehkkozC4=",
 							"_parent": {
 								"$ref": "AAAAAAGOs7GEf1mpndY="
 							},
 							"name": "encuentroConEnemigo",
+							"visibility": "private",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -24387,9 +24478,9 @@
 														"$ref": "AAAAAAGPnbRaOG9AqNQ="
 													},
 													"font": "Arial;13;0",
-													"left": 160.72998046875,
+													"left": 158.55908203125,
 													"top": 13,
-													"width": 117.0634765625,
+													"width": 106.83740234375,
 													"height": 13,
 													"text": "viajarPlanetaNeutral"
 												},
@@ -24402,7 +24493,7 @@
 													"font": "Arial;13;1",
 													"left": 141,
 													"top": 13,
-													"width": 13.72998046875,
+													"width": 11.55908203125,
 													"height": 13,
 													"text": "sd"
 												}
@@ -24780,9 +24871,9 @@
 														"$ref": "AAAAAAGPnbRaOG9WTow="
 													},
 													"font": "Arial;13;0",
-													"left": 183.9599609375,
+													"left": 180.3291015625,
 													"top": 245,
-													"width": 13.72998046875,
+													"width": 12.99365234375,
 													"height": 13,
 													"text": "alt"
 												},
@@ -24795,7 +24886,7 @@
 													"font": "Arial;13;1",
 													"left": 157,
 													"top": 245,
-													"width": 20.9599609375,
+													"width": 17.3291015625,
 													"height": 13,
 													"text": "seq"
 												},
@@ -24828,7 +24919,7 @@
 																	"font": "Arial;13;0",
 																	"left": 172,
 																	"top": 278,
-																	"width": 181.3017578125,
+																	"width": 178.0263671875,
 																	"height": 13,
 																	"text": "[COMBUSTIBLE SUFICIENTE]"
 																}
@@ -24861,7 +24952,7 @@
 																	"font": "Arial;13;0",
 																	"left": 172,
 																	"top": 391,
-																	"width": 194.3017578125,
+																	"width": 191.74365234375,
 																	"height": 13,
 																	"text": "[COMBUSTIBLE INSUFICIENTE]"
 																}
