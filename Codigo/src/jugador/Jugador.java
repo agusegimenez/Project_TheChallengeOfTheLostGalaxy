@@ -90,7 +90,7 @@ public class Jugador {
 	
 	public void comprarArma() {
 		Arma arma = planetaActual.getArma();
-		if(this.cantidadUadeCoins > arma.getPrecio() && estoyEnPlanetaNeutral()) {
+		if(this.cantidadUadeCoins >= arma.getPrecio() && estoyEnPlanetaNeutral()) {
 			restarUadeCoins(arma.getPrecio());
 			this.nave.setArma(arma);
 		}else {
@@ -100,7 +100,7 @@ public class Jugador {
 	
 	public void comprarEscudo() {
 		Escudo escudo = planetaActual.getEscudo();
-		if(this.cantidadUadeCoins > escudo.getPrecio() && estoyEnPlanetaNeutral()) {
+		if(this.cantidadUadeCoins >= escudo.getPrecio() && estoyEnPlanetaNeutral()) {
 			restarUadeCoins(escudo.getPrecio());
 			this.nave.setEscudo(escudo);
 		}else {
