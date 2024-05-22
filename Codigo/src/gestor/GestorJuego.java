@@ -77,7 +77,7 @@ public class GestorJuego {
 
 	}
 	
-	public boolean verificarVictoria(Planeta planeta) {
+	private boolean verificarVictoria(Planeta planeta) {
 		return(planeta.tieneTesoro());
 	}
 	
@@ -134,31 +134,31 @@ public class GestorJuego {
 		this.jugador.venderEscudo();
 	}
 	
-	public Arma buscarArma(String idArma) {
+	private Arma buscarArma(String idArma) {
 		for (Arma arma : armas) {
 			if(arma.getId()==idArma) {
 				return(arma);
 			}
 		}
-		throw new IllegalArgumentException("No se encontró una nave con el ID especificado: " + idArma);
+		throw new IllegalArgumentException("No se encontró un arma con el ID especificado: " + idArma);
 	}
 	
-	public Escudo buscarEscudo(String idEscudo) {
+	private Escudo buscarEscudo(String idEscudo) {
 		for (Escudo escudo : escudos) {
 			if(escudo.getId() == idEscudo) {
 				return(escudo);
 			}
 		}
-		throw new IllegalArgumentException("No se encontró una nave con el ID especificado: " + idEscudo);
+		throw new IllegalArgumentException("No se encontró un escudo con el ID especificado: " + idEscudo);
 	}
 
-	public Planeta buscarPlaneta(String idPlaneta) {
+	private Planeta buscarPlaneta(String idPlaneta) {
 		for (Planeta planeta : planetas) {
 			if(planeta.getIdPlaneta() == idPlaneta) {
 				return(planeta);
 			}
 		}
-		throw new IllegalArgumentException("No se encontró una nave con el ID especificado: " + idPlaneta);
+		throw new IllegalArgumentException("No se encontró un planeta con el ID especificado: " + idPlaneta);
 	}
 }
 
