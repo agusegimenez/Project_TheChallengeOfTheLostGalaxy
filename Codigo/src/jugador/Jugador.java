@@ -62,11 +62,9 @@ public class Jugador {
 	}
 	
 	public void recargarCombustible(int cantidadCombustible) {
-		if(this.cantidadUadeCoins >= cantidadCombustible) {
-			if(estoyEnPlanetaNeutral()) {
-				nave.cargarCombustible(cantidadCombustible);
-				restarUadeCoins(cantidadCombustible);
-			} 
+		if(this.cantidadUadeCoins >= cantidadCombustible && estoyEnPlanetaNeutral()) {
+			nave.cargarCombustible(cantidadCombustible);
+			restarUadeCoins(cantidadCombustible);
 		}
 	}
 	
@@ -78,8 +76,35 @@ public class Jugador {
 		} else {
 			throw new IllegalArgumentException("No tienes suficiente combustible para viajar a " + planeta.getIdPlaneta());
 		}
+		if(planetaActual.soyHostil()){
+			encuentroConEnemigo();
+		}
+
 	}
-	
+
+	private void encuentroConEnemigo() {
+
+		Enemigo enemigo = planetaActual.getEnemigo();
+		int vidaActual = nave.getVida();
+
+		// El encuentro no termina hasta que alguna pierda toda la vida.
+		while (nave.getVida() > 0 && enemigo.getVida() > 0) {
+			disparar(enemigo);
+			enemigo.atacar(nave);
+			imprimirEstadoActual();
+		}
+		//Verifico victoria si encuentra tesoro y le suma uadeCoins ganadas.
+		if (nave.getVida() > 0) {
+			sumarUadeCoins(enemigo.getUadeCoins(), vidaActual - nave.getVida());
+			System.out.println("Enemigo vencido, vida total perdida: " + (vidaActual - nave.getVida()));
+			if (planetaActual.tieneTesoro()) {
+				System.out.println("Encontraste el tesoro, juego terminado");
+			}
+		} else {
+			System.out.println("El jugador fue derrotado. Juego terminado.");
+		}
+	}
+
 	private boolean estoyEnPlanetaNeutral() {
 		return(planetaActual.soyNeutral());
 	}
@@ -92,6 +117,7 @@ public class Jugador {
 		Arma arma = planetaActual.getArma();
 		if(this.cantidadUadeCoins >= arma.getPrecio() && estoyEnPlanetaNeutral()) {
 			restarUadeCoins(arma.getPrecio());
+			venderArma();
 			this.nave.setArma(arma);
 		}else {
 			System.out.println("Imposible realizar compra, uadeCoins insuficientes");
@@ -102,6 +128,7 @@ public class Jugador {
 		Escudo escudo = planetaActual.getEscudo();
 		if(this.cantidadUadeCoins >= escudo.getPrecio() && estoyEnPlanetaNeutral()) {
 			restarUadeCoins(escudo.getPrecio());
+			venderEscudo();
 			this.nave.setEscudo(escudo);
 		}else {
 			System.out.println("Imposible realizar compra, uadeCoins insuficientes");

@@ -71,44 +71,9 @@ public class GestorJuego {
 	public void trasladarAPlaneta(String idPlaneta) {
 		Planeta planeta = buscarPlaneta(idPlaneta);
 		jugador.visitarPlaneta(planeta);
-		if(planeta.soyHostil()){
-			encuentroConEnemigo();
-		}
 
 	}
-	
-	private boolean verificarVictoria(Planeta planeta) {
-		return(planeta.tieneTesoro());
-	}
-	
-	private void encuentroConEnemigo() {
 
-		Planeta planetaActual = this.jugador.getPlanetaActual();
-		Nave naveJugador = this.jugador.getNave();
-		Enemigo enemigo = planetaActual.getEnemigo();
-		int vidaActual = naveJugador.getVida();
-
-		// El encuentro no termina hasta que alguna pierda toda la vida.
-			
-		while (naveJugador.getVida() > 0 && enemigo.getVida() > 0) {
-				jugador.disparar(enemigo);
-				enemigo.atacar(naveJugador);
-				jugador.imprimirEstadoActual();
-			}
-		//Verifico victoria si encuentra tesoro y le suma uadeCoins ganadas.
-		
-		if(jugador.getNave().getVida() > 0) {
-			this.jugador.sumarUadeCoins(enemigo.getUadeCoins(), vidaActual - naveJugador.getVida());
-			System.out.println("Enemigo vencido, vida total perdida: " + (vidaActual - naveJugador.getVida()) );
-			if(verificarVictoria(planetaActual)) {
-				System.out.println("Encontraste el tesoro, juego terminado");
-			}
-		}else {
-			System.out.println("El jugador fue derrotado. Juego terminado.");
-		}
-		
-	}
-	
 	public Arma agregarArma(int poder, int precio, String id) {
 		Arma arma = new Arma(poder, precio, id);
 		armas.add(arma);
@@ -136,7 +101,7 @@ public class GestorJuego {
 	
 	private Arma buscarArma(String idArma) {
 		for (Arma arma : armas) {
-			if(arma.getId()==idArma) {
+			if(arma.getId().equals(idArma)) {
 				return(arma);
 			}
 		}
@@ -145,7 +110,7 @@ public class GestorJuego {
 	
 	private Escudo buscarEscudo(String idEscudo) {
 		for (Escudo escudo : escudos) {
-			if(escudo.getId() == idEscudo) {
+			if(escudo.getId().equals(idEscudo) ) {
 				return(escudo);
 			}
 		}
@@ -154,7 +119,7 @@ public class GestorJuego {
 
 	private Planeta buscarPlaneta(String idPlaneta) {
 		for (Planeta planeta : planetas) {
-			if(planeta.getIdPlaneta() == idPlaneta) {
+			if(planeta.getIdPlaneta().equals(idPlaneta) ) {
 				return(planeta);
 			}
 		}
