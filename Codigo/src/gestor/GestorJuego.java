@@ -41,6 +41,12 @@ public class GestorJuego {
 		return(planeta);
 	}
 
+	public Planeta generarPlanetaAliado(String id){
+		PlanetaAliado planeta = new PlanetaAliado(id);
+		planetas.add(planeta);
+		return(planeta);
+	}
+
 	public Nave crearNaveAegis(String id, int combustible, int vida, int velocidad) {
 		NaveAegis naveAegis = new NaveAegis(id, combustible, vida, velocidad);
 		naves.add(naveAegis);
@@ -51,6 +57,18 @@ public class GestorJuego {
 		NaveSwift naveSwift = new NaveSwift(id, combustible, vida, velocidad);
 		naves.add(naveSwift);
 		return(naveSwift);
+	}
+
+	public Nave crearNavePhantom(String id, int combustible, int vida, int velocidad){
+		NavePhantom navePhantom = new NavePhantom(id, combustible, vida, velocidad);
+		naves.add(navePhantom);
+		return(navePhantom);
+	}
+
+	public Nave crearNaveTitan(String id, int combustible, int vida, int velocidad){
+		NaveTitan naveTitan = new NaveTitan(id, combustible,vida,velocidad);
+		naves.add(naveTitan);
+		return(naveTitan);
 	}
 
 	public void asignarNaveAJugador(String idNave) {
@@ -124,5 +142,7 @@ public class GestorJuego {
 		}
 		throw new IllegalArgumentException("No se encontró un models.planeta con el ID especificado: " + idPlaneta);
 	}
+
+
 }
 
