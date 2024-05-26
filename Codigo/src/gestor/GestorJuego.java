@@ -1,12 +1,11 @@
 package gestor;
 
-import jugador.*;
-import Nave.*;
-import planeta.*;
+import models.jugador.*;
+import models.Nave.*;
+import models.planeta.*;
 import java.util.ArrayList;
 import java.util.List;
-import equipamiento.*;
-import java.util.Scanner;
+import models.equipamiento.*;
 
 public class GestorJuego {
 	private List<Planeta> planetas;
@@ -123,7 +122,7 @@ public class GestorJuego {
 				return(planeta);
 			}
 		}
-		throw new IllegalArgumentException("No se encontró un planeta con el ID especificado: " + idPlaneta);
+		throw new IllegalArgumentException("No se encontró un models.planeta con el ID especificado: " + idPlaneta);
 	}
 }
 

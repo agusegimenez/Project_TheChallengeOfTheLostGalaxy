@@ -1,20 +1,18 @@
-//Inicializado por Alexis
-
 package main;
 
-import equipamiento.*;
+import models.equipamiento.*;
 
 import gestor.GestorJuego;
-import jugador.Jugador;
-import Nave.Nave;
-import planeta.*;
+import models.jugador.Jugador;
+import models.Nave.Nave;
+import models.planeta.*;
 
 public class Main {
     public static void main(String[] args) {
         // Creamos un gestor
         GestorJuego gestor = new GestorJuego();
 
-        // Creamos un jugador y una nave Aegis (se generan con un arma y escudo default)
+        // Creamos un models.jugador y una nave Aegis (se generan con un arma y escudo default)
         Jugador jugador = gestor.crearJugador("Nombre del Jugador");
         Nave naveAegis = gestor.crearNaveAegis("NaveAegis-001", 100, 200, 4);
         gestor.asignarNaveAJugador(naveAegis.getId());
@@ -27,7 +25,7 @@ public class Main {
         Escudo escudo1 = gestor.agregarEscudo(25, 50, "escudo1");
 
         
-        //Creamos un planeta y hacemos que el jugador lo visite.
+        //Creamos un models.planeta y hacemos que el models.jugador lo visite.
         
         Planeta planetaN1 = gestor.generarPlanetaNeutral("Planeta Neutral", 10, "arma1", "escudo1");
         gestor.trasladarAPlaneta("Planeta Neutral");
@@ -37,7 +35,7 @@ public class Main {
         Planeta planetaH = gestor.generarPlanetaHostil("Planeta Hostil", 10);
         gestor.trasladarAPlaneta("Planeta Hostil");
 
-        // Viaje a planeta neutral y compra de arma y escudo.
+        // Viaje a models.planeta neutral y compra de arma y escudo.
 
         gestor.trasladarAPlaneta("Planeta Neutral");
         gestor.comprarArma();
