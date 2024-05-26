@@ -4,8 +4,10 @@ public class Escudo {
 	private int proteccion;
 	private int uadeCoin;
 	private String id;
+	private final int proteccionMaxima;
 	
 	public Escudo(int proteccion, int precio, String id) {
+		this.proteccionMaxima = proteccion;
 		this.proteccion = proteccion;
 		this.uadeCoin = precio;
 		this.id = id;
@@ -25,5 +27,9 @@ public class Escudo {
 	
 	public String getId() {
 		return(this.id);
+	}
+
+	public void reparar(){
+		this.proteccion = proteccionMaxima;
 	}
 }

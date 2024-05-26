@@ -1,7 +1,7 @@
 package models.jugador;
 
 import models.Nave.*;
-import models.planeta.*;
+import models.sistemaEstelar.*;
 import models.equipamiento.Arma;
 import models.equipamiento.Escudo;
 
@@ -149,4 +149,9 @@ public class Jugador {
 		System.out.println("Nombre del escudo " + this.nave.getEscudo().getId());
 	}
 
+	public void repararNave(){
+		if(planetaActual.soyAliado()){
+			nave.reparar();
+		}
+	}
 }

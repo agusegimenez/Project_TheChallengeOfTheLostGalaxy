@@ -5,7 +5,7 @@ import models.equipamiento.*;
 import gestor.GestorJuego;
 import models.jugador.Jugador;
 import models.Nave.Nave;
-import models.planeta.*;
+import models.sistemaEstelar.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -27,12 +27,12 @@ public class Main {
         
         //Creamos un models.planeta y hacemos que el models.jugador lo visite.
         
-        Planeta planetaN1 = gestor.generarPlanetaNeutral("Planeta Neutral", 10, "arma1", "escudo1");
+        Planeta planetaN1 = gestor.generarPlanetaNeutral("Planeta Neutral", "arma1", "escudo1");
         gestor.trasladarAPlaneta("Planeta Neutral");
 
         // Combate
 
-        Planeta planetaH = gestor.generarPlanetaHostil("Planeta Hostil", 10);
+        Planeta planetaH = gestor.generarPlanetaHostil("Planeta Hostil");
         gestor.trasladarAPlaneta("Planeta Hostil");
 
         // Viaje a models.planeta neutral y compra de arma y escudo.

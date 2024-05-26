@@ -1,4 +1,4 @@
-package models.planeta;
+package models.sistemaEstelar;
 
 import models.Nave.*;
 

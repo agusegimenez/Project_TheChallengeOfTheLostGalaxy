@@ -2,7 +2,7 @@ package gestor;
 
 import models.jugador.*;
 import models.Nave.*;
-import models.planeta.*;
+import models.sistemaEstelar.*;
 import java.util.ArrayList;
 import java.util.List;
 import models.equipamiento.*;
@@ -27,16 +27,16 @@ public class GestorJuego {
 		return(jugador);
 	}
 
-	public Planeta generarPlanetaNeutral(String id, int cantCombustible, String idArma, String idEscudo) {
+	public Planeta generarPlanetaNeutral(String id, String idArma, String idEscudo) {
 		Escudo escudo = buscarEscudo(idEscudo);
 		Arma arma = buscarArma(idArma);
-		PlanetaNeutral planeta = new PlanetaNeutral(id, cantCombustible, arma, escudo);
+		PlanetaNeutral planeta = new PlanetaNeutral(id, arma, escudo);
 		planetas.add(planeta);
 		return(planeta);
 	}
 
-	public Planeta generarPlanetaHostil(String id, int cantCombustible) {
-		PlanetaHostil planeta = new PlanetaHostil(id, cantCombustible);
+	public Planeta generarPlanetaHostil(String id) {
+		PlanetaHostil planeta = new PlanetaHostil(id);
 		planetas.add(planeta);
 		return(planeta);
 	}

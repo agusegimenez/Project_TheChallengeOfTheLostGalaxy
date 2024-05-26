@@ -1,16 +1,15 @@
-package models.planeta;
+package models.sistemaEstelar;
 
 import models.equipamiento.*;
 
 public abstract class Planeta {
-	private String idPlaneta;
-	private boolean estaExplorado = false;
-	private int costoDeCombustible;
+	protected String idPlaneta;
+	protected boolean estaExplorado = false;
+	protected int costoDeCombustible;
 	
 
-	public Planeta(String idPlaneta, int costoDeCombustible) {
+	public Planeta(String idPlaneta) {
 		this.idPlaneta = idPlaneta;
-		this.costoDeCombustible = costoDeCombustible;
 	}
 
 	public String getIdPlaneta() {

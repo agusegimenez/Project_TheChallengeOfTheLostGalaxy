@@ -1,4 +1,4 @@
-package models.planeta;
+package models.sistemaEstelar;
 
 import models.equipamiento.*;
 
@@ -7,10 +7,11 @@ public class PlanetaNeutral extends Planeta{
 	private Arma arma;
 	private Escudo escudo;
 
-	public PlanetaNeutral(String idPlaneta, int costoDeCombustible, Arma arma, Escudo escudo) {
-		super(idPlaneta, costoDeCombustible);
+	public PlanetaNeutral(String idPlaneta, Arma arma, Escudo escudo) {
+		super(idPlaneta);
 		this.arma = arma;
 		this.escudo = escudo;
+		this.costoDeCombustible = 10;
 	}
 
 	public Arma getArma() {

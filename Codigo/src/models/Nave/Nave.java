@@ -9,6 +9,7 @@ public abstract class Nave {
     protected Arma arma;
     protected Escudo escudo;
     protected int poderDeAtaque;
+    protected final int vidaMaxima;
 
 
     public String getId() {
@@ -66,7 +67,8 @@ public abstract class Nave {
     public Nave(String id, int combustible, int vida, int velocidad) {
         this.id = id;
         this.combustible = combustible;
-        this.vida = vida;
+        this.vidaMaxima = vida;
+        this.vida = vidaMaxima;
         this.velocidad = velocidad; 
         // Le instaciamos a la models.Nave un arma y escudo basico
         this.arma = new Arma(10, 0, "Arma Basica");
@@ -97,6 +99,10 @@ public abstract class Nave {
     public abstract boolean esPhantom();
 
     public abstract boolean esTitan();
-    
+
+    public void reparar(){
+        this.vida = this.vidaMaxima;
+        this.escudo.reparar();
+    }
 
 }

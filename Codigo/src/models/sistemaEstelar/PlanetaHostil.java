@@ -1,4 +1,4 @@
-package models.planeta;
+package models.sistemaEstelar;
 
 import java.util.Random;
 import models.equipamiento.*;
@@ -7,8 +7,9 @@ public class PlanetaHostil extends Planeta{
 	private Enemigo enemigo;
 	private boolean tieneTesoro;
 
-	public PlanetaHostil(String id, int costo) {
-		super(id, costo);
+	public PlanetaHostil(String id) {
+		super(id);
+		this.costoDeCombustible = 20;
 		this.tieneTesoro = definirSiTieneTesoro();
 		this.enemigo = crearEnemigo(); //Planeta crea su propio enemigo generado de manera 
 									   // aleatoria asi como pide el programa.
