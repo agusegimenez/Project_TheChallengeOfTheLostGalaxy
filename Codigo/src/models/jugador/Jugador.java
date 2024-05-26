@@ -79,8 +79,15 @@ public class Jugador {
 		if(planetaActual.soyHostil()){
 			encuentroConEnemigo();
 		}
-
 	}
+
+	public void atravesarCinturon(int daño){
+		int vidaAntes = this.nave.getVida();
+		this.nave.recibirDañoCinturon(daño);
+		int vidaPerdida = (vidaAntes-this.nave.getVida());
+		sumarUadeCoins(daño, vidaPerdida);
+	}
+
 
 	private void encuentroConEnemigo() {
 

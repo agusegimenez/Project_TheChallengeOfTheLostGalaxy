@@ -86,6 +86,10 @@ public abstract class Nave {
         }
     }
 
+    public void recibirDañoCinturon(int daño){
+        this.vida -= daño;
+    }
+
     public void cargarCombustible(int combustible) {
         this.combustible = this.combustible + combustible;
     }
