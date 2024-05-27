@@ -12,13 +12,13 @@ public class Main {
         // Creamos un gestor
         GestorJuego gestor = new GestorJuego();
 
-        // Creamos un models.jugador y una nave Aegis (se generan con un arma y escudo default)
+        // Creamos un models.jugador y una nave Aegis (se generan con un arma1 y escudo default)
         Jugador jugador = gestor.crearJugador("Nombre del Jugador");
         Nave naveAegis = gestor.crearNaveAegis("NaveAegis-001", 100, 200, 4);
         gestor.asignarNaveAJugador(naveAegis.getId());
         
-        // Mostramos los atributos iniciales de la nave, arma y escudo
-        System.out.println("Arma actual de la nave: " + jugador.getNave().getArma().getPoder() + " de poder");
+        // Mostramos los atributos iniciales de la nave, arma1 y escudo
+        System.out.println("Arma actual de la nave: " + jugador.getNave().getArma1().getPoder() + " de poder");
         System.out.println("Escudo actual de la nave: " + jugador.getNave().getEscudo().getProteccion() + " de protección");
         
         Arma arma1 = gestor.agregarArma(50, 15, "arma1");
@@ -35,11 +35,12 @@ public class Main {
         Planeta planetaH = gestor.generarPlanetaHostil("Planeta Hostil");
         gestor.trasladarAPlaneta("Planeta Hostil");
 
-        // Viaje a models.planeta neutral y compra de arma y escudo.
+        // Viaje a models.planeta neutral y compra de arma1 y escudo.
 
         gestor.trasladarAPlaneta("Planeta Neutral");
-        gestor.comprarArma();
+        gestor.comprarArma1();
         gestor.comprarEscudo();
         jugador.imprimirEstadoActual();
+        gestor.comprarArma2();
     }
 }

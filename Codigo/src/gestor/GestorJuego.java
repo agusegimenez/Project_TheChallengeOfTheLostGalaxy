@@ -103,14 +103,17 @@ public class GestorJuego {
 		return escudo;
 	}
 	
-	public void comprarArma() {
-		this.jugador.comprarArma();
+	public void comprarArma1() {
+		this.jugador.comprarArma1();
+	}
+	public void comprarArma2(){
+		this.jugador.comprarArma2();
 	}
 	public void comprarEscudo() {
 		this.jugador.comprarEscudo();
 	}
 	public void venderArma(){
-		this.jugador.venderArma();
+		this.jugador.venderArma1();
 	}
 	public void venderEscudo(){
 		this.jugador.venderEscudo();
@@ -122,7 +125,7 @@ public class GestorJuego {
 				return(arma);
 			}
 		}
-		throw new IllegalArgumentException("No se encontró un arma con el ID especificado: " + idArma);
+		throw new IllegalArgumentException("No se encontró un arma1 con el ID especificado: " + idArma);
 	}
 	
 	private Escudo buscarEscudo(String idEscudo) {

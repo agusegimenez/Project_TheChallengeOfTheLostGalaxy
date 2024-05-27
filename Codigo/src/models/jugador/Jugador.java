@@ -37,14 +37,23 @@ public class Jugador {
 	}
 
 
-    public void venderArma() {
+    public void venderArma1() {
     	if(estoyEnPlanetaNeutral()) {
-    		// Sumamos el precio del arma al total de Uadecoins del models.jugador
-        	this.cantidadUadeCoins += nave.getArma().getPrecio();
-        	// Equipamos automáticamente un arma básica con atributos predeterminados
-        	this.nave.setArma(new Arma(10, 0, "Arma Basica"));
+    		// Sumamos el precio del arma1 al total de Uadecoins del models.jugador
+        	cantidadUadeCoins += nave.getArma1().getPrecio();
+        	// Equipamos automáticamente un arma1 básica con atributos predeterminados
+        	nave.setArma1(new Arma(10, 0, "Arma Basica"));
     	}
     }
+	public void venderArma2() {
+		if(estoyEnPlanetaNeutral()) {
+			// Sumamos el precio del arma1 al total de Uadecoins del models.jugador
+			this.cantidadUadeCoins += nave.getArma2().getPrecio();
+			nave.noTiene2Armas();
+			nave.setPoderDeAtaque(nave.calcularDañoNave(nave.getArma1().getPoder()));
+		}
+	}
+
 
     public void venderEscudo() {
         if(estoyEnPlanetaNeutral()) {
@@ -120,14 +129,19 @@ public class Jugador {
 		this.cantidadUadeCoins += cantidad - vidaPerdida;
 	}
 	
-	public void comprarArma() {
+	public void comprarArma1() {
 		Arma arma = planetaActual.getArma();
 		if(this.cantidadUadeCoins >= arma.getPrecio() && estoyEnPlanetaNeutral()) {
 			restarUadeCoins(arma.getPrecio());
-			venderArma();
-			this.nave.setArma(arma);
-		}else {
-			System.out.println("Imposible realizar compra, uadeCoins insuficientes");
+			this.nave.setArma1(arma);
+		}
+	}
+
+	public void comprarArma2(){
+		Arma arma = planetaActual.getArma();
+		if(this.cantidadUadeCoins >= arma.getPrecio() && estoyEnPlanetaNeutral()) {
+			restarUadeCoins(arma.getPrecio());
+			this.nave.setArma2(arma);
 		}
 	}
 	
@@ -152,7 +166,7 @@ public class Jugador {
 		System.out.println("Uadecoins totales " + this.cantidadUadeCoins);
 		System.out.println("Poder de ataque de la nave " + this.nave.getPoderDeAtaque());
 		System.out.println("Nombre de la nave " + this.nave.getId());
-		System.out.println("Nombre del arma " + this.nave.getArma().getId());
+		System.out.println("Nombre del arma1 " + this.nave.getArma1().getId());
 		System.out.println("Nombre del escudo " + this.nave.getEscudo().getId());
 	}
 

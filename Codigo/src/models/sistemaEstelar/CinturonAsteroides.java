@@ -6,9 +6,9 @@ public class CinturonAsteroides {
     private int cantidadAsteroides;
     private int poderDelCinturon;
 
-    public int getCantidadAsteroides() {
+    private int getCantidadAsteroides() {
         Random random = new Random();
-        this.cantidadAsteroides = random.nextInt(50)+1;
+        this.cantidadAsteroides = random.nextInt(20)+1;
         return cantidadAsteroides;
     }
 
@@ -17,7 +17,7 @@ public class CinturonAsteroides {
         return poderDelCinturon;
     }
 
-    public CinturonAsteroides(int cantidadAsteroides, int poderDelCinturon) {
+    public CinturonAsteroides() {
         this.cantidadAsteroides = getCantidadAsteroides();
         this.poderDelCinturon = getPoderDelCinturon();
     }
