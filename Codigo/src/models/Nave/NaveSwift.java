@@ -10,7 +10,7 @@ public class NaveSwift extends Nave {
 
     @Override
     public int calcularDañoNave(int poderDeArma) {
-        return (poderDeArma * velocidad) + vida + combustible;
+        return (poderDeArma * velocidad) + vidaMaxima + combustible;
     }
 
     @Override

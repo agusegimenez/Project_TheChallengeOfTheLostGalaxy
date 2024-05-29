@@ -79,12 +79,7 @@ public class Jugador {
 	
 	public void visitarPlaneta(Planeta planeta) {
 		this.planetaActual = planeta;
-		if (nave.getCombustible() >= planeta.getCostoDeCombustible()) { // en este if, si el combustible necesario es menor al que dispone, se trasalada
-			nave.consumirCombustible(planeta.getCostoDeCombustible());
-			System.out.println("Has viajado a " + planeta.getIdPlaneta());
-		} else {
-			throw new IllegalArgumentException("No tienes suficiente combustible para viajar a " + planeta.getIdPlaneta());
-		}
+		nave.viajarAPlaneta(planeta.getCostoDeCombustible());
 		if(planetaActual.soyHostil()){
 			encuentroConEnemigo();
 		}
@@ -168,6 +163,7 @@ public class Jugador {
 		System.out.println("Nombre de la nave " + this.nave.getId());
 		System.out.println("Nombre del arma1 " + this.nave.getArma1().getId());
 		System.out.println("Nombre del escudo " + this.nave.getEscudo().getId());
+		System.out.println("Cantidad de combustible " + this.nave.getCombustible());
 	}
 
 	public void repararNave(){

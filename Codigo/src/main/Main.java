@@ -42,5 +42,6 @@ public class Main {
         gestor.comprarEscudo();
         jugador.imprimirEstadoActual();
         gestor.comprarArma2();
+        jugador.imprimirEstadoActual();
     }
 }

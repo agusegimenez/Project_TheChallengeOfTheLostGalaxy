@@ -106,11 +106,14 @@ public abstract class Nave {
         this.combustible = this.combustible + combustible;
     }
     
-    public void consumirCombustible(int combustible) {
-    	if(!tiene2Armas) {
+    public void viajarAPlaneta(int combustible) {
+        if(this.tiene2Armas){
+            combustible = combustible*2;
+        }
+        if (this.combustible >= combustible) {
             this.combustible -= combustible;
-        }else{
-            this.combustible -= (combustible*2);
+        } else {
+            throw new IllegalArgumentException("No tienes suficiente combustible para viajar");
         }
     }
 
