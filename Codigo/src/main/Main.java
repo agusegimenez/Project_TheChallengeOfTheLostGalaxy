@@ -10,7 +10,7 @@ import models.sistemaEstelar.*;
 public class Main {
     public static void main(String[] args) {
         // Creamos un gestor
-        GestorJuego gestor = new GestorJuego();
+        GestorJuego gestor = GestorJuego.getInstancia();
 
         // Creamos un models.jugador y una nave Aegis (se generan con un arma1 y escudo default)
         Jugador jugador = gestor.crearJugador("Nombre del Jugador");

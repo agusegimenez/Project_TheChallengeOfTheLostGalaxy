@@ -8,19 +8,28 @@ import java.util.List;
 import models.equipamiento.*;
 
 public class GestorJuego {
+	private static GestorJuego instancia;
+
 	private List<Planeta> planetas;
 	private List<Nave> naves;
 	private Jugador jugador;
 	private List<Arma> armas;
 	private List<Escudo> escudos;
 
-    public GestorJuego() {
+	private GestorJuego() {
         this.planetas = new ArrayList<>(); // Inicializa la lista de todo
         this.naves = new ArrayList<>(); 
         this.armas = new ArrayList<>();
         this.escudos = new ArrayList<>();
     }
-    
+
+	public static synchronized GestorJuego getInstancia() {
+		if (instancia == null) {
+			instancia = new GestorJuego();
+		}
+		return instancia;
+	}
+
 	public Jugador crearJugador(String id) {
 		Jugador jugador = new Jugador(id);
 		this.jugador = jugador;
