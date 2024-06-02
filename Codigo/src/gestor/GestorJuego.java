@@ -102,12 +102,11 @@ public class GestorJuego {
 		throw new IllegalArgumentException("No se encontró una nave con el ID especificado: " + idNave);
 	}
 
-	/* ahora nos trasladamos a traves del mapa estelar
 	public void trasladarAPlaneta(String idPlaneta) {
-		Planeta planeta = buscarPlaneta(idPlaneta);
+		Planeta planeta = mapaEstelar.buscarPlaneta(idPlaneta);
 		jugador.visitarPlaneta(planeta);
 	}
-	 */
+
 
 	public Arma agregarArma(int poder, int precio, String id) {
 		Arma arma = new Arma(poder, precio, id);
@@ -155,16 +154,9 @@ public class GestorJuego {
 		throw new IllegalArgumentException("No se encontró un escudo con el ID especificado: " + idEscudo);
 	}
 
-	/* que deberiamos hacer con este metodo?
-	private Planeta buscarPlaneta(String idPlaneta) {
-		for (Planeta planeta : planetas) {
-			if(planeta.getIdPlaneta().equals(idPlaneta) ) {
-				return(planeta);
-			}
-		}
-		throw new IllegalArgumentException("No se encontró un Planeta con el ID especificado: " + idPlaneta);
-	}
-	 */
 
+	public void mostrarMapaEstelar(){
+		mapaEstelar.mostrarSistemas();
+	}
 }
 

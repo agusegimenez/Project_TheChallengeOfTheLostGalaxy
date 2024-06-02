@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Random;
 
 public class MapaEstelar {
+
     private List<SistemaEstelar> sistemas;
 
     public MapaEstelar(int cantidadSistemas) {
@@ -30,13 +31,13 @@ public class MapaEstelar {
 
                 switch (tipoPlaneta) {
                     case 0:
-                        planeta = new PlanetaAliado(nombrePlaneta);
+                        planeta = new PlanetaAliado(nombrePlaneta + " Aliado");
                         break;
                     case 1:
-                        planeta = new PlanetaHostil(nombrePlaneta);
+                        planeta = new PlanetaHostil(nombrePlaneta + " Hostil");
                         break;
                     case 2:
-                        planeta = new PlanetaNeutral(nombrePlaneta, new Arma(50, 30, "Arma Neutral"), new Escudo(40, 20, "Escudo Neutral"));
+                        planeta = new PlanetaNeutral(nombrePlaneta + " Neutral", new Arma(50, 30, "Arma Neutral"), new Escudo(40, 20, "Escudo Neutral"));
                         break;
                 }
 
@@ -79,4 +80,16 @@ public class MapaEstelar {
             return null;
         }
     }
+
+    public Planeta buscarPlaneta(String idPlaneta){
+        Planeta planeta;
+        for (SistemaEstelar sistema : sistemas) {
+            planeta = (sistema.buscarPlaneta(idPlaneta));
+            if(planeta != null){
+                return planeta;
+            }
+        }
+        throw new IllegalArgumentException("Id no encontrado");
+    }
+
 }

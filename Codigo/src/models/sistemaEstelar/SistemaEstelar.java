@@ -29,16 +29,14 @@ public class SistemaEstelar {
         return !cinturones.isEmpty();
     }
 
-	public void trasladarAPlaneta(String idPlaneta) {
-		Planeta planeta = buscarPlaneta(idPlaneta);
-		jugador.visitarPlaneta(planeta);
-	}
-    private Planeta buscarPlaneta(String idPlaneta) {
+    public Planeta buscarPlaneta(String idPlaneta) {
         for (Planeta planeta : planetas) {
             if(planeta.getIdPlaneta().equals(idPlaneta) ) {
                 return(planeta);
             }
         }
-        throw new IllegalArgumentException("No se encontró un Planeta con el ID especificado: " + idPlaneta);
+        return null;
     }
+
+
 }

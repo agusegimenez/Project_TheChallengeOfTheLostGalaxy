@@ -24,24 +24,15 @@ public class Main {
         Arma arma1 = gestor.agregarArma(50, 15, "arma1");
         Escudo escudo1 = gestor.agregarEscudo(25, 50, "escudo1");
 
-        
-        //Creamos un models.planeta y hacemos que el models.jugador lo visite.
-        
-        Planeta planetaN1 = gestor.generarPlanetaNeutral("Planeta Neutral", "arma1", "escudo1");
-        gestor.trasladarAPlaneta("Planeta Neutral");
-
-        // Combate
-
-        Planeta planetaH = gestor.generarPlanetaHostil("Planeta Hostil");
-        gestor.trasladarAPlaneta("Planeta Hostil");
-
+        /**
         // Viaje a models.planeta neutral y compra de arma1 y escudo.
-
-        gestor.trasladarAPlaneta("Planeta Neutral");
         gestor.comprarArma1();
         gestor.comprarEscudo();
         jugador.imprimirEstadoActual();
         gestor.comprarArma2();
         jugador.imprimirEstadoActual();
+                                        **/
+        gestor.mostrarMapaEstelar();
+
     }
 }
