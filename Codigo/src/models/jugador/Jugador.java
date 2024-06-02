@@ -175,11 +175,14 @@ public class Jugador {
 	}
 
 	public void moverDeSistema(SistemaEstelar nuevoSistema){
+		nave.viajarASistema(nuevoSistema.getCombustible());
 		this.sistemaActual = nuevoSistema;
 		if(sistemaActual.tieneCinturon()){
-			int poderDelCinturon = 
-			this.atravesarCinturon();
+			CinturonAsteroides cinturonAsteroides = sistemaActual.getCinturonAsteroides();
+			this.atravesarCinturon(cinturonAsteroides.getPoderDelCinturon());
 		}
 		System.out.println("El jugador se ha movido a: " + nuevoSistema.getNombre());
 	}
+
+
 }

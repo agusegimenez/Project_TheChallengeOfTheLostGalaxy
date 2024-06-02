@@ -117,6 +117,17 @@ public abstract class Nave {
         }
     }
 
+    public void viajarASistema(int combustible) {
+        if(this.tiene2Armas){
+            combustible = combustible*2;
+        }
+        if (this.combustible >= combustible) {
+            this.combustible -= combustible;
+        } else {
+            throw new IllegalArgumentException("No tienes suficiente combustible para viajar");
+        }
+    }
+
     public abstract int calcularDañoNave(int poderDeArma);
 
     public abstract boolean esPhantom();
