@@ -5,12 +5,17 @@ import java.util.Random;
 public class SistemaEstelar {
     private String nombre;
     private List<Planeta> planetas;
-    private List<CinturonAsteroides> cinturones;
+    private boolean tieneCinturon;
+    private CinturonAsteroides cinturonAsteroides;
 
-    public SistemaEstelar(String nombre, List<Planeta> planetas, List<CinturonAsteroides> cinturones) {
+    public SistemaEstelar(String nombre, List<Planeta> planetas, boolean tieneCinturon) {
         this.nombre = nombre;
         this.planetas = planetas;
-        this.cinturones = cinturones;
+        this.tieneCinturon = tieneCinturon;
+        if(tieneCinturon){
+            CinturonAsteroides cinturonAsteroides = new CinturonAsteroides();
+            this.cinturonAsteroides = cinturonAsteroides;
+        }
     }
 
     public String getNombre() {
@@ -21,13 +26,13 @@ public class SistemaEstelar {
         return planetas;
     }
 
-    public List<CinturonAsteroides> getCinturones() {
-        return cinturones;
+    public boolean tieneCinturon() {
+        return tieneCinturon;
     }
 
-    public boolean tieneCinturones() {
-        return !cinturones.isEmpty();
-    }
+//    public boolean tieneCinturones() {
+//        return !cinturones.isEmpty();
+//    }
 
     public Planeta buscarPlaneta(String idPlaneta) {
         for (Planeta planeta : planetas) {

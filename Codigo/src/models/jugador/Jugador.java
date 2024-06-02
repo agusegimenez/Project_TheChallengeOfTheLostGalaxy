@@ -87,11 +87,11 @@ public class Jugador {
 		}
 	}
 
-	public void atravesarCinturon(int daño){
+	public void atravesarCinturon(int poderDelCinturon){
 		int vidaAntes = this.nave.getVida();
-		this.nave.recibirDañoCinturon(daño);
+		this.nave.recibirDañoCinturon(poderDelCinturon);
 		int vidaPerdida = (vidaAntes-this.nave.getVida());
-		sumarUadeCoins(daño, vidaPerdida);
+		sumarUadeCoins(poderDelCinturon, vidaPerdida);
 	}
 
 
@@ -176,6 +176,10 @@ public class Jugador {
 
 	public void moverDeSistema(SistemaEstelar nuevoSistema){
 		this.sistemaActual = nuevoSistema;
+		if(sistemaActual.tieneCinturon()){
+			int poderDelCinturon = 
+			this.atravesarCinturon();
+		}
 		System.out.println("El jugador se ha movido a: " + nuevoSistema.getNombre());
 	}
 }

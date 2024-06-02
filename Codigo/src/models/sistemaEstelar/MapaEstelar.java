@@ -45,12 +45,9 @@ public class MapaEstelar {
             }
 
             // Generar cinturones de asteroides aleatoriamente
-            List<CinturonAsteroides> cinturones = new ArrayList<>();
-            if (random.nextBoolean()) {
-                cinturones.add(new CinturonAsteroides());
-            }
+            boolean tieneCinturon = random.nextBoolean();
 
-            sistemas.add(new SistemaEstelar(nombreSistema, planetas, cinturones));
+            sistemas.add(new SistemaEstelar(nombreSistema, planetas, tieneCinturon));
         }
         return sistemas;
     }
@@ -66,8 +63,8 @@ public class MapaEstelar {
             for (Planeta planeta : sistema.getPlanetas()) {
                 System.out.println("  Planeta: " + planeta.getIdPlaneta());
             }
-            if (sistema.tieneCinturones()) {
-                System.out.println("  Tiene Cinturones de Asteroides");
+            if (sistema.tieneCinturon()) {
+                System.out.println("  Tiene Cinturon de Asteroides");
             }
         }
     }
