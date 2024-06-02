@@ -11,6 +11,7 @@ public class Jugador {
 	private Nave nave;
 	private int cantidadUadeCoins = 100;
 	private Planeta planetaActual;
+	private SistemaEstelar sistemaActual;
 
 	public Planeta getPlanetaActual() {
 		return(this.planetaActual);
@@ -45,6 +46,7 @@ public class Jugador {
         	nave.setArma1(new Arma(10, 0, "Arma Basica"));
     	}
     }
+
 	public void venderArma2() {
 		if(estoyEnPlanetaNeutral()) {
 			// Sumamos el precio del arma1 al total de Uadecoins del models.jugador
@@ -53,7 +55,6 @@ public class Jugador {
 			nave.setPoderDeAtaque(nave.calcularDañoNave(nave.getArma1().getPoder()));
 		}
 	}
-
 
     public void venderEscudo() {
         if(estoyEnPlanetaNeutral()) {
@@ -170,5 +171,10 @@ public class Jugador {
 		if(planetaActual.soyAliado()){
 			nave.reparar();
 		}
+	}
+
+	public void moverDeSistema(SistemaEstelar nuevoSistema){
+		this.sistemaActual = nuevoSistema;
+		System.out.println("El jugador se ha movido a: " + nuevoSistema.getNombre());
 	}
 }

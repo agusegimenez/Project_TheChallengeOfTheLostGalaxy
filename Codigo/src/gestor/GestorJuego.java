@@ -5,23 +5,29 @@ import models.Nave.*;
 import models.sistemaEstelar.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
 import models.equipamiento.*;
 
 public class GestorJuego {
 	private static GestorJuego instancia;
-
-	private List<Planeta> planetas;
+	private MapaEstelar mapaEstelar;
 	private List<Nave> naves;
 	private Jugador jugador;
 	private List<Arma> armas;
 	private List<Escudo> escudos;
 
 	private GestorJuego() {
-        this.planetas = new ArrayList<>(); // Inicializa la lista de todo
+        this.mapaEstelar = new MapaEstelar(generarNumeroDeSistemas()); // Inicializa la lista de todo
         this.naves = new ArrayList<>(); 
         this.armas = new ArrayList<>();
         this.escudos = new ArrayList<>();
     }
+
+	private int generarNumeroDeSistemas(){
+		Random random = new Random();
+		return random.nextInt(10)+1;
+	}
 
 	public static synchronized GestorJuego getInstancia() {
 		if (instancia == null) {
@@ -36,6 +42,7 @@ public class GestorJuego {
 		return(jugador);
 	}
 
+	/* comenté estos metodos ya que ahora trabajamos con el mapa estelar y es él el que genera los planetas
 	public Planeta generarPlanetaNeutral(String id, String idArma, String idEscudo) {
 		Escudo escudo = buscarEscudo(idEscudo);
 		Arma arma = buscarArma(idArma);
@@ -55,6 +62,7 @@ public class GestorJuego {
 		planetas.add(planeta);
 		return(planeta);
 	}
+	 */
 
 	public Nave crearNaveAegis(String id, int combustible, int vida, int velocidad) {
 		NaveAegis naveAegis = new NaveAegis(id, combustible, vida, velocidad);
@@ -94,11 +102,12 @@ public class GestorJuego {
 		throw new IllegalArgumentException("No se encontró una nave con el ID especificado: " + idNave);
 	}
 
+	/* ahora nos trasladamos a traves del mapa estelar
 	public void trasladarAPlaneta(String idPlaneta) {
 		Planeta planeta = buscarPlaneta(idPlaneta);
 		jugador.visitarPlaneta(planeta);
-
 	}
+	 */
 
 	public Arma agregarArma(int poder, int precio, String id) {
 		Arma arma = new Arma(poder, precio, id);
@@ -146,15 +155,16 @@ public class GestorJuego {
 		throw new IllegalArgumentException("No se encontró un escudo con el ID especificado: " + idEscudo);
 	}
 
+	/* que deberiamos hacer con este metodo?
 	private Planeta buscarPlaneta(String idPlaneta) {
 		for (Planeta planeta : planetas) {
 			if(planeta.getIdPlaneta().equals(idPlaneta) ) {
 				return(planeta);
 			}
 		}
-		throw new IllegalArgumentException("No se encontró un models.planeta con el ID especificado: " + idPlaneta);
+		throw new IllegalArgumentException("No se encontró un Planeta con el ID especificado: " + idPlaneta);
 	}
-
+	 */
 
 }
 
