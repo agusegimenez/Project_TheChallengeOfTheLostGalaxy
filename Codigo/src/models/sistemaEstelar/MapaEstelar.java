@@ -99,4 +99,15 @@ public class MapaEstelar {
         }
         throw new IllegalArgumentException("Id no encontrado");
     }
+
+    public SistemaEstelar buscarSistemaConTesoro(){
+        Planeta planeta;
+        for (SistemaEstelar sistema : sistemas) {
+            planeta = sistema.buscarPlanetaConTesoro();
+            if(planeta != null){
+                return sistema;
+            }
+        }
+        return null;
+    }
 }

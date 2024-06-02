@@ -49,4 +49,13 @@ public class SistemaEstelar {
     public int getCombustible(){
         return this.combustible;
     }
+
+    public Planeta buscarPlanetaConTesoro(){
+        for (Planeta planeta : planetas){
+            if(planeta.tieneTesoro()){
+                return planeta;
+            }
+        }
+        return null;
+    }
 }

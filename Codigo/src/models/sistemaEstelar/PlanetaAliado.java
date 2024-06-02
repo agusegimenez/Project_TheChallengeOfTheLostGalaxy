@@ -2,11 +2,16 @@ package models.sistemaEstelar;
 
 import models.equipamiento.*;
 import models.Nave.Nave;
+import java.util.Random;
 
 public class PlanetaAliado extends Planeta{
+    private int precioInformacion;
+    private Random random;
+
     public PlanetaAliado(String idPlaneta) {
         super(idPlaneta);
         this.costoDeCombustible = 15;
+        this.precioInformacion = random.nextInt(500)+1000;
     }
 
     @Override
@@ -36,8 +41,11 @@ public class PlanetaAliado extends Planeta{
         throw new IllegalArgumentException("No soy un Planeta Neutral");
     }
 
-    public void comprarInformacion(int uadeCoins){
+    public void desplegarInformacion(SistemaEstelar sistemaEstelar){
 
-    };
+    }
+    public int getPrecioInformacion(){
+        return this.precioInformacion;
+    }
 
 }

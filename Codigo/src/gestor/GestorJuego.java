@@ -159,5 +159,9 @@ public class GestorJuego {
 	public void mostrarMapaEstelar(){
 		mapaEstelar.mostrarSistemas();
 	}
+
+	public void comprarInformacion(){
+		jugador.comprarInformacion(mapaEstelar);
+	}
 }
 

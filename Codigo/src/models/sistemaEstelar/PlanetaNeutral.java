@@ -23,6 +23,12 @@ public class PlanetaNeutral extends Planeta{
 	public Escudo getEscudo() {
 		return escudo;
 	}
+
+	@Override
+	public int getPrecioInformacion() {
+		throw new IllegalArgumentException("No soy aliado");
+	}
+
 	public void setEscudo(Escudo escudo) {
 		this.escudo = escudo;
 	}

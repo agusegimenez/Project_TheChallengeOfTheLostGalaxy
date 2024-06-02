@@ -37,6 +37,11 @@ public class PlanetaHostil extends Planeta{
 		throw new IllegalArgumentException("No soy un Planeta Neutral");
 	}
 
+	@Override
+	public int getPrecioInformacion() {
+		throw new IllegalArgumentException("No soy aliado");
+	}
+
 	private boolean definirSiTieneTesoro() {
 		Random numeroAleatorio = new Random();
 		int numero = numeroAleatorio.nextInt(6);

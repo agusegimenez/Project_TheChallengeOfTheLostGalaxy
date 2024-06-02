@@ -184,5 +184,17 @@ public class Jugador {
 		System.out.println("El jugador se ha movido a: " + nuevoSistema.getNombre());
 	}
 
+	public void comprarInformacion(MapaEstelar mapaEstelar){
+		if(planetaActual.soyAliado() && cantidadUadeCoins >= planetaActual.getPrecioInformacion()){
+			restarUadeCoins(planetaActual.getPrecioInformacion());
+			SistemaEstelar sistemaEstelar = mapaEstelar.buscarSistemaConTesoro();
+			if(sistemaEstelar != null){
+				System.out.println("El tesoro se encuentra en este sistema " + sistemaEstelar.getNombre());
+			}else{
+				System.out.println("Todavia no se encontro un sistema con el tesoro, monedas reitegradas ");
+				cantidadUadeCoins += planetaActual.getPrecioInformacion();
+			}
+		}
+	}
 
 }

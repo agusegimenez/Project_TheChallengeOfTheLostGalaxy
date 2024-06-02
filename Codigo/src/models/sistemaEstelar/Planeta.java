@@ -43,5 +43,6 @@ public abstract class Planeta {
 	public abstract boolean tieneTesoro();
 	public abstract Arma getArma();
 	public abstract Escudo getEscudo();
+	public abstract int getPrecioInformacion();
 	
 }
