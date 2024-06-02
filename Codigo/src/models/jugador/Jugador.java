@@ -78,8 +78,9 @@ public class Jugador {
 		}
 	}
 	
-	public void visitarPlaneta(Planeta planeta) {
+	public void visitarPlaneta(Planeta planeta, SistemaEstelar sistemaActual) {
 		this.planetaActual = planeta;
+		this.sistemaActual = sistemaActual;
 		nave.viajarAPlaneta(planeta.getCostoDeCombustible());
 		if(planetaActual.soyHostil()){
 			encuentroConEnemigo();

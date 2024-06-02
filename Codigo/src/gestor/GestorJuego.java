@@ -104,7 +104,8 @@ public class GestorJuego {
 
 	public void trasladarAPlaneta(String idPlaneta) {
 		Planeta planeta = mapaEstelar.buscarPlaneta(idPlaneta);
-		jugador.visitarPlaneta(planeta);
+		SistemaEstelar sistemaEstelar = mapaEstelar.buscarSistema(idPlaneta);
+		jugador.visitarPlaneta(planeta, sistemaEstelar);
 	}
 
 

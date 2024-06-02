@@ -15,7 +15,7 @@ public class MapaEstelar {
         this.sistemas = generarSistemas(cantidadSistemas);
     }
 
-    private List<SistemaEstelar> generarSistemas(int numSistemas){
+    private List<SistemaEstelar> generarSistemas(int numSistemas) {
         List<SistemaEstelar> sistemas = new ArrayList<>();
         Random random = new Random();
 
@@ -55,7 +55,7 @@ public class MapaEstelar {
         return sistemas;
     }
 
-    public List<SistemaEstelar> getSistemas(){
+    public List<SistemaEstelar> getSistemas() {
         return sistemas;
     }
 
@@ -81,15 +81,25 @@ public class MapaEstelar {
         }
     }
 
-    public Planeta buscarPlaneta(String idPlaneta){
+    public Planeta buscarPlaneta(String idPlaneta) {
         Planeta planeta;
         for (SistemaEstelar sistema : sistemas) {
             planeta = (sistema.buscarPlaneta(idPlaneta));
-            if(planeta != null){
+            if (planeta != null) {
                 return planeta;
             }
         }
         throw new IllegalArgumentException("Id no encontrado");
     }
 
+    public SistemaEstelar buscarSistema(String idPlaneta) {
+        Planeta planeta;
+        for (SistemaEstelar sistema : sistemas) {
+            planeta = (sistema.buscarPlaneta(idPlaneta));
+            if (planeta != null) {
+                return sistema;
+            }
+        }
+        throw new IllegalArgumentException("Id no encontrado");
+    }
 }
