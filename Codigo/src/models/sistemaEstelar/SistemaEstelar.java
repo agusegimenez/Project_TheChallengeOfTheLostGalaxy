@@ -1,6 +1,9 @@
 package models.sistemaEstelar;
+import models.equipamiento.*;
+
 import java.util.List;
 import java.util.Random;
+
 
 public class SistemaEstelar {
     private String nombre;
@@ -8,7 +11,7 @@ public class SistemaEstelar {
     private boolean tieneCinturon;
     private CinturonAsteroides cinturonAsteroides;
     private int combustible;
-    private Random random;
+    private Random random = new Random();
 
     public SistemaEstelar(String nombre, List<Planeta> planetas, boolean tieneCinturon) {
         this.nombre = nombre;
@@ -57,5 +60,17 @@ public class SistemaEstelar {
             }
         }
         return null;
+    }
+    // Metodo para probar
+    public void agregarPlanetas(){
+        Arma arma = new Arma(150, 100, "Super Arma");
+        Escudo escudo = new Escudo(200, 150, "Super Escudo");
+        PlanetaHostil planetaHostil = new PlanetaHostil("Prueba Hostil");
+        planetaHostil.setTieneTesoro();
+        PlanetaAliado planetaAliado = new PlanetaAliado("Prueba Aliado");
+        PlanetaNeutral planetaNeutral = new PlanetaNeutral("Prueba Neutral", arma, escudo);
+        planetas.add(planetaNeutral);
+        planetas.add(planetaAliado);
+        planetas.add(planetaHostil);
     }
 }

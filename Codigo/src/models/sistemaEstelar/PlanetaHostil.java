@@ -42,6 +42,11 @@ public class PlanetaHostil extends Planeta{
 		throw new IllegalArgumentException("No soy aliado");
 	}
 
+	@Override
+	public void desplegarInformacion(MapaEstelar mapa) {
+		throw new IllegalArgumentException("");
+	}
+
 	private boolean definirSiTieneTesoro() {
 		Random numeroAleatorio = new Random();
 		int numero = numeroAleatorio.nextInt(6);
@@ -54,6 +59,10 @@ public class PlanetaHostil extends Planeta{
 		int poderAtaqueAleatorio = randomNumber.nextInt(101) + 50; // Entre 50 y 150
 		Enemigo enemigo = new Enemigo(poderAtaqueAleatorio);
 		return(enemigo);
+	}
+
+	public void setTieneTesoro(){
+		this.tieneTesoro = true;
 	}
 	
 }

@@ -29,6 +29,11 @@ public class PlanetaNeutral extends Planeta{
 		throw new IllegalArgumentException("No soy aliado");
 	}
 
+	@Override
+	public void desplegarInformacion(MapaEstelar mapa) {
+		throw new IllegalArgumentException("");
+	}
+
 	public void setEscudo(Escudo escudo) {
 		this.escudo = escudo;
 	}
