@@ -33,6 +33,8 @@ public class Main {
         gestor.comprarArma2();
         jugador.imprimirEstadoActual();
         gestor.trasladarAPlaneta("Prueba Hostil");
-
+        gestor.trasladarAPlaneta("Prueba Aliado");
+        gestor.repararNave();
+        jugador.imprimirEstadoActual();
     }
 }

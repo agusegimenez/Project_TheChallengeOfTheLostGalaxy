@@ -171,5 +171,9 @@ public class GestorJuego {
 	public void agregarPlanetasDePrueba(){
 		mapaEstelar.agregarPlanetasASistemas();
 	}
+
+	public void repararNave(){
+		jugador.repararNave();
+	}
 }
 
