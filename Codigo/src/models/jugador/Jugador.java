@@ -87,6 +87,14 @@ public class Jugador {
 		}
 	}
 
+	public void atravesarCinturon(int poderDelCinturon){
+		int vidaAntes = this.nave.getVida();
+		this.nave.recibirDañoCinturon(poderDelCinturon);
+		int vidaPerdida = (vidaAntes-this.nave.getVida());
+		sumarUadeCoins(poderDelCinturon, vidaPerdida);
+	}
+
+
 	private void encuentroConEnemigo() {
 
 		Enemigo enemigo = planetaActual.getEnemigo();
@@ -165,20 +173,13 @@ public class Jugador {
 			nave.reparar();
 		}
 	}
-	public void atravesarCinturon(int poderDelCinturon){
-		int vidaAntes = this.nave.getVida();
-		this.nave.recibirDañoCinturon(poderDelCinturon);
-		int vidaPerdida = (vidaAntes-this.nave.getVida());
-		sumarUadeCoins(poderDelCinturon, vidaPerdida);
-	}
 
 	public void moverDeSistema(SistemaEstelar nuevoSistema){
 		nave.viajarASistema(nuevoSistema.getCombustible());
 		this.sistemaActual = nuevoSistema;
 		if(sistemaActual.tieneCinturon()){
 			CinturonAsteroides cinturonAsteroides = sistemaActual.getCinturonAsteroides();
-			if(nave.atravesarCinturon(cinturonAsteroides.getCombustible()))
-				atravesarCinturon(cinturonAsteroides.getPoderDelCinturon());
+			this.atravesarCinturon(cinturonAsteroides.getPoderDelCinturon());
 		}
 		System.out.println("El jugador se ha movido a: " + nuevoSistema.getNombre());
 	}

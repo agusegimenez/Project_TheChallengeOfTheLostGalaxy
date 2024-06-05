@@ -128,18 +128,6 @@ public abstract class Nave {
         }
     }
 
-    public boolean atravesarCinturon(int combustible) {
-        if(this.tiene2Armas){
-            combustible = combustible*2;
-        }
-        if (this.combustible >= combustible) {
-            this.combustible -= combustible;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public abstract int calcularDañoNave(int poderDeArma);
 
     public abstract boolean esPhantom();

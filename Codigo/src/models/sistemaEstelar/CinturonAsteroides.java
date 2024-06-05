@@ -5,7 +5,6 @@ import java.util.Random;
 public class CinturonAsteroides {
     private int cantidadAsteroides;
     private int poderDelCinturon;
-    private int combustible = 30;
 
     private int getCantidadAsteroides() {
         Random random = new Random();
@@ -23,8 +22,5 @@ public class CinturonAsteroides {
         this.poderDelCinturon = getPoderDelCinturon();
     }
 
-    public int getCombustible(){
-        return this.combustible;
-    }
 
 }
