@@ -1,12 +1,12 @@
 package models.sistemaEstelar;
 
 import models.equipamiento.*;
-import models.Nave.Nave;
+
 import java.util.Random;
 
 public class PlanetaAliado extends Planeta{
     private int precioInformacion;
-    private Random random;
+    private Random random = new Random();
 
     public PlanetaAliado(String idPlaneta) {
         super(idPlaneta);
@@ -41,11 +41,17 @@ public class PlanetaAliado extends Planeta{
         throw new IllegalArgumentException("No soy un Planeta Neutral");
     }
 
-    public void desplegarInformacion(SistemaEstelar sistemaEstelar){
-
-    }
     public int getPrecioInformacion(){
         return this.precioInformacion;
     }
 
+    @Override
+    public void desplegarInformacion(MapaEstelar mapa) {
+        SistemaEstelar sistemaEstelar = mapa.buscarSistemaConTesoro();
+        if (sistemaEstelar != null) {
+            System.out.println("El sistema que tiene tesoro es " + sistemaEstelar.getNombre());
+        } else {
+            System.out.println("Actualmente no hay planetas el cual tengan tesoro");
+        }
+    }
 }

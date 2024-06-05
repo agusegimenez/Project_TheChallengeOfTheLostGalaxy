@@ -27,20 +27,13 @@ public class MapaEstelar {
             for (int j = 1; j <= random.nextInt(5) + 1; j++) {
                 String nombrePlaneta = nombreSistema + " - Planeta " + j;
                 int tipoPlaneta = random.nextInt(3);
-                Planeta planeta = null;
-
-                switch (tipoPlaneta) {
-                    case 0:
-                        planeta = new PlanetaAliado(nombrePlaneta + " Aliado");
-                        break;
-                    case 1:
-                        planeta = new PlanetaHostil(nombrePlaneta + " Hostil");
-                        break;
-                    case 2:
-                        planeta = new PlanetaNeutral(nombrePlaneta + " Neutral", new Arma(50, 30, "Arma Neutral"), new Escudo(40, 20, "Escudo Neutral"));
-                        break;
-                }
-
+                Planeta planeta = switch (tipoPlaneta) {
+                    case 0 -> new PlanetaAliado(nombrePlaneta + " Aliado");
+                    case 1 -> new PlanetaHostil(nombrePlaneta + " Hostil");
+                    case 2 ->
+                            new PlanetaNeutral(nombrePlaneta + " Neutral", new Arma(random.nextInt(20) + 50, random.nextInt(50) + 40, "Arma Neutral"), new Escudo(random.nextInt(50) + 50, random.nextInt(40) + 30, "Escudo Neutral"));
+                    default -> null;
+                };
                 planetas.add(planeta);
             }
 
@@ -89,7 +82,7 @@ public class MapaEstelar {
         throw new IllegalArgumentException("Id no encontrado");
     }
 
-    public SistemaEstelar buscarSistema(String idPlaneta) {
+    public SistemaEstelar buscarSistemaEnPlaneta(String idPlaneta) {
         Planeta planeta;
         for (SistemaEstelar sistema : sistemas) {
             planeta = (sistema.buscarPlaneta(idPlaneta));
@@ -109,5 +102,21 @@ public class MapaEstelar {
             }
         }
         return null;
+    }
+
+    public SistemaEstelar buscarSistema(String idSistema){
+        for (SistemaEstelar sistema : sistemas) {
+            if(sistema.getNombre().equals(idSistema)){
+                return sistema;
+            }
+        }
+        throw new IllegalArgumentException("Id incorrecto");
+    }
+
+    public void agregarPlanetasASistemas(){
+        SistemaEstelar sistemaEstelar1 = sistemas.getFirst();
+        sistemaEstelar1.agregarPlanetas();
+        SistemaEstelar sistemaEstelar2 = sistemas.get(1);
+        sistemaEstelar2.agregarPlanetas();
     }
 }

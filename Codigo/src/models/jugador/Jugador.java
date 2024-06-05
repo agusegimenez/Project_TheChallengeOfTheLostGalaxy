@@ -9,7 +9,7 @@ import models.equipamiento.Escudo;
 public class Jugador {
 	private String idJugador;
 	private Nave nave;
-	private int cantidadUadeCoins = 100;
+	private int cantidadUadeCoins = 10000;
 	private Planeta planetaActual;
 	private SistemaEstelar sistemaActual;
 
@@ -82,6 +82,7 @@ public class Jugador {
 		this.planetaActual = planeta;
 		this.sistemaActual = sistemaActual;
 		nave.viajarAPlaneta(planeta.getCostoDeCombustible());
+		System.out.println("Viajaste a planeta "+ planetaActual.getIdPlaneta());
 		if(planetaActual.soyHostil()){
 			encuentroConEnemigo();
 		}
@@ -187,13 +188,9 @@ public class Jugador {
 	public void comprarInformacion(MapaEstelar mapaEstelar){
 		if(planetaActual.soyAliado() && cantidadUadeCoins >= planetaActual.getPrecioInformacion()){
 			restarUadeCoins(planetaActual.getPrecioInformacion());
-			SistemaEstelar sistemaEstelar = mapaEstelar.buscarSistemaConTesoro();
-			if(sistemaEstelar != null){
-				System.out.println("El tesoro se encuentra en este sistema " + sistemaEstelar.getNombre());
-			}else{
-				System.out.println("Todavia no se encontro un sistema con el tesoro, monedas reitegradas ");
-				cantidadUadeCoins += planetaActual.getPrecioInformacion();
-			}
+			planetaActual.desplegarInformacion(mapaEstelar);
+		}else{
+			System.out.println("Monedas insuficientes");
 		}
 	}
 

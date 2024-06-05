@@ -44,5 +44,6 @@ public abstract class Planeta {
 	public abstract Arma getArma();
 	public abstract Escudo getEscudo();
 	public abstract int getPrecioInformacion();
+	public abstract void desplegarInformacion(MapaEstelar mapa);
 	
 }

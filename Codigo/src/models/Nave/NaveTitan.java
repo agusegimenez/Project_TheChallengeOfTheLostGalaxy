@@ -8,7 +8,7 @@ public class NaveTitan extends Nave{
 
     @Override
     public int calcularDañoNave(int poderDeArma) {
-        return 0;
+        return (vidaMaxima * poderDeArma) - velocidad;
     }
 
 
