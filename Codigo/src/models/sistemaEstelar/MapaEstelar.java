@@ -26,7 +26,7 @@ public class MapaEstelar {
 
             // Generar planetas aleatoriamente
             for (int j = 1; j <= random.nextInt(5) + 1; j++) {
-                String nombrePlaneta = nombreSistema + " - Planeta " + j;
+                String nombrePlaneta = "Planeta " + j + " S"+i;
                 int tipoPlaneta = random.nextInt(3);
                 Planeta planeta = switch (tipoPlaneta) {
                     case 0 -> new PlanetaAliado(nombrePlaneta + " Aliado");
@@ -120,8 +120,8 @@ public class MapaEstelar {
         SistemaEstelar sistemaEstelar2 = sistemas.get(1);
         sistemaEstelar2.agregarPlanetas();
     }
-/*
+
     public MapaEstelarView  toView(){
         return(new MapaEstelarView(this.sistemas));
-    }*/
+    }
 }

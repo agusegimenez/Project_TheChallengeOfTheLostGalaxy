@@ -1,11 +1,11 @@
 package main;
 
-import models.equipamiento.*;
-
 import gestor.GestorJuego;
 import models.jugador.Jugador;
 import models.Nave.Nave;
-import models.sistemaEstelar.*;
+import vistas.MostrarMapaEstelar;
+
+import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,10 +20,8 @@ public class Main {
         // Mostramos los atributos iniciales de la nave, arma1 y escudo
         System.out.println("Arma actual de la nave: " + jugador.getNave().getArma1().getPoder() + " de poder");
         System.out.println("Escudo actual de la nave: " + jugador.getNave().getEscudo().getProteccion() + " de protección");
-
+        /*
         gestor.agregarPlanetasDePrueba();
-
-        gestor.mostrarMapaEstelar();
         gestor.trasladarAPlaneta("Prueba Aliado");
         gestor.comprarInformacion();
         gestor.trasladarAPlaneta("Prueba Neutral");
@@ -36,5 +34,13 @@ public class Main {
         gestor.trasladarAPlaneta("Prueba Aliado");
         gestor.repararNave();
         jugador.imprimirEstadoActual();
+
+         */
+
+        gestor.mostrarMapaEstelar();
+        SwingUtilities.invokeLater(() -> {
+            MostrarMapaEstelar frame = new MostrarMapaEstelar(gestor.getMapaEstelar().toView());
+            frame.setVisible(true);
+        });
     }
 }

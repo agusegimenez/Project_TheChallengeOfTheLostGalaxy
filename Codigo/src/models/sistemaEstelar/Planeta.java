@@ -1,6 +1,7 @@
 package models.sistemaEstelar;
 
 import models.equipamiento.*;
+import view.PlanetaView;
 
 public abstract class Planeta {
 	protected String idPlaneta;
@@ -45,5 +46,7 @@ public abstract class Planeta {
 	public abstract Escudo getEscudo();
 	public abstract int getPrecioInformacion();
 	public abstract void desplegarInformacion(MapaEstelar mapa);
-	
+	public PlanetaView toView(){
+		return(new PlanetaView(idPlaneta, costoDeCombustible));
+	}
 }
