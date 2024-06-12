@@ -14,6 +14,11 @@ public class MapaEstelar {
 
     public MapaEstelar(int cantidadSistemas) {
         this.sistemas = generarSistemas(cantidadSistemas);
+        //Que genere un sistema que si tenga solucion
+
+        while(buscarSistemaConTesoro() == null){
+            this.sistemas = generarSistemas(cantidadSistemas);
+        }
     }
 
     private List<SistemaEstelar> generarSistemas(int numSistemas) {

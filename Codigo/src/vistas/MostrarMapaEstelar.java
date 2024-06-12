@@ -27,7 +27,7 @@ public class MostrarMapaEstelar extends JFrame {
             textArea.append(sistema.getNombre());
             textArea.append("\n");
             for(PlanetaView planeta : sistema.getPlanetas()){
-                textArea.append(planeta.getNombre());
+                textArea.append(planeta.getNombre() + " ");
             }
             if(sistema.getCinturonAsteroides() != null){
                 textArea.append("\n");
