@@ -5,17 +5,8 @@ import models.Nave.*;
 import models.sistemaEstelar.*;
 import java.util.ArrayList;
 import java.util.List;
-<<<<<<< Updated upstream
 import java.util.Random;
-=======
-<<<<<<< Updated upstream
-import equipamiento.*;
-import java.util.Scanner;
-=======
-import java.util.Map;
-import java.util.Random;
->>>>>>> Stashed changes
->>>>>>> Stashed changes
+
 
 public class GestorJuego {
 	private static GestorJuego instancia;
@@ -26,11 +17,11 @@ public class GestorJuego {
 	// private List<Escudo> escudos;
 
 	private GestorJuego() {
-        this.mapaEstelar = new MapaEstelar(generarNumeroDeSistemas()); // Inicializa la lista de todo
-        this.naves = new ArrayList<>();
-        //this.armas = new ArrayList<>();
-        //this.escudos = new ArrayList<>();
-    }
+		this.mapaEstelar = new MapaEstelar(generarNumeroDeSistemas()); // Inicializa la lista de todo
+		this.naves = new ArrayList<>();
+		//this.armas = new ArrayList<>();
+		//this.escudos = new ArrayList<>();
+	}
 
 	private int generarNumeroDeSistemas(){
 		Random random = new Random();
@@ -100,7 +91,7 @@ public class GestorJuego {
 		Nave nave = buscarNave(idNave);
 		jugador.setNave(nave);
 	}
-	
+
 	private Nave buscarNave(String idNave) {
 		for (Nave nave : naves) {
 			if(nave.getId()==idNave) {
@@ -121,19 +112,19 @@ public class GestorJuego {
 		jugador.moverDeSistema(sistemaEstelar);
 	}
 
- /*
-	public Arma agregarArma(int poder, int precio, String id) {
-		Arma arma = new Arma(poder, precio, id);
-		armas.add(arma);
-		return arma;
-	}
-	
-	public Escudo agregarEscudo(int defensa, int precio, String id) {
-		Escudo escudo = new Escudo(defensa, precio, id);
-		escudos.add(escudo);	
-		return escudo;
-	}
-	*/
+	/*
+       public Arma agregarArma(int poder, int precio, String id) {
+           Arma arma = new Arma(poder, precio, id);
+           armas.add(arma);
+           return arma;
+       }
+
+       public Escudo agregarEscudo(int defensa, int precio, String id) {
+           Escudo escudo = new Escudo(defensa, precio, id);
+           escudos.add(escudo);
+           return escudo;
+       }
+       */
 	public void comprarArma1() {
 		this.jugador.comprarArma1();
 	}
@@ -159,7 +150,7 @@ public class GestorJuego {
 		}
 		throw new IllegalArgumentException("No se encontró un arma1 con el ID especificado: " + idArma);
 	}
-	
+
 	private Escudo buscarEscudo(String idEscudo) {
 		for (Escudo escudo : escudos) {
 			if(escudo.getId().equals(idEscudo) ) {
@@ -190,4 +181,3 @@ public class GestorJuego {
 		return this.mapaEstelar;
 	}
 }
-

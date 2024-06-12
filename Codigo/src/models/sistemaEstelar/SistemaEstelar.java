@@ -1,9 +1,6 @@
 package models.sistemaEstelar;
 import models.equipamiento.*;
-<<<<<<< Updated upstream
-=======
 import view.SistemaEstelarView;
->>>>>>> Stashed changes
 
 import java.util.List;
 import java.util.Random;
@@ -14,10 +11,6 @@ public class SistemaEstelar {
     private List<Planeta> planetas;
     private boolean tieneCinturon;
     private CinturonAsteroides cinturonAsteroides;
-<<<<<<< Updated upstream
-    private int combustible;
-=======
->>>>>>> Stashed changes
     private Random random = new Random();
 
     public SistemaEstelar(String nombre, List<Planeta> planetas, boolean tieneCinturon) {
@@ -28,10 +21,6 @@ public class SistemaEstelar {
             CinturonAsteroides cinturonAsteroides = new CinturonAsteroides();
             this.cinturonAsteroides = cinturonAsteroides;
         }
-<<<<<<< Updated upstream
-        this.combustible = random.nextInt(20)+21;
-=======
->>>>>>> Stashed changes
     }
 
     public String getNombre() {
@@ -59,12 +48,6 @@ public class SistemaEstelar {
         return this.cinturonAsteroides;
     }
 
-<<<<<<< Updated upstream
-    public int getCombustible(){
-        return this.combustible;
-    }
-=======
->>>>>>> Stashed changes
 
     public Planeta buscarPlanetaConTesoro(){
         for (Planeta planeta : planetas){
@@ -86,11 +69,8 @@ public class SistemaEstelar {
         planetas.add(planetaAliado);
         planetas.add(planetaHostil);
     }
-<<<<<<< Updated upstream
-=======
-/*
+
     public SistemaEstelarView toView(){
        return(new SistemaEstelarView(nombre, planetas, cinturonAsteroides));
-    }*/
->>>>>>> Stashed changes
+    }
 }
