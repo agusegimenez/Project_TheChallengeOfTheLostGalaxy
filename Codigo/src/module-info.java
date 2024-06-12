@@ -6,4 +6,5 @@
  *
  */
 module uadeoria {
+    requires java.desktop;
 }

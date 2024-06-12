@@ -166,6 +166,11 @@ public class Jugador {
 		System.out.println("Nombre de la nave " + this.nave.getId());
 		System.out.println("Nombre del arma1 " + this.nave.getArma1().getId());
 		System.out.println("Nombre del escudo " + this.nave.getEscudo().getId());
+<<<<<<< Updated upstream:Codigo/src/models/jugador/Jugador.java
+=======
+<<<<<<< Updated upstream:Codigo/src/jugador/Jugador.java
+=======
+>>>>>>> Stashed changes:Codigo/src/jugador/Jugador.java
 		System.out.println("Cantidad de combustible " + this.nave.getCombustible());
 	}
 
@@ -176,7 +181,10 @@ public class Jugador {
 	}
 
 	public void moverDeSistema(SistemaEstelar nuevoSistema){
+<<<<<<< Updated upstream:Codigo/src/models/jugador/Jugador.java
 		nave.viajarASistema(nuevoSistema.getCombustible());
+=======
+>>>>>>> Stashed changes:Codigo/src/jugador/Jugador.java
 		this.sistemaActual = nuevoSistema;
 		if(sistemaActual.tieneCinturon()){
 			CinturonAsteroides cinturonAsteroides = sistemaActual.getCinturonAsteroides();
@@ -192,6 +200,10 @@ public class Jugador {
 		}else{
 			System.out.println("Monedas insuficientes");
 		}
+<<<<<<< Updated upstream:Codigo/src/models/jugador/Jugador.java
+=======
+>>>>>>> Stashed changes:Codigo/src/models/jugador/Jugador.java
+>>>>>>> Stashed changes:Codigo/src/jugador/Jugador.java
 	}
 
 }

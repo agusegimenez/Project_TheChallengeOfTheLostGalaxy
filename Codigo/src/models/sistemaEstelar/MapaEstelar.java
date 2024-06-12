@@ -2,6 +2,10 @@ package models.sistemaEstelar;
 
 import models.equipamiento.Arma;
 import models.equipamiento.Escudo;
+<<<<<<< Updated upstream
+=======
+import view.MapaEstelarView;
+>>>>>>> Stashed changes
 
 import java.util.ArrayList;
 import java.util.List;
@@ -112,11 +116,22 @@ public class MapaEstelar {
         }
         throw new IllegalArgumentException("Id incorrecto");
     }
+<<<<<<< Updated upstream
 
+=======
+    //Borrar luego
+>>>>>>> Stashed changes
     public void agregarPlanetasASistemas(){
         SistemaEstelar sistemaEstelar1 = sistemas.getFirst();
         sistemaEstelar1.agregarPlanetas();
         SistemaEstelar sistemaEstelar2 = sistemas.get(1);
         sistemaEstelar2.agregarPlanetas();
     }
+<<<<<<< Updated upstream
+=======
+/*
+    public MapaEstelarView  toView(){
+        return(new MapaEstelarView(this.sistemas));
+    }*/
+>>>>>>> Stashed changes
 }
