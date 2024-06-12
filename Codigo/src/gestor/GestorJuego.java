@@ -5,7 +5,17 @@ import models.Nave.*;
 import models.sistemaEstelar.*;
 import java.util.ArrayList;
 import java.util.List;
+<<<<<<< Updated upstream
 import java.util.Random;
+=======
+<<<<<<< Updated upstream
+import equipamiento.*;
+import java.util.Scanner;
+=======
+import java.util.Map;
+import java.util.Random;
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 public class GestorJuego {
 	private static GestorJuego instancia;
@@ -174,6 +184,10 @@ public class GestorJuego {
 
 	public void repararNave(){
 		jugador.repararNave();
+	}
+
+	public MapaEstelar getMapaEstelar(){
+		return this.mapaEstelar;
 	}
 }
 
