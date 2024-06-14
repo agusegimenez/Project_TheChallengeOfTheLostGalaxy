@@ -16,10 +16,9 @@ public class Main {
         Jugador jugador = gestor.crearJugador("Nombre del Jugador");
         Nave naveAegis = gestor.crearNaveAegis("NaveAegis-001", 100, 200, 10);
         gestor.asignarNaveAJugador(naveAegis.getId());
-        
-        // Mostramos los atributos iniciales de la nave, arma1 y escudo
-        System.out.println("Arma actual de la nave: " + jugador.getNave().getArma1().getPoder() + " de poder");
-        System.out.println("Escudo actual de la nave: " + jugador.getNave().getEscudo().getProteccion() + " de protección");
+        gestor.agregarPlanetasDePrueba();
+        gestor.trasladarAPlaneta("Prueba Neutral");
+
         /*
         gestor.agregarPlanetasDePrueba();
         gestor.trasladarAPlaneta("Prueba Aliado");

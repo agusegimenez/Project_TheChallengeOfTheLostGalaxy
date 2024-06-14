@@ -6,12 +6,13 @@ import models.sistemaEstelar.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 
 
 public class GestorJuego {
 	private static GestorJuego instancia;
-	private MapaEstelar mapaEstelar;
-	private List<Nave> naves;
+	private final MapaEstelar mapaEstelar;
+	private final List<Nave> naves;
 	private Jugador jugador;
 	// private List<Arma> armas;
 	// private List<Escudo> escudos;
@@ -125,17 +126,18 @@ public class GestorJuego {
            return escudo;
        }
        */
-	public void comprarArma1() {
-		this.jugador.comprarArma1();
-	}
-	public void comprarArma2(){
-		this.jugador.comprarArma2();
+	public void comprarArma() {
+		this.jugador.comprarArma();
 	}
 	public void comprarEscudo() {
 		this.jugador.comprarEscudo();
 	}
-	public void venderArma(){
-		this.jugador.venderArma1();
+	public void venderArma() {
+			System.out.println("Seleccione el índice del arma que desea vender:");
+			Scanner scanner = new Scanner(System.in);
+			int indiceArma = scanner.nextInt();
+			// Llama al método venderArma de la clase Jugador pasando el índice
+			this.jugador.venderArma(indiceArma);
 	}
 	public void venderEscudo(){
 		this.jugador.venderEscudo();

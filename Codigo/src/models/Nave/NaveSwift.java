@@ -5,7 +5,14 @@ public class NaveSwift extends Nave {
     public NaveSwift(String id, int combustible, int vida, int velocidad) {
         super(id, combustible, vida, velocidad);
         // Asignar el resultado de calcularDañoNave a this.poderDeAtaque
-        this.poderDeAtaque = calcularDañoNave(this.arma1.getPoder());
+        int totalPoderArmas = 0;
+        for (int x = 0; x < armas.size(); x++) {
+            totalPoderArmas += armas.get(x).getPoder();
+        }
+
+        // Calcular el poder de ataque basado en el total de poder de las armas
+        int dañoCalculado = calcularDañoNave(totalPoderArmas);
+        this.poderDeAtaque = dañoCalculado;
     }
 
     @Override

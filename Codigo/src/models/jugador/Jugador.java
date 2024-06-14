@@ -5,6 +5,10 @@ import models.sistemaEstelar.*;
 import models.equipamiento.Arma;
 import models.equipamiento.Escudo;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
 
 public class Jugador {
 	private String idJugador;
@@ -37,24 +41,28 @@ public class Jugador {
 		return(this.cantidadUadeCoins);
 	}
 
+	public void venderArma(int indiceArmaUsuario) {
+		if (estoyEnPlanetaNeutral()) {
+			try {
+				// Restamos 1 al índice para adaptarlo a la indexación basada en 0
+				int indiceArma = indiceArmaUsuario - 1;
 
-    public void venderArma1() {
-    	if(estoyEnPlanetaNeutral()) {
-    		// Sumamos el precio del arma1 al total de Uadecoins del models.jugador
-        	cantidadUadeCoins += nave.getArma1().getPrecio();
-        	// Equipamos automáticamente un arma1 básica con atributos predeterminados
-        	nave.setArma1(new Arma(10, 0, "Arma Basica"));
-    	}
-    }
-
-	public void venderArma2() {
-		if(estoyEnPlanetaNeutral()) {
-			// Sumamos el precio del arma1 al total de Uadecoins del models.jugador
-			this.cantidadUadeCoins += nave.getArma2().getPrecio();
-			nave.noTiene2Armas();
-			nave.setPoderDeAtaque(nave.calcularDañoNave(nave.getArma1().getPoder()));
+				// Verificar si el índice está dentro del rango de la lista de armas.
+				if (indiceArma >= 0 && indiceArma < nave.getArmas().size()) {
+					Arma armaAVender = nave.getArmas().get(indiceArma);
+					// Sumamos el precio de la arma vendida al total de Uadecoins del jugador
+					cantidadUadeCoins += armaAVender.getPrecio();
+					// Eliminamos la arma de la lista de armas de la nave
+					nave.getArmas().remove(indiceArma);
+				} else {
+					throw new IllegalArgumentException("Índice de arma inválido. No se puede vender la arma.");
+				}
+			} catch (IllegalArgumentException e) {
+				System.out.println(e.getMessage());
+			}
 		}
 	}
+
 
     public void venderEscudo() {
         if(estoyEnPlanetaNeutral()) {
@@ -127,22 +135,26 @@ public class Jugador {
 		this.cantidadUadeCoins += cantidad - vidaPerdida;
 	}
 	
-	public void comprarArma1() {
+	public void comprarArma() {
 		Arma arma = planetaActual.getArma();
-		if(this.cantidadUadeCoins >= arma.getPrecio() && estoyEnPlanetaNeutral()) {
+		ArrayList<Arma> armasNave = this.nave.getArmas(); // Asume que getArmamentos() devuelve la lista de armas de la nave
+
+		// Ordenar la lista de armas de menor a mayor según el poder de la arma
+		armasNave.sort(Comparator.comparingInt(Arma::getPoder));
+
+		if (this.cantidadUadeCoins >= arma.getPrecio() && estoyEnPlanetaNeutral() && armasNave.size() < 2) {
 			restarUadeCoins(arma.getPrecio());
-			this.nave.setArma1(arma);
-		}
+			if (armasNave.size() == 1) {
+				// Si solo hay una arma, simplemente agregar la nueva arma
+				armasNave.add(arma);
+			} else if (armasNave.size() == 2) {
+				// Si hay 2 armas, reemplazar la arma en el índice 0 (la menos potente)
+				armasNave.set(0, arma);
+			}
+
+	}
 	}
 
-	public void comprarArma2(){
-		Arma arma = planetaActual.getArma();
-		if(this.cantidadUadeCoins >= arma.getPrecio() && estoyEnPlanetaNeutral()) {
-			restarUadeCoins(arma.getPrecio());
-			this.nave.setArma2(arma);
-		}
-	}
-	
 	public void comprarEscudo() {
 		Escudo escudo = planetaActual.getEscudo();
 		if(this.cantidadUadeCoins >= escudo.getPrecio() && estoyEnPlanetaNeutral()) {
@@ -164,7 +176,13 @@ public class Jugador {
 		System.out.println("Uadecoins totales " + this.cantidadUadeCoins);
 		System.out.println("Poder de ataque de la nave " + this.nave.getPoderDeAtaque());
 		System.out.println("Nombre de la nave " + this.nave.getId());
-		System.out.println("Nombre del arma1 " + this.nave.getArma1().getId());
+		// Imprimir nombre de todas las armas en el array
+		ArrayList<Arma> armasNave = this.nave.getArmas();
+		System.out.println("Nombres de armas:");
+		for (Arma arma : armasNave) {
+			System.out.println("- " + arma.getId());
+		}
+
 		System.out.println("Nombre del escudo " + this.nave.getEscudo().getId());
 		System.out.println("Cantidad de combustible " + this.nave.getCombustible());
 	}
