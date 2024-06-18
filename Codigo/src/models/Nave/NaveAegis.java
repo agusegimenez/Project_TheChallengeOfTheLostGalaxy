@@ -3,10 +3,11 @@ package models.Nave;
 public class NaveAegis extends Nave {
 
 
-    public NaveAegis(String id, int combustible, int vida, int velocidad) {
-        super(id, combustible, vida, velocidad);
+    public NaveAegis( int combustible, int vida, int velocidad) {
+        super(combustible, vida, velocidad);
         // Iterar sobre todas las armas y sumar sus poderes
         int totalPoderArmas = 0;
+        setNombreNave("Nave-Aegis-"+getId().toString());
         for (int x = 0; x < armas.size(); x++) {
             totalPoderArmas += armas.get(x).getPoder();
         }

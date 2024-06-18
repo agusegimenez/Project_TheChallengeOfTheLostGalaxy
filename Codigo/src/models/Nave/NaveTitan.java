@@ -1,9 +1,11 @@
 package models.Nave;
 
 public class NaveTitan extends Nave{
-    public NaveTitan(String id, int combustible, int vida, int velocidad) {
-        super(id, combustible, vida, velocidad);
+    public NaveTitan(int combustible, int vida, int velocidad) {
+        super(combustible, vida, velocidad);
         int totalPoderArmas = 0;
+        setNombreNave("Nave-Titan-"+getId().toString());
+
         for (int x = 0; x < armas.size(); x++) {
             totalPoderArmas += armas.get(x).getPoder();
         }

@@ -1,14 +1,14 @@
 package view;
 
 public class NaveView {
-    private String id;
+    private Long id;
     private int combustible;
     private int vida;
     private int velocidad;
     private int poderDeAtaque;
-    private int escudoActual
+    private int escudoActual;
 
-    public NaveView(String id, int combustible, int vida, int velocidad, int poderDeAtaque, int escudoActual) {
+    public NaveView(Long id, int combustible, int vida, int velocidad, int poderDeAtaque, int escudoActual) {
         this.id = id;
         this.combustible = combustible;
         this.vida = vida;
@@ -17,7 +17,7 @@ public class NaveView {
         this.escudoActual = escudoActual;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 

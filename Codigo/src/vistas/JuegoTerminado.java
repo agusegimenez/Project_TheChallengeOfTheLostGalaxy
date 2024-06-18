@@ -18,7 +18,7 @@ public class JuegoTerminado extends JFrame {
 
         estadisticas.append("Estadisticas:" + "\n");
         estadisticas.append("Cantidad de monedas obtenidas " + jugador.getUadeCoins() + "\n");
-        estadisticas.append("Nave utilizada  " + jugador.getNombreNave() + "\n");
+        estadisticas.append("Nave utilizada  " + jugador.getNombreNave()+ "\n");
         estadisticas.append("Nombre del arma " + jugador.getNombreArma() + "\n");
         estadisticas.append("Nombre del escudo " + jugador.getNombreEscudo() + "\n");
         estadisticas.append("Poder de ataque final " + jugador.getPoderDeAtaque() + "\n");

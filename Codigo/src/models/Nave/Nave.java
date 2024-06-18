@@ -4,7 +4,9 @@ import models.equipamiento.*;
 import view.NaveView;
 
 public abstract class Nave {
-    protected String id;
+    protected static long nextId = 0L; // Contador inicializado en 0L
+    protected Long id;
+    protected String nombreNave;
     protected int combustible;
     protected int vida;
     protected int velocidad;
@@ -13,12 +15,12 @@ public abstract class Nave {
     protected int poderDeAtaque;
     protected final int vidaMaxima;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    private Long generateUniqueId() {
+        return ++nextId; // Incrementa el contador antes de retornarlo
     }
 
     public int getCombustible() {
@@ -79,8 +81,8 @@ public abstract class Nave {
         this.poderDeAtaque = poderDeAtaque;
     }
 
-    public Nave(String id, int combustible, int vida, int velocidad) {
-        this.id = id;
+    public Nave(int combustible, int vida, int velocidad) {
+        this.id = generateUniqueId();
         this.combustible = combustible;
         this.vidaMaxima = vida;
         this.vida = vidaMaxima;
@@ -129,6 +131,14 @@ public abstract class Nave {
     public void reparar() {
         this.vida = this.vidaMaxima;
         this.escudo.reparar();
+    }
+
+    public String getNombreNave() {
+        return nombreNave;
+    }
+
+    public void setNombreNave(String nombreNave) {
+        this.nombreNave = nombreNave;
     }
 
     public NaveView toView(){

@@ -15,7 +15,7 @@ public class Main {
 
         // Creamos un models.jugador y una nave Aegis (se generan con un arma1 y escudo default)
         Jugador jugador = gestor.crearJugador("Nombre del Jugador");
-        Nave naveAegis = gestor.crearNaveAegis("NaveAegis-001", 100, 200, 10);
+        Nave naveAegis = gestor.crearNaveAegis( 100, 200, 10);
         gestor.asignarNaveAJugador(naveAegis.getId());
         gestor.agregarPlanetasDePrueba();
         gestor.trasladarAPlaneta("Prueba Neutral");

@@ -64,36 +64,36 @@ public class GestorJuego {
 	}
 	 */
 
-	public Nave crearNaveAegis(String id, int combustible, int vida, int velocidad) {
-		NaveAegis naveAegis = new NaveAegis(id, combustible, vida, velocidad);
+	public Nave crearNaveAegis(int combustible, int vida, int velocidad) {
+		NaveAegis naveAegis = new NaveAegis(combustible, vida, velocidad);
 		naves.add(naveAegis);
 		return(naveAegis);
 	}
 
-	public Nave crearNaveSwift(String id, int combustible, int vida, int velocidad) {
-		NaveSwift naveSwift = new NaveSwift(id, combustible, vida, velocidad);
+	public Nave crearNaveSwift(int combustible, int vida, int velocidad) {
+		NaveSwift naveSwift = new NaveSwift(combustible, vida, velocidad);
 		naves.add(naveSwift);
 		return(naveSwift);
 	}
 
-	public Nave crearNavePhantom(String id, int combustible, int vida, int velocidad){
-		NavePhantom navePhantom = new NavePhantom(id, combustible, vida, velocidad);
+	public Nave crearNavePhantom(int combustible, int vida, int velocidad){
+		NavePhantom navePhantom = new NavePhantom(combustible, vida, velocidad);
 		naves.add(navePhantom);
 		return(navePhantom);
 	}
 
-	public Nave crearNaveTitan(String id, int combustible, int vida, int velocidad){
-		NaveTitan naveTitan = new NaveTitan(id, combustible,vida,velocidad);
+	public Nave crearNaveTitan(int combustible, int vida, int velocidad){
+		NaveTitan naveTitan = new NaveTitan(combustible,vida,velocidad);
 		naves.add(naveTitan);
 		return(naveTitan);
 	}
 
-	public void asignarNaveAJugador(String idNave) {
+	public void asignarNaveAJugador(Long idNave) {
 		Nave nave = buscarNave(idNave);
 		jugador.setNave(nave);
 	}
 
-	private Nave buscarNave(String idNave) {
+	private Nave buscarNave(Long idNave) {
 		for (Nave nave : naves) {
 			if(nave.getId()==idNave) {
 				return(nave);

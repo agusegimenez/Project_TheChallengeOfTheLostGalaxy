@@ -218,7 +218,7 @@ public class Jugador {
 	public JugadorView toView(){
 		ArrayList<Arma> armas = nave.getArmas();
 		Arma arma = armas.getFirst();
-		return new JugadorView(cantidadUadeCoins, nave.getId(), arma.getId(), nave.getEscudo().getId(), nave.getPoderDeAtaque(), cantidadDeEnemigosDerrotados);
+		return new JugadorView(cantidadUadeCoins, nave.getNombreNave(), arma.getId(), nave.getEscudo().getId(), nave.getPoderDeAtaque(), cantidadDeEnemigosDerrotados);
 	}
 
 }
