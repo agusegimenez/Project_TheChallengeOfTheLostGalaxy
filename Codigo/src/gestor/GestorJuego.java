@@ -20,6 +20,7 @@ public class GestorJuego {
 	private GestorJuego() {
 		this.mapaEstelar = new MapaEstelar(generarNumeroDeSistemas()); // Inicializa la lista de todo
 		this.naves = new ArrayList<>();
+		instanciarNaves();
 		//this.armas = new ArrayList<>();
 		//this.escudos = new ArrayList<>();
 	}
@@ -63,6 +64,13 @@ public class GestorJuego {
 		return(planeta);
 	}
 	 */
+	public void instanciarNaves(){
+		crearNaveAegis("Nave Aegis", 100, 150, 10);
+		crearNaveSwift("Nave Swift", 100, 100, 15);
+		crearNavePhantom("Nave Phantom", 100, 150, 15);
+		crearNaveTitan("Nave Titan", 150, 200, 10);
+	}
+
 
 	public Nave crearNaveAegis(int combustible, int vida, int velocidad) {
 		NaveAegis naveAegis = new NaveAegis(combustible, vida, velocidad);
@@ -184,5 +192,8 @@ public class GestorJuego {
 	}
 	public Jugador getJugador(){
 		return this.jugador;
+	}
+	public List<Nave> getNaves(){
+		return naves;
 	}
 }

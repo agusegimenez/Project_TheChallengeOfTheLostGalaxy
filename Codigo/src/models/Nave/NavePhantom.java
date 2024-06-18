@@ -16,7 +16,7 @@ public class NavePhantom extends Nave{
 
     @Override
     public int calcularDañoNave(int poderDeArma) {
-        return (velocidad * poderDeArma) - combustible;
+        return (velocidad * poderDeArma);
     }
 
     @Override
@@ -26,6 +26,16 @@ public class NavePhantom extends Nave{
 
     @Override
     public boolean esTitan() {
+        return false;
+    }
+
+    @Override
+    public boolean esSwift() {
+        return false;
+    }
+
+    @Override
+    public boolean esAegis() {
         return false;
     }
 }

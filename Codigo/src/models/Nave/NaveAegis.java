@@ -32,5 +32,15 @@ public class NaveAegis extends Nave {
         return false;
     }
 
+    @Override
+    public boolean esSwift() {
+        return false;
+    }
+
+    @Override
+    public boolean esAegis() {
+        return true;
+    }
+
 
 }

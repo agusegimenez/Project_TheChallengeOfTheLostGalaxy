@@ -1,10 +1,12 @@
 package main;
 
+import controller.NaveController;
 import gestor.GestorJuego;
 import models.jugador.Jugador;
 import models.Nave.Nave;
 import vistas.JuegoTerminado;
 import vistas.MostrarMapaEstelar;
+import vistas.SeleccionarNave;
 
 import javax.swing.*;
 
@@ -43,6 +45,10 @@ public class Main {
         });
         SwingUtilities.invokeLater(() -> {
             JuegoTerminado juego = new JuegoTerminado(gestor.getJugador().toView());
+        });
+        SwingUtilities.invokeLater(() -> {
+            NaveController controller = new NaveController();
+            SeleccionarNave seleccionNave = new SeleccionarNave(controller.getNaveViews());
         });
     }
 }
