@@ -1,6 +1,7 @@
 package models.Nave;
 import java.util.ArrayList;
 import models.equipamiento.*;
+import view.NaveView;
 
 public abstract class Nave {
     protected String id;
@@ -11,7 +12,6 @@ public abstract class Nave {
     protected Escudo escudo;
     protected int poderDeAtaque;
     protected final int vidaMaxima;
-    protected boolean tiene2Armas = false;
 
     public String getId() {
         return id;
@@ -110,7 +110,7 @@ public abstract class Nave {
     }
 
     public void viajarAPlaneta(int combustible) {
-        if (!tiene2Armas || armas.size() < 2) {
+        if (armas.size() < 2) {
             combustible = combustible * 2;
         }
         if (this.combustible >= combustible) {
@@ -131,7 +131,7 @@ public abstract class Nave {
         this.escudo.reparar();
     }
 
-    public void noTiene2Armas() {
-        this.tiene2Armas = false;
+    public NaveView toView(){
+        return new NaveView(id, combustible, vida, velocidad, poderDeAtaque, getEscudo().getProteccion());
     }
 }

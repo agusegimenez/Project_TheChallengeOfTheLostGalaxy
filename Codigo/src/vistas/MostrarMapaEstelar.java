@@ -17,6 +17,7 @@ public class MostrarMapaEstelar extends JFrame {
         setSize(700,700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        setVisible(true);
 
         JTextArea textArea = new JTextArea();
         textArea.setEditable(false);
@@ -36,6 +37,7 @@ public class MostrarMapaEstelar extends JFrame {
             textArea.append("\n");
         }
         // Leyenda de combustible
+
         textArea.append("\n");
         textArea.append("Viajar a un planeta hostil consume 20 de combustible" + "\n");
         textArea.append("Viajar a un planeta aliado consume 15 de combustible" + "\n");

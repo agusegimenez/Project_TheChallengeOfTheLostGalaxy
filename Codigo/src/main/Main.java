@@ -3,6 +3,7 @@ package main;
 import gestor.GestorJuego;
 import models.jugador.Jugador;
 import models.Nave.Nave;
+import vistas.JuegoTerminado;
 import vistas.MostrarMapaEstelar;
 
 import javax.swing.*;
@@ -39,7 +40,9 @@ public class Main {
         gestor.mostrarMapaEstelar();
         SwingUtilities.invokeLater(() -> {
             MostrarMapaEstelar frame = new MostrarMapaEstelar(gestor.getMapaEstelar().toView());
-            frame.setVisible(true);
+        });
+        SwingUtilities.invokeLater(() -> {
+            JuegoTerminado juego = new JuegoTerminado(gestor.getJugador().toView());
         });
     }
 }

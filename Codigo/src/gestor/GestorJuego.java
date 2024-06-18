@@ -182,4 +182,7 @@ public class GestorJuego {
 	public MapaEstelar getMapaEstelar(){
 		return this.mapaEstelar;
 	}
+	public Jugador getJugador(){
+		return this.jugador;
+	}
 }

@@ -4,6 +4,7 @@ import models.Nave.*;
 import models.sistemaEstelar.*;
 import models.equipamiento.Arma;
 import models.equipamiento.Escudo;
+import view.JugadorView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,6 +17,7 @@ public class Jugador {
 	private int cantidadUadeCoins = 10000;
 	private Planeta planetaActual;
 	private SistemaEstelar sistemaActual;
+	private int cantidadDeEnemigosDerrotados = 0;
 
 	public Planeta getPlanetaActual() {
 		return(this.planetaActual);
@@ -73,7 +75,7 @@ public class Jugador {
         }
     }
 	
-	public void disparar(Enemigo enemigo) {
+	private void disparar(Enemigo enemigo) {
 		int poderAtaqueNave = nave.getPoderDeAtaque();
 		enemigo.recibirDaño(poderAtaqueNave);
 		System.out.println("Se le infringió al enemigo "+ poderAtaqueNave + " puntos de daño");
@@ -119,6 +121,7 @@ public class Jugador {
 		if (nave.getVida() > 0) {
 			sumarUadeCoins(enemigo.getUadeCoins(), vidaActual - nave.getVida());
 			System.out.println("Enemigo vencido, vida total perdida: " + (vidaActual - nave.getVida()));
+			cantidadDeEnemigosDerrotados ++;
 			if (planetaActual.tieneTesoro()) {
 				System.out.println("Encontraste el tesoro, juego terminado");
 			}
@@ -210,6 +213,12 @@ public class Jugador {
 			System.out.println("Monedas insuficientes");
 		}
 
+	}
+
+	public JugadorView toView(){
+		ArrayList<Arma> armas = nave.getArmas();
+		Arma arma = armas.getFirst();
+		return new JugadorView(cantidadUadeCoins, nave.getId(), arma.getId(), nave.getEscudo().getId(), nave.getPoderDeAtaque(), cantidadDeEnemigosDerrotados);
 	}
 
 }
