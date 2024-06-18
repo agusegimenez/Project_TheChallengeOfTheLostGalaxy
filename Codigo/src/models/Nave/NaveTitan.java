@@ -15,7 +15,7 @@ public class NaveTitan extends Nave{
 
     @Override
     public int calcularDañoNave(int poderDeArma) {
-        return (vidaMaxima * poderDeArma) - velocidad;
+        return (vidaMaxima * poderDeArma)/ velocidad;
     }
 
 
@@ -27,6 +27,16 @@ public class NaveTitan extends Nave{
     @Override
     public boolean esTitan() {
         return true;
+    }
+
+    @Override
+    public boolean esSwift() {
+        return false;
+    }
+
+    @Override
+    public boolean esAegis() {
+        return false;
     }
 
 }

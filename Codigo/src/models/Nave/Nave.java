@@ -126,6 +126,10 @@ public abstract class Nave {
 
     public abstract boolean esTitan();
 
+    public abstract boolean esSwift();
+
+    public abstract  boolean esAegis();
+
     public void reparar() {
         this.vida = this.vidaMaxima;
         this.escudo.reparar();

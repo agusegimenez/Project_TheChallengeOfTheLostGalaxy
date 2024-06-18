@@ -6,7 +6,7 @@ public class NaveView {
     private int vida;
     private int velocidad;
     private int poderDeAtaque;
-    private int escudoActual
+    private int escudoActual;
 
     public NaveView(String id, int combustible, int vida, int velocidad, int poderDeAtaque, int escudoActual) {
         this.id = id;
