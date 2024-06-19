@@ -30,7 +30,7 @@ public class PlanetaNeutral extends Planeta{
 	}
 
 	@Override
-	public void desplegarInformacion(MapaEstelar mapa) {
+	public SistemaEstelar desplegarInformacion(MapaEstelar mapa) {
 		throw new IllegalArgumentException("");
 	}
 

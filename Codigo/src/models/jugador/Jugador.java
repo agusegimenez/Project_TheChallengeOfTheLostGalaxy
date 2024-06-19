@@ -82,9 +82,11 @@ public class Jugador {
 	}
 	
 	public void recargarCombustible(int cantidadCombustible) {
-		if(this.cantidadUadeCoins >= cantidadCombustible && estoyEnPlanetaNeutral()) {
+		if(this.cantidadUadeCoins >= cantidadCombustible && planetaActual.soyAliado()){
 			nave.cargarCombustible(cantidadCombustible);
 			restarUadeCoins(cantidadCombustible);
+		}else{
+			throw new IllegalArgumentException();
 		}
 	}
 	
@@ -205,12 +207,12 @@ public class Jugador {
 		System.out.println("El jugador se ha movido a: " + nuevoSistema.getNombre());
 	}
 
-	public void comprarInformacion(MapaEstelar mapaEstelar){
+	public SistemaEstelar comprarInformacion(MapaEstelar mapaEstelar){
 		if(planetaActual.soyAliado() && cantidadUadeCoins >= planetaActual.getPrecioInformacion()){
 			restarUadeCoins(planetaActual.getPrecioInformacion());
-			planetaActual.desplegarInformacion(mapaEstelar);
+			return planetaActual.desplegarInformacion(mapaEstelar);
 		}else{
-			System.out.println("Monedas insuficientes");
+			throw new IllegalArgumentException();
 		}
 
 	}

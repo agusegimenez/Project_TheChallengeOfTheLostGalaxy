@@ -46,12 +46,13 @@ public class PlanetaAliado extends Planeta{
     }
 
     @Override
-    public void desplegarInformacion(MapaEstelar mapa) {
+    public SistemaEstelar desplegarInformacion(MapaEstelar mapa) {
         SistemaEstelar sistemaEstelar = mapa.buscarSistemaConTesoro();
         if (sistemaEstelar != null) {
-            System.out.println("El sistema que tiene tesoro es " + sistemaEstelar.getNombre());
-        } else {
-            System.out.println("Actualmente no hay planetas el cual tengan tesoro");
+            return sistemaEstelar;
+        }else{
+            throw new IllegalArgumentException();
         }
+
     }
 }

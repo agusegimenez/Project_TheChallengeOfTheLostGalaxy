@@ -16,7 +16,7 @@ public class EstadoDeLaNave extends JFrame {
         setVisible(true);
         JTextArea estado = new JTextArea();
 
-        estado.append("Nombre de la nave " + nave.getId() + "\n");
+        estado.append("Nombre de la nave " + nave.getNombre() + "\n");
         estado.append("Vida actual " + nave.getVida() + "\n");
         estado.append("Escudo actual " + nave.getEscudoActual() + "\n");
         estado.append("Combustible restante " + nave.getCombustible() + "\n");

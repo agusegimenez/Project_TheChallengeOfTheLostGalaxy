@@ -43,8 +43,8 @@ public class PlanetaHostil extends Planeta{
 	}
 
 	@Override
-	public void desplegarInformacion(MapaEstelar mapa) {
-		throw new IllegalArgumentException("");
+	public SistemaEstelar desplegarInformacion(MapaEstelar mapa) {
+		throw new IllegalArgumentException();
 	}
 
 	private boolean definirSiTieneTesoro() {

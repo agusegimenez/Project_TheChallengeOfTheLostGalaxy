@@ -4,9 +4,8 @@ import controller.NaveController;
 import gestor.GestorJuego;
 import models.jugador.Jugador;
 import models.Nave.Nave;
-import vistas.JuegoTerminado;
-import vistas.MostrarMapaEstelar;
-import vistas.SeleccionarNave;
+import models.sistemaEstelar.PlanetaAliado;
+import vistas.*;
 
 import javax.swing.*;
 
@@ -48,7 +47,15 @@ public class Main {
         });
         SwingUtilities.invokeLater(() -> {
             NaveController controller = new NaveController();
-            SeleccionarNave seleccionNave = new SeleccionarNave(controller.getNaveViews());
+            SeleccionarNaveVista seleccionNave = new SeleccionarNaveVista(controller.getNaveViews());
+        });
+        SwingUtilities.invokeLater(() -> {
+
+            PlanetaAliadoVista planetaAliadoVista = new PlanetaAliadoVista(1);
+        });
+        SwingUtilities.invokeLater(() -> {
+            NaveController controller = new NaveController();
+            EstadoDeLaNave estado = new EstadoDeLaNave(controller.getNaveJugadorView());
         });
     }
 }

@@ -65,10 +65,10 @@ public class GestorJuego {
 	}
 	 */
 	public void instanciarNaves(){
-		crearNaveAegis("Nave Aegis", 100, 150, 10);
-		crearNaveSwift("Nave Swift", 100, 100, 15);
-		crearNavePhantom("Nave Phantom", 100, 150, 15);
-		crearNaveTitan("Nave Titan", 150, 200, 10);
+		crearNaveAegis( 100, 150, 10);
+		crearNavePhantom( 100, 150, 15);
+		crearNaveTitan( 150, 200, 10);
+		crearNaveSwift( 100, 100, 15);
 	}
 
 
@@ -175,8 +175,8 @@ public class GestorJuego {
 		mapaEstelar.mostrarSistemas();
 	}
 
-	public void comprarInformacion(){
-		jugador.comprarInformacion(mapaEstelar);
+	public SistemaEstelar comprarInformacion(){
+		return(jugador.comprarInformacion(mapaEstelar));
 	}
 
 	public void agregarPlanetasDePrueba(){
@@ -195,5 +195,8 @@ public class GestorJuego {
 	}
 	public List<Nave> getNaves(){
 		return naves;
+	}
+	public void cargarCombustible(int cantidad){
+		jugador.recargarCombustible(cantidad);
 	}
 }

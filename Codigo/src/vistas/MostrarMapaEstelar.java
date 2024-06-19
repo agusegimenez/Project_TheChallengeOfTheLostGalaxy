@@ -14,7 +14,7 @@ public class MostrarMapaEstelar extends JFrame {
 
     public MostrarMapaEstelar(MapaEstelarView mapaEstelar){
         super("Planetas disponibles");
-        setSize(700,700);
+        setSize(650,650);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);

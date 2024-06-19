@@ -10,7 +10,7 @@ public class JuegoTerminado extends JFrame {
     public JuegoTerminado(JugadorView jugador){
         super("Juego Terminado");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(650,650);
+        setSize(400,400);
         setLocationRelativeTo(null);
         setVisible(true);
 

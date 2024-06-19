@@ -146,6 +146,6 @@ public abstract class Nave {
     }
 
     public NaveView toView(){
-        return new NaveView(id, combustible, vida, velocidad, poderDeAtaque, getEscudo().getProteccion());
+        return new NaveView(nombreNave, combustible, vida, velocidad, poderDeAtaque, getEscudo().getProteccion());
     }
 }

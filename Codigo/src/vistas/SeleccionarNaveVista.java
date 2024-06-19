@@ -1,6 +1,7 @@
 package vistas;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
 import controller.NaveController;
 import view.NaveView;
 
-public class SeleccionarNave extends JFrame{
+public class SeleccionarNaveVista extends JFrame{
 
     private JButton botonAegis;
     private JButton botonTitan;
@@ -24,8 +25,9 @@ public class SeleccionarNave extends JFrame{
     private JTextArea textPhantom;
     private JTextArea textSwift;
     private JTextArea textTitan;
+    private JPanel rootpane;
 
-    public SeleccionarNave(List<NaveView> naves){
+    public SeleccionarNaveVista(List<NaveView> naves){
 
         super("Seleccionar Nave");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -33,9 +35,9 @@ public class SeleccionarNave extends JFrame{
         setLocationRelativeTo(null);
         setVisible(true);
 
-        JPanel panel = new JPanel();
+        setContentPane(rootpane);
         NaveController controller = new NaveController();
-        // reemplazar este metodo
+
         mostrarNaves(textAegis, naves.getFirst());
         mostrarNaves(textSwift, naves.get(1));
         mostrarNaves(textPhantom, naves.get(2));
@@ -67,23 +69,10 @@ public class SeleccionarNave extends JFrame{
 
             }
         });
-        panel.add(panelAegis);
-        panel.add(panelPhantom);
-        panel.add(panelSwift);
-        panel.add(panelTitan);
-        panel.add(textAegis);
-        panel.add(textPhantom);
-        panel.add(textTitan);
-        panel.add(textSwift);
-        panel.add(botonAegis);
-        panel.add(botonPhantom);
-        panel.add(botonTitan);
-        panel.add(botonSwift);
-        add(panel);
     }
 
     private void mostrarNaves(JTextArea area, NaveView nave){
-        area.append(nave.getId() + "\n");
+        area.append(nave.getNombre() + "\n");
         area.append("Vida de la nave "+nave.getVida() + "\n");
         area.append("Combustible inicial "+nave.getCombustible() + "\n");
         area.append("Velocidad "+nave.getVelocidad() + "\n");

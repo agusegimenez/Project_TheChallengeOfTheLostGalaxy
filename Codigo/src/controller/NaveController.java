@@ -51,4 +51,8 @@ public class NaveController {
         return naveViews;
     }
 
+    public NaveView getNaveJugadorView(){
+        return  GestorJuego.getInstancia().getJugador().getNave().toView();
+    }
+
 }
