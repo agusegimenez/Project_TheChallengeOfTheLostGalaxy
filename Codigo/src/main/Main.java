@@ -1,9 +1,11 @@
 package main;
 
 import controller.NaveController;
+import controller.PlanetaController;
 import gestor.GestorJuego;
 import models.jugador.Jugador;
 import models.Nave.Nave;
+import models.sistemaEstelar.Planeta;
 import models.sistemaEstelar.PlanetaAliado;
 import vistas.*;
 
@@ -50,12 +52,16 @@ public class Main {
             SeleccionarNaveVista seleccionNave = new SeleccionarNaveVista(controller.getNaveViews());
         });
         SwingUtilities.invokeLater(() -> {
-
-            PlanetaAliadoVista planetaAliadoVista = new PlanetaAliadoVista(1);
+            Planeta planeta = gestor.trasladarAPlaneta("Prueba Aliado");
+            PlanetaAliadoVista planetaAliadoVista = new PlanetaAliadoVista(planeta.toView());
         });
         SwingUtilities.invokeLater(() -> {
             NaveController controller = new NaveController();
             EstadoDeLaNave estado = new EstadoDeLaNave(controller.getNaveJugadorView());
+        });
+        SwingUtilities.invokeLater(() -> {
+            Planeta planeta = gestor.trasladarAPlaneta("Prueba Neutral");
+            PlanetaNeutralVista neutralVista = new PlanetaNeutralVista(planeta.toView());
         });
     }
 }

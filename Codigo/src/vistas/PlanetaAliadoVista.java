@@ -1,6 +1,7 @@
 package vistas;
 
 import controller.PlanetaController;
+import view.PlanetaView;
 import view.SistemaEstelarView;
 
 import javax.swing.*;
@@ -18,15 +19,16 @@ public class PlanetaAliadoVista extends JFrame{
     private JTextArea textRepararNave;
     private JTextArea textPrecioInformacion;
 
-    public PlanetaAliadoVista(int precioInformacion) {
-        super("Planeta aliado");
+    public PlanetaAliadoVista(PlanetaView planeta) {
+        super("Planeta aliado"+ planeta.getNombre());
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(400,400);
+        setSize(650,650);
         setLocationRelativeTo(null);
         setVisible(true);
         PlanetaController controller = new PlanetaController();
         setContentPane(panel1);
 
+        // Ver como pasarle el precio de la informacion
 
         cargarCombustibleButton.addActionListener(new ActionListener() {
             @Override

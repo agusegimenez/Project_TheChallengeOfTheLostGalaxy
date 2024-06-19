@@ -110,10 +110,10 @@ public class GestorJuego {
 		throw new IllegalArgumentException("No se encontró una nave con el ID especificado: " + idNave);
 	}
 
-	public void trasladarAPlaneta(String idPlaneta) {
+	public Planeta trasladarAPlaneta(String idPlaneta) {
 		Planeta planeta = mapaEstelar.buscarPlaneta(idPlaneta);
 		SistemaEstelar sistemaEstelar = mapaEstelar.buscarSistemaEnPlaneta(idPlaneta);
-		jugador.visitarPlaneta(planeta, sistemaEstelar);
+		return jugador.visitarPlaneta(planeta, sistemaEstelar);
 	}
 
 	public void trasladarDeSistema(String idSistema) {

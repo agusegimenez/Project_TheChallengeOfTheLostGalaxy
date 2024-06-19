@@ -7,7 +7,6 @@ import models.equipamiento.Escudo;
 import view.JugadorView;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 
 
@@ -90,7 +89,7 @@ public class Jugador {
 		}
 	}
 	
-	public void visitarPlaneta(Planeta planeta, SistemaEstelar sistemaActual) {
+	public Planeta visitarPlaneta(Planeta planeta, SistemaEstelar sistemaActual) {
 		this.planetaActual = planeta;
 		this.sistemaActual = sistemaActual;
 		nave.viajarAPlaneta(planeta.getCostoDeCombustible());
@@ -98,6 +97,7 @@ public class Jugador {
 		if(planetaActual.soyHostil()){
 			encuentroConEnemigo();
 		}
+		return planeta;
 	}
 
 	public void atravesarCinturon(int poderDelCinturon){
@@ -157,7 +157,9 @@ public class Jugador {
 				armasNave.set(0, arma);
 			}
 
-	}
+		}else{
+			throw new IllegalArgumentException();
+		}
 	}
 
 	public void comprarEscudo() {
@@ -167,7 +169,7 @@ public class Jugador {
 			venderEscudo();
 			this.nave.setEscudo(escudo);
 		}else {
-			System.out.println("Imposible realizar compra, uadeCoins insuficientes");
+			throw new IllegalArgumentException();
 		}
 	}
 	

@@ -1,5 +1,7 @@
 package models.equipamiento;
 
+import view.EscudoView;
+
 public class Escudo {
 	private int proteccion;
 	private int uadeCoin;
@@ -31,5 +33,8 @@ public class Escudo {
 
 	public void reparar(){
 		this.proteccion = proteccionMaxima;
+	}
+	public EscudoView toView(){
+		return new EscudoView(uadeCoin, proteccionMaxima, id);
 	}
 }
