@@ -31,16 +31,36 @@ public class PlanetaController {
     public void comprarEscudo(){
         GestorJuego.getInstancia().comprarEscudo();
     }
-    /*
-    public int conseguirPrecioInformacion(PlanetaView planetaView){
 
+    public void venderEscudo(){
+        GestorJuego.getInstancia().venderEscudo();
     }
+    public void venderArma(){
+        GestorJuego.getInstancia().venderArma();
+    }
+
+    public ArmaView getArmaView(){
+        return GestorJuego.getInstancia().getJugador().getPlanetaActual().getArma().toView();
+    }
+    public EscudoView getEscudoView(){
+        return GestorJuego.getInstancia().getJugador().getPlanetaActual().getEscudo().toView();
+    }
+    public PlanetaView getPlanetaActualView(){
+        return GestorJuego.getInstancia().getJugador().getPlanetaActual().toView();
+    }
+
+    public int getPrecioInformacion(){
+        return GestorJuego.getInstancia().getJugador().getPlanetaActual().getPrecioInformacion();
+    }
+    /*
+
     public ArmaView conseguirArmaView(PlanetaView planetaView){
 
     }
     public EscudoView conseguirEscudoView(PlanetaView planetaView){
 
     }
-    
-     */
+
+    */
+
 }

@@ -19,28 +19,28 @@ public class NaveController {
     public void asignarNaveAegis(){
         for(Nave nave : naves){
             if(nave.esAegis()){
-                GestorJuego.getInstancia().asignarNaveAJugador(nave.getId());
+                GestorJuego.getInstancia().asignarNaveAJugador(nave.getNombreNave());
             }
         }
     }
     public void asignarNavePhantom(){
         for(Nave nave : naves){
             if(nave.esPhantom()){
-                GestorJuego.getInstancia().asignarNaveAJugador(nave.getId());
+                GestorJuego.getInstancia().asignarNaveAJugador(nave.getNombreNave());
             }
         }
     }
     public void asignarNaveTitan(){
         for(Nave nave : naves){
             if(nave.esTitan()){
-                GestorJuego.getInstancia().asignarNaveAJugador(nave.getId());
+                GestorJuego.getInstancia().asignarNaveAJugador(nave.getNombreNave());
             }
         }
     }
     public void asignarNaveSwift(){
         for(Nave nave : naves){
             if(nave.esSwift()){
-                GestorJuego.getInstancia().asignarNaveAJugador(nave.getId());
+                GestorJuego.getInstancia().asignarNaveAJugador(nave.getNombreNave());
             }
         }
     }

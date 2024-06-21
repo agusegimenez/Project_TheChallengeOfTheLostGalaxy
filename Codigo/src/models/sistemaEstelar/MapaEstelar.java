@@ -118,13 +118,6 @@ public class MapaEstelar {
         }
         throw new IllegalArgumentException("Id incorrecto");
     }
-    //Borrar luego
-    public void agregarPlanetasASistemas(){
-        SistemaEstelar sistemaEstelar1 = sistemas.getFirst();
-        sistemaEstelar1.agregarPlanetas();
-        SistemaEstelar sistemaEstelar2 = sistemas.get(1);
-        sistemaEstelar2.agregarPlanetas();
-    }
 
     public MapaEstelarView  toView(){
         return(new MapaEstelarView(this.sistemas));

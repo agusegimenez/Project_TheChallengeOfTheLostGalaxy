@@ -96,18 +96,18 @@ public class GestorJuego {
 		return(naveTitan);
 	}
 
-	public void asignarNaveAJugador(Long idNave) {
+	public void asignarNaveAJugador(String idNave) {
 		Nave nave = buscarNave(idNave);
 		jugador.setNave(nave);
 	}
 
-	private Nave buscarNave(Long idNave) {
+	private Nave buscarNave(String idNave) {
 		for (Nave nave : naves) {
-			if(nave.getId()==idNave) {
+			if(nave.getNombreNave().equals(idNave)) {
 				return(nave);
 			}
 		}
-		throw new IllegalArgumentException("No se encontró una nave con el ID especificado: " + idNave);
+		throw new IllegalArgumentException();
 	}
 
 	public Planeta trasladarAPlaneta(String idPlaneta) {
@@ -177,10 +177,6 @@ public class GestorJuego {
 
 	public SistemaEstelar comprarInformacion(){
 		return(jugador.comprarInformacion(mapaEstelar));
-	}
-
-	public void agregarPlanetasDePrueba(){
-		mapaEstelar.agregarPlanetasASistemas();
 	}
 
 	public void repararNave(){

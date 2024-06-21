@@ -66,7 +66,6 @@ public class SeleccionarNaveVista extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 controller.asignarNaveTitan();
-
             }
         });
     }

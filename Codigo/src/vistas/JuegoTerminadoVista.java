@@ -5,9 +5,9 @@ import view.JugadorView;
 import javax.swing.*;
 import java.awt.*;
 
-public class JuegoTerminado extends JFrame {
+public class JuegoTerminadoVista extends JFrame {
 
-    public JuegoTerminado(JugadorView jugador){
+    public JuegoTerminadoVista(JugadorView jugador){
         super("Juego Terminado");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(400,400);

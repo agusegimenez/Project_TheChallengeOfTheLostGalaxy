@@ -57,18 +57,6 @@ public class SistemaEstelar {
         }
         return null;
     }
-    // Metodo para probar
-    public void agregarPlanetas(){
-        Arma arma = new Arma(150, 100, "Super Arma");
-        Escudo escudo = new Escudo(200, 150, "Super Escudo");
-        PlanetaHostil planetaHostil = new PlanetaHostil("Prueba Hostil");
-        planetaHostil.setTieneTesoro();
-        PlanetaAliado planetaAliado = new PlanetaAliado("Prueba Aliado");
-        PlanetaNeutral planetaNeutral = new PlanetaNeutral("Prueba Neutral", arma, escudo);
-        planetas.add(planetaNeutral);
-        planetas.add(planetaAliado);
-        planetas.add(planetaHostil);
-    }
 
     public SistemaEstelarView toView(){
        return(new SistemaEstelarView(nombre, planetas, cinturonAsteroides));

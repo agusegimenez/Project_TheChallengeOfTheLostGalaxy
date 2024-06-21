@@ -10,9 +10,9 @@ import java.awt.*;
 import java.util.List;
 // Mostrar el mapa estelar
 
-public class MostrarMapaEstelar extends JFrame {
+public class MostrarMapaEstelarVista extends JFrame {
 
-    public MostrarMapaEstelar(MapaEstelarView mapaEstelar){
+    public MostrarMapaEstelarVista(MapaEstelarView mapaEstelar){
         super("Planetas disponibles");
         setSize(650,650);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

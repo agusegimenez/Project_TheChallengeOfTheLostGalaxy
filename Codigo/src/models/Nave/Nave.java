@@ -148,4 +148,7 @@ public abstract class Nave {
     public NaveView toView(){
         return new NaveView(nombreNave, combustible, vida, velocidad, poderDeAtaque, getEscudo().getProteccion());
     }
+    public String getNombre(){
+        return nombreNave;
+    }
 }

@@ -1,12 +1,10 @@
 package main;
 
 import controller.NaveController;
-import controller.PlanetaController;
 import gestor.GestorJuego;
 import models.jugador.Jugador;
 import models.Nave.Nave;
 import models.sistemaEstelar.Planeta;
-import models.sistemaEstelar.PlanetaAliado;
 import vistas.*;
 
 import javax.swing.*;
@@ -19,9 +17,7 @@ public class Main {
         // Creamos un models.jugador y una nave Aegis (se generan con un arma1 y escudo default)
         Jugador jugador = gestor.crearJugador("Nombre del Jugador");
         Nave naveAegis = gestor.crearNaveAegis( 100, 200, 10);
-        gestor.asignarNaveAJugador(naveAegis.getId());
-        gestor.agregarPlanetasDePrueba();
-        gestor.trasladarAPlaneta("Prueba Neutral");
+        gestor.asignarNaveAJugador("Nave-Aegis-1");
 
         /*
         gestor.agregarPlanetasDePrueba();
@@ -39,29 +35,26 @@ public class Main {
         jugador.imprimirEstadoActual();
 
          */
-
+        // Esto es para probar las pantallas, despues debe ser eliminado
         gestor.mostrarMapaEstelar();
         SwingUtilities.invokeLater(() -> {
-            MostrarMapaEstelar frame = new MostrarMapaEstelar(gestor.getMapaEstelar().toView());
+            MostrarMapaEstelarVista frame = new MostrarMapaEstelarVista(gestor.getMapaEstelar().toView());
         });
         SwingUtilities.invokeLater(() -> {
-            JuegoTerminado juego = new JuegoTerminado(gestor.getJugador().toView());
+            JuegoTerminadoVista juego = new JuegoTerminadoVista(gestor.getJugador().toView());
         });
         SwingUtilities.invokeLater(() -> {
             NaveController controller = new NaveController();
             SeleccionarNaveVista seleccionNave = new SeleccionarNaveVista(controller.getNaveViews());
         });
         SwingUtilities.invokeLater(() -> {
-            Planeta planeta = gestor.trasladarAPlaneta("Prueba Aliado");
-            PlanetaAliadoVista planetaAliadoVista = new PlanetaAliadoVista(planeta.toView());
+            PlanetaAliadoVista planetaAliadoVista = new PlanetaAliadoVista();
         });
         SwingUtilities.invokeLater(() -> {
-            NaveController controller = new NaveController();
-            EstadoDeLaNave estado = new EstadoDeLaNave(controller.getNaveJugadorView());
+            EstadoDeLaNaveVista estado = new EstadoDeLaNaveVista();
         });
         SwingUtilities.invokeLater(() -> {
-            Planeta planeta = gestor.trasladarAPlaneta("Prueba Neutral");
-            PlanetaNeutralVista neutralVista = new PlanetaNeutralVista(planeta.toView());
+            PlanetaNeutralVista neutralVista = new PlanetaNeutralVista();
         });
     }
 }

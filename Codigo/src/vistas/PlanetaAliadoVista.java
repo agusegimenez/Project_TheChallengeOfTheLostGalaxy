@@ -19,16 +19,16 @@ public class PlanetaAliadoVista extends JFrame{
     private JTextArea textRepararNave;
     private JTextArea textPrecioInformacion;
 
-    public PlanetaAliadoVista(PlanetaView planeta) {
-        super("Planeta aliado"+ planeta.getNombre());
+    public PlanetaAliadoVista() {
+        super("Planeta aliado");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(650,650);
         setLocationRelativeTo(null);
         setVisible(true);
         PlanetaController controller = new PlanetaController();
         setContentPane(panel1);
+        textPrecioInformacion.append("El precio de la informacion es " + controller.getPrecioInformacion());
 
-        // Ver como pasarle el precio de la informacion
 
         cargarCombustibleButton.addActionListener(new ActionListener() {
             @Override
