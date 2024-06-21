@@ -34,7 +34,7 @@ public class Main {
         gestor.repararNave();
         jugador.imprimirEstadoActual();
 
-         */
+
         // Esto es para probar las pantallas, despues debe ser eliminado
         gestor.mostrarMapaEstelar();
         SwingUtilities.invokeLater(() -> {
@@ -55,6 +55,11 @@ public class Main {
         });
         SwingUtilities.invokeLater(() -> {
             PlanetaNeutralVista neutralVista = new PlanetaNeutralVista();
+        });
+
+         */
+        SwingUtilities.invokeLater(() -> {
+            MenuVista menuVista = new MenuVista();
         });
     }
 }

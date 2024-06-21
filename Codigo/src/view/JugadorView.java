@@ -7,14 +7,16 @@ public class JugadorView {
     private String nombreEscudo;
     private int poderDeAtaque;
     private int cantidadEnemigosDerrotados;
+    private NaveView naveView;
 
-    public JugadorView(int uadeCoins, String nombreNave, String nombreArma, String nombreEscudo, int poderDeAtaque, int cantidadEnemigosDerrotados) {
+    public JugadorView(int uadeCoins, String nombreNave, String nombreArma, String nombreEscudo, int poderDeAtaque, int cantidadEnemigosDerrotados, NaveView naveView) {
         this.uadeCoins = uadeCoins;
         this.nombreNave = nombreNave;
         this.nombreArma = nombreArma;
         this.nombreEscudo = nombreEscudo;
         this.poderDeAtaque = poderDeAtaque;
         this.cantidadEnemigosDerrotados = cantidadEnemigosDerrotados;
+        this.naveView = naveView;
     }
 
     public int getUadeCoins() {
@@ -38,5 +40,8 @@ public class JugadorView {
     }
     public int getCantidadEnemigosDerrotados(){
         return cantidadEnemigosDerrotados;
+    }
+    public NaveView getNaveView(){
+        return naveView;
     }
 }

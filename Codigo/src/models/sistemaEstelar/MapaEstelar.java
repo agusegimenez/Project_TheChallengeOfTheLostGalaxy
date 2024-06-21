@@ -72,8 +72,7 @@ public class MapaEstelar {
         if (indice >= 0 && indice < sistemas.size()) {
             return sistemas.get(indice);
         } else {
-            System.out.println("Número de sistema no válido.");
-            return null;
+            throw new IllegalArgumentException();
         }
     }
 
@@ -85,7 +84,7 @@ public class MapaEstelar {
                 return planeta;
             }
         }
-        throw new IllegalArgumentException("Id no encontrado");
+        throw new IllegalArgumentException();
     }
 
     public SistemaEstelar buscarSistemaEnPlaneta(String idPlaneta) {
@@ -96,7 +95,7 @@ public class MapaEstelar {
                 return sistema;
             }
         }
-        throw new IllegalArgumentException("Id no encontrado");
+        throw new IllegalArgumentException();
     }
 
     public SistemaEstelar buscarSistemaConTesoro(){

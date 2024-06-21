@@ -118,7 +118,7 @@ public abstract class Nave {
         if (this.combustible >= combustible) {
             this.combustible -= combustible;
         } else {
-            throw new IllegalArgumentException("No tienes suficiente combustible para viajar");
+            throw new RuntimeException();
         }
     }
 
