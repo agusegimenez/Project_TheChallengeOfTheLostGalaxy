@@ -10,15 +10,30 @@ public class SistemaEstelarView {
     private List<PlanetaView> planetas;
     private CinturonAsteroidesView cinturonAsteroides;
 
-    public SistemaEstelarView(String nombre, List<Planeta> planetas, CinturonAsteroides cituron){
+    public SistemaEstelarView(String nombre, List<Planeta> planetasModels, CinturonAsteroides cinturon){
         List<PlanetaView> planetas = new ArrayList<>();
         this.nombre = nombre;
-        for(Planeta planeta : planetas){
+
+        for(Planeta planeta : planetasModels){
             planetas.add(planeta.toView());
         }
         if(cinturon != null){
-            this.cinturonAsteroides = new CinturonAsteroidesView();
+            this.cinturonAsteroides = new CinturonAsteroidesView(cinturon.getPoderDelCinturon());
+        }else{
+            this.cinturonAsteroides = null;
         }
+        this.planetas = planetas;
+    }
 
+    public List<PlanetaView> getPlanetas(){
+       return this.planetas;
+    }
+
+    public CinturonAsteroidesView getCinturonAsteroides(){
+        return this.cinturonAsteroides;
+    }
+
+    public String getNombre(){
+        return this.nombre;
     }
 }

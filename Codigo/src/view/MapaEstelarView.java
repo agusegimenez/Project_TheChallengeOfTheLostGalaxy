@@ -13,8 +13,11 @@ public class MapaEstelarView {
         for(SistemaEstelar sistema : sistemas){
             sistemasView.add(sistema.toView());
         }
-
+        this.sistemas = sistemasView;
     }
 
+    public List<SistemaEstelarView> getSistemas(){
+        return this.sistemas;
+    }
 
 }

@@ -1,6 +1,7 @@
 package models.sistemaEstelar;
 
 import models.Nave.*;
+import view.EnemigoView;
 
 public class  Enemigo {
 	private int poderDeAtaque;
@@ -41,6 +42,10 @@ public class  Enemigo {
 	
 	public void imprimirEstadoEnemigo() {
 		System.out.println("Vida actual enemigo "+this.vida);
+	}
+
+	public EnemigoView toView(){
+		return new EnemigoView(poderDeAtaque,uadeCoin,vida);
 	}
 	
 }
