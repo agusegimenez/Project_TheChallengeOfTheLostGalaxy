@@ -53,6 +53,10 @@ public class PlanetaController {
     public EnemigoView getEnemigoView(){
         return GestorJuego.getInstancia().getJugador().getPlanetaActual().getEnemigo().toView();
     }
+
+    public boolean tieneTesoro(String idPlaneta){
+        return GestorJuego.getInstancia().getMapaEstelar().buscarPlaneta(idPlaneta).tieneTesoro();
+    }
     /*
 
     public ArmaView conseguirArmaView(PlanetaView planetaView){

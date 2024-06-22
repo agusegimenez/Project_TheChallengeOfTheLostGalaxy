@@ -13,11 +13,7 @@ public class Main {
     public static void main(String[] args) {
         // Creamos un gestor
         GestorJuego gestor = GestorJuego.getInstancia();
-
-        // Creamos un models.jugador y una nave Aegis (se generan con un arma1 y escudo default)
         Jugador jugador = gestor.crearJugador("Nombre del Jugador");
-        Nave naveAegis = gestor.crearNaveAegis( 100, 200, 10);
-        gestor.asignarNaveAJugador("Nave-Aegis-1");
 
         /*
         gestor.agregarPlanetasDePrueba();
@@ -59,7 +55,7 @@ public class Main {
 
          */
         SwingUtilities.invokeLater(() -> {
-            MenuVista menuVista = new MenuVista();
+            SeleccionarNaveVista menuVista = new SeleccionarNaveVista();
         });
     }
 }

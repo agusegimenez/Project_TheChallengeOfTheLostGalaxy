@@ -4,11 +4,13 @@ public class EnemigoView {
     private int poderDeAtaque;
     private int uadeCoin;
     private int vida;
+    private int vidaMaxima;
 
     public EnemigoView(int poderDeAtaque, int uadeCoin, int vida){
         this.poderDeAtaque = poderDeAtaque;
         this.uadeCoin = uadeCoin;
         this.vida = vida;
+        this.vidaMaxima = vida;
     }
 
     public int getPoderDeAtaque() {
@@ -21,6 +23,10 @@ public class EnemigoView {
 
     public int getVida() {
         return vida;
+    }
+
+    public int getVidaMaxima(){
+        return vidaMaxima;
     }
 }
 

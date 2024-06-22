@@ -4,6 +4,7 @@ import controller.JugadorController;
 import controller.PlanetaController;
 import view.EnemigoView;
 import view.JugadorView;
+import view.PlanetaView;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -16,10 +17,10 @@ public class PlanetaEnemigoVista extends  JFrame{
     private JScrollPane paneDetalles;
     private JPanel rootpane;
 
-    public PlanetaEnemigoVista(JugadorView jugadorAntesDePelear){
+    public PlanetaEnemigoVista(JugadorView jugadorAntesDePelear, PlanetaView planetaActual){
 
         super("Planeta Enemigo");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(700,620);
         setLocationRelativeTo(null);
         setVisible(true);
@@ -34,21 +35,28 @@ public class PlanetaEnemigoVista extends  JFrame{
                 JugadorView jugadorDespuesDePelear = controllerJugador.getJugadorView();
                 if(jugadorDespuesDePelear.getNaveView().getVida()>0){
                     JOptionPane.showMessageDialog(rootpane, "Has ganado el combat con el enemigo!", "Victoria!", JOptionPane.INFORMATION_MESSAGE);
-                    JOptionPane.showMessageDialog(rootpane, "Ganaste "+ (jugadorDespuesDePelear.getUadeCoins() - jugadorAntesDePelear.getUadeCoins()),
+                    JOptionPane.showMessageDialog(rootpane, "Ganaste "+ (jugadorDespuesDePelear.getUadeCoins() - jugadorAntesDePelear.getUadeCoins())+ " monedas!",
                             "Monedas gandas", JOptionPane.INFORMATION_MESSAGE);
-                    JOptionPane.showMessageDialog(rootpane, "Perdiste  "+ (jugadorAntesDePelear.getNaveView().getVida() - jugadorDespuesDePelear.getNaveView().getVida()),
-                            "Vida perdida", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(rootpane, "Perdiste  "+ (jugadorAntesDePelear.getNaveView().getVida() - jugadorDespuesDePelear.getNaveView().getVida())
+                            +" puntos de vida", "Vida perdida", JOptionPane.INFORMATION_MESSAGE);
+                    if(controller.tieneTesoro(planetaActual.getNombre())){
+                        JuegoTerminadoVista juegoTerminado = new JuegoTerminadoVista(jugadorDespuesDePelear);
+                    }
+
                 }else{
                     //Derrota
                     JOptionPane.showMessageDialog(rootpane,"Fuiste derrotado", "Derrota", JOptionPane.INFORMATION_MESSAGE);
-                    // Mostrar pantalla de derrota
+
                 }
             }
         });
         // Informacion del enemigo.
-        EnemigoView enemigo = controller.getEnemigoView();
-        textDetalles.append("Vida del enemigo: " + enemigo.getVida()+ "\n");
+        agregarTextField(controller.getEnemigoView());
+    }
+
+    private void agregarTextField(EnemigoView enemigo){
+        textDetalles.append("Vida del enemigo: " + enemigo.getVidaMaxima()+ "\n");
         textDetalles.append("Poder de ataque: " + enemigo.getPoderDeAtaque()+ "\n");
-        textDetalles.append("Monedas al ser derrotado: " + enemigo.getUadeCoin());
+        textDetalles.append("Monedas al ser derrotado: " + enemigo.getUadeCoin()+" - la vida perdida en el combate");
     }
 }

@@ -7,6 +7,7 @@ public class  Enemigo {
 	private int poderDeAtaque;
 	private int uadeCoin;
 	private int vida = 100;
+	private int vidaMaxima;
 
 	public int getPoderAtaque() {
 		return(this.poderDeAtaque);
@@ -24,6 +25,7 @@ public class  Enemigo {
 	public Enemigo(int poderAtaque) {
 		this.poderDeAtaque = poderAtaque;
 		this.uadeCoin = calcularCantidadDeUadeCoins();
+		this.vidaMaxima = vida;
 	}
 
 	public void atacar(Nave nave) {
@@ -45,7 +47,7 @@ public class  Enemigo {
 	}
 
 	public EnemigoView toView(){
-		return new EnemigoView(poderDeAtaque,uadeCoin,vida);
+		return new EnemigoView(poderDeAtaque,uadeCoin,vidaMaxima);
 	}
 	
 }

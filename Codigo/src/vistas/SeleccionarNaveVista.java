@@ -27,26 +27,24 @@ public class SeleccionarNaveVista extends JFrame{
     private JTextArea textTitan;
     private JPanel rootpane;
 
-    public SeleccionarNaveVista(List<NaveView> naves){
+    public SeleccionarNaveVista(){
 
         super("Seleccionar Nave");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(620,300);
         setLocationRelativeTo(null);
         setVisible(true);
-
         setContentPane(rootpane);
-        NaveController controller = new NaveController();
 
-        mostrarNaves(textAegis, naves.getFirst());
-        mostrarNaves(textSwift, naves.get(1));
-        mostrarNaves(textPhantom, naves.get(2));
-        mostrarNaves(textTitan, naves.get(3));
+        NaveController controller = new NaveController();
+        agregarContenidoTextField(controller.getNaveViews());
 
         botonAegis.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 controller.asignarNaveAegis();
+                MenuVista menuVista = new MenuVista();
+                dispose();
             }
         });
 
@@ -54,18 +52,24 @@ public class SeleccionarNaveVista extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 controller.asignarNavePhantom();
+                MenuVista menuVista = new MenuVista();
+                dispose();
             }
         });
         botonSwift.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 controller.asignarNaveSwift();
+                MenuVista menuVista = new MenuVista();
+                dispose();
             }
         });
         botonTitan.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 controller.asignarNaveTitan();
+                MenuVista menuVista = new MenuVista();
+                dispose();
             }
         });
     }
@@ -76,6 +80,20 @@ public class SeleccionarNaveVista extends JFrame{
         area.append("Combustible inicial "+nave.getCombustible() + "\n");
         area.append("Velocidad "+nave.getVelocidad() + "\n");
         area.append("Poder de ataque " + nave.getPoderDeAtaque() + "\n");
+    }
+
+    private void agregarContenidoTextField(List<NaveView> naves){
+        for(NaveView nave : naves){
+            if(nave.getNombre().contains("Nave-Aegis-")){
+                mostrarNaves(textAegis, nave);
+            }else if (nave.getNombre().contains("Nave-Phantom-")){
+                mostrarNaves(textPhantom, nave);
+            }else if(nave.getNombre().contains("Nave-Swift-")){
+                mostrarNaves(textSwift, nave);
+            }else{
+                mostrarNaves(textTitan, nave);
+            }
+        }
     }
 
 }

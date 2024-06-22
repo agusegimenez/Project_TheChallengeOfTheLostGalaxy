@@ -27,18 +27,18 @@ public class PlanetaAliado extends Planeta{
         return (true);
     }
     public Enemigo getEnemigo() {
-        throw new IllegalArgumentException("no es un Planeta Hostil");
+        return null;
     }
     public boolean tieneTesoro() {
         return(false);
     }
     @Override
     public Arma getArma() {
-        throw new IllegalArgumentException("No soy un Planeta Neutral");
+        return null;
     }
     @Override
     public Escudo getEscudo() {
-        throw new IllegalArgumentException("No soy un Planeta Neutral");
+        return null;
     }
 
     public int getPrecioInformacion(){
