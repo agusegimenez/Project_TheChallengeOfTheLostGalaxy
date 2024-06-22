@@ -11,7 +11,7 @@ public class EstadoDeLaNaveVista extends JFrame {
     public EstadoDeLaNaveVista(){
         super("Estado de la nave");
 
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setSize(400,400);
         setLocationRelativeTo(null);
         setVisible(true);

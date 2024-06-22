@@ -22,24 +22,14 @@ public class PlanetaNeutralVista extends JFrame {
 
     public PlanetaNeutralVista(){
         super("Planeta Neutral");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(700,620);
         setLocationRelativeTo(null);
         setVisible(true);
         setContentPane(rootpane);
 
         PlanetaController controller = new PlanetaController();
-        ArmaView arma = controller.getArmaView();
-        EscudoView escudo = controller.getEscudoView();
-
-        textArma.append("Poder del arma "+ arma.getPoder()+ "\n");
-        textArma.append("Precio "+ arma.getPrecio()+ "\n");
-        textArma.append("Nombre " + arma.getNombre()+ "\n");
-        textEscudo.append("Proteccion del escudo " + escudo.getProteccion()+ "\n");
-        textEscudo.append("Precio " + escudo.getPrecio()+ "\n");
-        textEscudo.append("Nombre " + escudo.getNombre()+ "\n");
-
-        // Ver como pasarle al planeta el arma y escudo view.
+        agregarContenidoTextField(controller.getArmaView(), controller.getEscudoView());
 
         repararButton.addActionListener(new ActionListener() {
             @Override
@@ -86,5 +76,14 @@ public class PlanetaNeutralVista extends JFrame {
 
             }
         });
+    }
+
+    private void agregarContenidoTextField(ArmaView arma, EscudoView escudo){
+        textArma.append("Poder del arma "+ arma.getPoder()+ "\n");
+        textArma.append("Precio "+ arma.getPrecio()+ "\n");
+        textArma.append("Nombre " + arma.getNombre()+ "\n");
+        textEscudo.append("Proteccion del escudo " + escudo.getProteccion()+ "\n");
+        textEscudo.append("Precio " + escudo.getPrecio()+ "\n");
+        textEscudo.append("Nombre " + escudo.getNombre()+ "\n");
     }
 }

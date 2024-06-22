@@ -110,7 +110,7 @@ public class GestorJuego {
 		throw new IllegalArgumentException();
 	}
 
-	public Planeta trasladarAPlaneta(String idPlaneta) {
+	public Planeta trasladarAPlaneta(String idPlaneta){
 		Planeta planeta = mapaEstelar.buscarPlaneta(idPlaneta);
 		SistemaEstelar sistemaEstelar = mapaEstelar.buscarSistemaEnPlaneta(idPlaneta);
 		return jugador.visitarPlaneta(planeta, sistemaEstelar);

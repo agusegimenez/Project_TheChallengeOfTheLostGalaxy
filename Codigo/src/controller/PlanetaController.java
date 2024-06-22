@@ -2,14 +2,11 @@ package controller;
 import gestor.GestorJuego;
 import models.sistemaEstelar.Planeta;
 import models.sistemaEstelar.SistemaEstelar;
-import view.EscudoView;
-import view.PlanetaView;
-import view.SistemaEstelarView;
-import view.ArmaView;
+import view.*;
 
 public class PlanetaController {
 
-    public PlanetaView viajarAPlaneta(String idPlaneta){
+    public PlanetaView viajarAPlaneta(String idPlaneta) throws IllegalArgumentException, RuntimeException{
         Planeta planeta = GestorJuego.getInstancia().trasladarAPlaneta(idPlaneta);
         return planeta.toView();
     }
@@ -51,6 +48,14 @@ public class PlanetaController {
 
     public int getPrecioInformacion(){
         return GestorJuego.getInstancia().getJugador().getPlanetaActual().getPrecioInformacion();
+    }
+
+    public EnemigoView getEnemigoView(){
+        return GestorJuego.getInstancia().getJugador().getPlanetaActual().getEnemigo().toView();
+    }
+
+    public boolean tieneTesoro(String idPlaneta){
+        return GestorJuego.getInstancia().getMapaEstelar().buscarPlaneta(idPlaneta).tieneTesoro();
     }
     /*
 

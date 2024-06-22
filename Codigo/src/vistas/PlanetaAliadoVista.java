@@ -15,13 +15,12 @@ public class PlanetaAliadoVista extends JFrame{
     private JButton comprarInformacionButton;
     private JButton repararNaveButton;
     private JTextArea textIngresoCombustible;
-    private JTextArea textCombustible;
     private JTextArea textRepararNave;
     private JTextArea textPrecioInformacion;
 
     public PlanetaAliadoVista() {
         super("Planeta aliado");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(650,650);
         setLocationRelativeTo(null);
         setVisible(true);

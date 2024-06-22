@@ -89,11 +89,10 @@ public class Jugador {
 		}
 	}
 	
-	public Planeta visitarPlaneta(Planeta planeta, SistemaEstelar sistemaActual) {
+	public Planeta visitarPlaneta(Planeta planeta, SistemaEstelar sistemaActual){
 		this.planetaActual = planeta;
 		this.sistemaActual = sistemaActual;
 		nave.viajarAPlaneta(planeta.getCostoDeCombustible());
-		System.out.println("Viajaste a planeta "+ planetaActual.getIdPlaneta());
 		if(planetaActual.soyHostil()){
 			encuentroConEnemigo();
 		}
@@ -222,7 +221,7 @@ public class Jugador {
 	public JugadorView toView(){
 		ArrayList<Arma> armas = nave.getArmas();
 		Arma arma = armas.getFirst();
-		return new JugadorView(cantidadUadeCoins, nave.getNombreNave(), arma.getId(), nave.getEscudo().getId(), nave.getPoderDeAtaque(), cantidadDeEnemigosDerrotados);
+		return new JugadorView(cantidadUadeCoins, nave.getNombreNave(), arma.getId(), nave.getEscudo().getId(), nave.getPoderDeAtaque(), cantidadDeEnemigosDerrotados, nave.toView());
 	}
 
 }
