@@ -37,6 +37,9 @@ public class MenuVista extends JFrame {
                     JugadorView jugadorAntesDeViajar = jugadorController.getJugadorView();
                     String seleccionPlaneta = textPlaneta.getText();
                     PlanetaView planetaVisitado = planetaController.viajarAPlaneta(seleccionPlaneta);
+                    if(jugadorController.getJugadorView().getSistemaActual().getCinturonAsteroides()!=null){
+                        new AtravesarCinturonVista();
+                    }
                     JOptionPane.showMessageDialog(rootpanel, "Viajaste con exito", "Exito", JOptionPane.INFORMATION_MESSAGE);
 
                     if(planetaVisitado.getNombre().contains("Neutral") ){

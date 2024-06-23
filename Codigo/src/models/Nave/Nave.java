@@ -1,6 +1,8 @@
 package models.Nave;
 import java.util.ArrayList;
 import models.equipamiento.*;
+import models.jugador.Jugador;
+import models.sistemaEstelar.SistemaEstelar;
 import view.NaveView;
 
 public abstract class Nave {
@@ -14,6 +16,8 @@ public abstract class Nave {
     protected Escudo escudo;
     protected int poderDeAtaque;
     protected final int vidaMaxima;
+
+    protected Jugador jugador;
 
     public Long getId() {
         return id;
@@ -150,5 +154,18 @@ public abstract class Nave {
     }
     public String getNombre(){
         return nombreNave;
+    }
+
+    public void atravesarCinturon(){
+        Jugador jugador = this.getJugador();
+        SistemaEstelar sistemaActual = jugador.getSistemaActual();
+        int vidaAntes = this.getVida();
+        this.recibirDañoCinturon(sistemaActual.getCinturonAsteroides().getPoderDelCinturon());
+        int vidaPerdida = (vidaAntes-this.getVida());
+        jugador.sumarUadeCoins(sistemaActual.getCinturonAsteroides().getPoderDelCinturon(), vidaPerdida);
+    }
+
+    public Jugador getJugador() {
+        return jugador;
     }
 }

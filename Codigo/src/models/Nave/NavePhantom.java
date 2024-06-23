@@ -1,5 +1,8 @@
 package models.Nave;
 
+import models.jugador.Jugador;
+import models.sistemaEstelar.SistemaEstelar;
+
 public class NavePhantom extends Nave{
     public NavePhantom(int combustible, int vida, int velocidad) {
         super( combustible, vida, velocidad);
@@ -37,5 +40,13 @@ public class NavePhantom extends Nave{
     @Override
     public boolean esAegis() {
         return false;
+    }
+
+    @Override
+    public void atravesarCinturon() {
+        Jugador jugador = this.getJugador();
+        int vida = this.getVida();
+        SistemaEstelar sistemaActual = jugador.getSistemaActual();
+        jugador.sumarUadeCoins(sistemaActual.getCinturonAsteroides().getPoderDelCinturon(), 0);
     }
 }

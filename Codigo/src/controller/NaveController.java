@@ -55,4 +55,8 @@ public class NaveController {
         return  GestorJuego.getInstancia().getJugador().getNave().toView();
     }
 
+    public void atravesarCinturon(){
+        GestorJuego.getInstancia().getJugador().getNave().atravesarCinturon();
+    }
+
 }

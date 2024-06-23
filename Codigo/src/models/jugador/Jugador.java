@@ -5,6 +5,7 @@ import models.sistemaEstelar.*;
 import models.equipamiento.Arma;
 import models.equipamiento.Escudo;
 import view.JugadorView;
+import view.SistemaEstelarView;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -21,7 +22,11 @@ public class Jugador {
 	public Planeta getPlanetaActual() {
 		return(this.planetaActual);
 	}
-	
+
+	public SistemaEstelar getSistemaActual() {
+		return sistemaActual;
+	}
+
 	public Jugador(String id) {
 		this.idJugador = id;
 	}
@@ -97,13 +102,6 @@ public class Jugador {
 			encuentroConEnemigo();
 		}
 		return planeta;
-	}
-
-	public void atravesarCinturon(int poderDelCinturon){
-		int vidaAntes = this.nave.getVida();
-		this.nave.recibirDañoCinturon(poderDelCinturon);
-		int vidaPerdida = (vidaAntes-this.nave.getVida());
-		sumarUadeCoins(poderDelCinturon, vidaPerdida);
 	}
 
 
@@ -200,10 +198,11 @@ public class Jugador {
 	}
 
 	public void moverDeSistema(SistemaEstelar nuevoSistema){
+		Nave nave = this.getNave();
 		this.sistemaActual = nuevoSistema;
 		if(sistemaActual.tieneCinturon()){
 			CinturonAsteroides cinturonAsteroides = sistemaActual.getCinturonAsteroides();
-			this.atravesarCinturon(cinturonAsteroides.getPoderDelCinturon());
+			this.nave.atravesarCinturon();
 		}
 		System.out.println("El jugador se ha movido a: " + nuevoSistema.getNombre());
 	}
@@ -218,10 +217,11 @@ public class Jugador {
 
 	}
 
+
 	public JugadorView toView(){
 		ArrayList<Arma> armas = nave.getArmas();
 		Arma arma = armas.getFirst();
-		return new JugadorView(cantidadUadeCoins, nave.getNombreNave(), arma.getId(), nave.getEscudo().getId(), nave.getPoderDeAtaque(), cantidadDeEnemigosDerrotados, nave.toView());
+		return new JugadorView(cantidadUadeCoins, nave.getNombreNave(), arma.getId(), nave.getEscudo().getId(), nave.getPoderDeAtaque(), cantidadDeEnemigosDerrotados, nave.toView(), sistemaActual.toView());
 	}
 
 }
