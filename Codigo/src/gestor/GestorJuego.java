@@ -37,10 +37,14 @@ public class GestorJuego {
 		return instancia;
 	}
 
+	public static void reiniciarInstancia(){
+		instancia = null;
+	}
+
 	public Jugador crearJugador(String id) {
 		Jugador jugador = new Jugador(id);
 		this.jugador = jugador;
-		return(jugador);
+		return jugador;
 	}
 
 	/* comenté estos metodos ya que ahora trabajamos con el mapa estelar y es él el que genera los planetas

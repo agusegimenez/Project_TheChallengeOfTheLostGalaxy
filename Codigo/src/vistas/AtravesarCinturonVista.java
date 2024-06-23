@@ -29,7 +29,6 @@ public class AtravesarCinturonVista extends JFrame {
         setVisible(true);
 
         NaveController naveController = new NaveController();
-        MapaController mapaController = new MapaController();
 
         cargarPoderDelCinturon();
         atravesarCinturonButton.addActionListener(new ActionListener() {

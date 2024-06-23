@@ -8,5 +8,9 @@ public class JugadorController {
         return GestorJuego.getInstancia().getJugador().toView();
     }
 
+    public void reiniciarJuego(){
+        GestorJuego.reiniciarInstancia();
+    }
+
 
 }
