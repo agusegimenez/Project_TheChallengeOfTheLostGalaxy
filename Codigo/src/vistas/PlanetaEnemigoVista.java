@@ -46,7 +46,7 @@ public class PlanetaEnemigoVista extends  JFrame{
                 }else{
                     //Derrota
                     JOptionPane.showMessageDialog(rootpane,"Fuiste derrotado", "Derrota", JOptionPane.INFORMATION_MESSAGE);
-
+                    new JuegoPerdidoVista(controllerJugador).setVisible(true);
                 }
             }
         });

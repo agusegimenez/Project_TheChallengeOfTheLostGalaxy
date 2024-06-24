@@ -29,6 +29,7 @@ public class AtravesarCinturonVista extends JFrame {
         setVisible(true);
 
         NaveController naveController = new NaveController();
+        JugadorController jugadorController = new JugadorController();
 
         cargarPoderDelCinturon();
         atravesarCinturonButton.addActionListener(new ActionListener() {
@@ -39,6 +40,8 @@ public class AtravesarCinturonVista extends JFrame {
                     JOptionPane.showMessageDialog(rootPane, "Se logró atravesar el cinturón con éxito.", "Viaje exitoso", JOptionPane.INFORMATION_MESSAGE);
                 }catch (IllegalArgumentException exception){
                     JOptionPane.showMessageDialog(rootPane, "No se pudo atravesar el Cinturón.", "Viaje fallido", JOptionPane.ERROR_MESSAGE);
+                    dispose();
+                    new JuegoPerdidoVista(jugadorController).setVisible(true);
                 }
             }
         });
