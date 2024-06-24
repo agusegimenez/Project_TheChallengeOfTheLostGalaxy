@@ -2,7 +2,6 @@ package models.Nave;
 import java.util.ArrayList;
 import models.equipamiento.*;
 import models.jugador.Jugador;
-import models.sistemaEstelar.SistemaEstelar;
 import view.NaveView;
 
 public abstract class Nave {
@@ -116,7 +115,7 @@ public abstract class Nave {
     }
 
     public void viajarAPlaneta(int combustible) {
-        if (armas.size() < 2) {
+        if (armas.size() == 2) {
             combustible = combustible * 2;
         }
         if (this.combustible >= combustible) {
@@ -156,13 +155,10 @@ public abstract class Nave {
         return nombreNave;
     }
 
-    public void atravesarCinturon(){
-        Jugador jugador = this.getJugador();
-        SistemaEstelar sistemaActual = jugador.getSistemaActual();
+    public int atravesarCinturon(int poderDeAtaque){
         int vidaAntes = this.getVida();
-        this.recibirDañoCinturon(sistemaActual.getCinturonAsteroides().getPoderDelCinturon());
-        int vidaPerdida = (vidaAntes-this.getVida());
-        jugador.sumarUadeCoins(sistemaActual.getCinturonAsteroides().getPoderDelCinturon(), vidaPerdida);
+        this.recibirDañoCinturon(poderDeAtaque);
+        return (vidaAntes-this.getVida());
     }
 
     public Jugador getJugador() {

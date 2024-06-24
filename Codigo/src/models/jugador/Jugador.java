@@ -201,8 +201,8 @@ public class Jugador {
 		Nave nave = this.getNave();
 		this.sistemaActual = nuevoSistema;
 		if(sistemaActual.tieneCinturon()){
-			CinturonAsteroides cinturonAsteroides = sistemaActual.getCinturonAsteroides();
-			this.nave.atravesarCinturon();
+			int vidaPerdida = nave.atravesarCinturon(sistemaActual.getCinturonAsteroides().getPoderDelCinturon());
+			sumarUadeCoins(sistemaActual.getCinturonAsteroides().getPoderDelCinturon(), vidaPerdida);
 		}
 		System.out.println("El jugador se ha movido a: " + nuevoSistema.getNombre());
 	}
@@ -221,7 +221,8 @@ public class Jugador {
 	public JugadorView toView(){
 		ArrayList<Arma> armas = nave.getArmas();
 		Arma arma = armas.getFirst();
-		return new JugadorView(cantidadUadeCoins, nave.getNombreNave(), arma.getId(), nave.getEscudo().getId(), nave.getPoderDeAtaque(), cantidadDeEnemigosDerrotados, nave.toView(), sistemaActual.toView());
+		return new JugadorView(cantidadUadeCoins, nave.getNombreNave(), arma.getId(), nave.getEscudo().getId(), nave.getPoderDeAtaque(), cantidadDeEnemigosDerrotados, nave.toView());
+
 	}
 
 }

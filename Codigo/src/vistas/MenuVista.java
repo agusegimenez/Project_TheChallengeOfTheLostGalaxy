@@ -37,8 +37,8 @@ public class MenuVista extends JFrame {
                     JugadorView jugadorAntesDeViajar = jugadorController.getJugadorView();
                     String seleccionPlaneta = textPlaneta.getText();
                     PlanetaView planetaVisitado = planetaController.viajarAPlaneta(seleccionPlaneta);
-                    if(jugadorController.getJugadorView().getSistemaActual().getCinturonAsteroides()!=null){
-                        new AtravesarCinturonVista();
+                    if(planetaController.tieneCinturon(seleccionPlaneta)){
+                        new AtravesarCinturonVista(planetaController.getCinturonView(seleccionPlaneta));
                     }
                     JOptionPane.showMessageDialog(rootpanel, "Viajaste con exito", "Exito", JOptionPane.INFORMATION_MESSAGE);
 
@@ -52,8 +52,6 @@ public class MenuVista extends JFrame {
 
                 } catch (IllegalArgumentException exception){
                     JOptionPane.showMessageDialog(rootpanel, "El ID proporcionado es invalido", "ERROR", JOptionPane.ERROR_MESSAGE);
-                } catch (RuntimeException ex) {
-                    JOptionPane.showMessageDialog(rootpanel, "No tienes combustible suficiente", "ERROR", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });

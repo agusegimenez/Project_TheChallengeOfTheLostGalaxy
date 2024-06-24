@@ -1,5 +1,7 @@
 package models.sistemaEstelar;
 
+import view.CinturonAsteroidesView;
+
 import java.util.Random;
 
 public class CinturonAsteroides {
@@ -7,7 +9,7 @@ public class CinturonAsteroides {
 
     private int getCantidadAsteroides() {
         Random random = new Random();
-        this.cantidadAsteroides = random.nextInt(20)+1;
+        this.cantidadAsteroides = random.nextInt(12)+1;
         return cantidadAsteroides;
     }
 
@@ -17,6 +19,14 @@ public class CinturonAsteroides {
 
     public CinturonAsteroides() {
         this.cantidadAsteroides = getCantidadAsteroides();
+    }
+
+    public CinturonAsteroidesView toView(){
+        return new CinturonAsteroidesView(getPoderDelCinturon(), cantidadAsteroides);
+    }
+
+    public int getAsteroides(){
+        return this.cantidadAsteroides;
     }
 
 

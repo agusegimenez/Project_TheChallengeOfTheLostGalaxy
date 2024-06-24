@@ -55,7 +55,7 @@ public class Main {
 
          */
         SwingUtilities.invokeLater(() -> {
-            SeleccionarNaveVista menuVista = new SeleccionarNaveVista();
+            SeleccionarNaveVista naveVista = new SeleccionarNaveVista();
         });
     }
 }

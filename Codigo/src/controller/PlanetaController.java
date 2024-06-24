@@ -32,8 +32,8 @@ public class PlanetaController {
     public void venderEscudo(){
         GestorJuego.getInstancia().venderEscudo();
     }
-    public void venderArma(){
-        GestorJuego.getInstancia().venderArma();
+    public void venderArma(int indice){
+        GestorJuego.getInstancia().venderArma(indice);
     }
 
     public ArmaView getArmaView(){
@@ -56,6 +56,14 @@ public class PlanetaController {
 
     public boolean tieneTesoro(String idPlaneta){
         return GestorJuego.getInstancia().getMapaEstelar().buscarPlaneta(idPlaneta).tieneTesoro();
+    }
+
+    public boolean tieneCinturon(String idPlaneta){
+        return GestorJuego.getInstancia().getMapaEstelar().buscarSistemaEnPlaneta(idPlaneta).tieneCinturon();
+    }
+
+    public CinturonAsteroidesView getCinturonView(String idPlaneta){
+        return GestorJuego.getInstancia().getMapaEstelar().buscarSistemaEnPlaneta(idPlaneta).getCinturonAsteroides().toView();
     }
     /*
 

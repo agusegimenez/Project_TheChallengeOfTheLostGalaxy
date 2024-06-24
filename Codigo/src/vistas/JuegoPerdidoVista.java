@@ -13,15 +13,15 @@ public class JuegoPerdidoVista extends JFrame {
     private JButton reiniciarPartidaButton;
     private JTextArea textJuegoPerdido;
 
-    public JuegoPerdidoVista(JugadorController jugadorController){
+    public JuegoPerdidoVista(){
         super("Perdiste. Juego terminado!");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(400,400);
         setLocationRelativeTo(null);
         setContentPane(rootPanel);
         setVisible(true);
+        JugadorController jugadorController = new JugadorController();
 
-        JTextArea textJuegoPerdido = new JTextArea();
         textJuegoPerdido.append("Has perdido el juego. Toca reiniciar para comenzar otra partida.");
 
         reiniciarPartidaButton.addActionListener(new ActionListener() {

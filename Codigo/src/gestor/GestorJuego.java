@@ -120,11 +120,6 @@ public class GestorJuego {
 		return jugador.visitarPlaneta(planeta, sistemaEstelar);
 	}
 
-	public void trasladarDeSistema(String idSistema) {
-		SistemaEstelar sistemaEstelar = mapaEstelar.buscarSistema(idSistema);
-		jugador.moverDeSistema(sistemaEstelar);
-	}
-
 	/*
        public Arma agregarArma(int poder, int precio, String id) {
            Arma arma = new Arma(poder, precio, id);
@@ -144,12 +139,8 @@ public class GestorJuego {
 	public void comprarEscudo() {
 		this.jugador.comprarEscudo();
 	}
-	public void venderArma() {
-			System.out.println("Seleccione el índice del arma que desea vender:");
-			Scanner scanner = new Scanner(System.in);
-			int indiceArma = scanner.nextInt();
-			// Llama al método venderArma de la clase Jugador pasando el índice
-			this.jugador.venderArma(indiceArma);
+	public void venderArma(int indiceArma) {
+		this.jugador.venderArma(indiceArma);
 	}
 	public void venderEscudo(){
 		this.jugador.venderEscudo();

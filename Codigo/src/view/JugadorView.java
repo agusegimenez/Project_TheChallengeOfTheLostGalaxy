@@ -10,9 +10,8 @@ public class JugadorView {
     private int poderDeAtaque;
     private int cantidadEnemigosDerrotados;
     private NaveView naveView;
-    private SistemaEstelarView sistemaActual;
 
-    public JugadorView(int uadeCoins, String nombreNave, String nombreArma, String nombreEscudo, int poderDeAtaque, int cantidadEnemigosDerrotados, NaveView naveView, SistemaEstelarView sistemaActual) {
+    public JugadorView(int uadeCoins, String nombreNave, String nombreArma, String nombreEscudo, int poderDeAtaque, int cantidadEnemigosDerrotados, NaveView naveView) {
         this.uadeCoins = uadeCoins;
         this.nombreNave = nombreNave;
         this.nombreArma = nombreArma;
@@ -20,11 +19,6 @@ public class JugadorView {
         this.poderDeAtaque = poderDeAtaque;
         this.cantidadEnemigosDerrotados = cantidadEnemigosDerrotados;
         this.naveView = naveView;
-        this.sistemaActual = sistemaActual;
-    }
-
-    public SistemaEstelarView getSistemaActual() {
-        return sistemaActual;
     }
 
     public int getUadeCoins() {

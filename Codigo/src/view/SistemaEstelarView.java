@@ -18,7 +18,7 @@ public class SistemaEstelarView {
             planetas.add(planeta.toView());
         }
         if(cinturon != null){
-            this.cinturonAsteroides = new CinturonAsteroidesView(cinturon.getPoderDelCinturon());
+            this.cinturonAsteroides = new CinturonAsteroidesView(cinturon.getPoderDelCinturon(), cinturon.getAsteroides());
         }else{
             this.cinturonAsteroides = null;
         }

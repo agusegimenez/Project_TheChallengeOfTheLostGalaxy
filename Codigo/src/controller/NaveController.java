@@ -2,7 +2,8 @@ package controller;
 
 import models.Nave.Nave;
 import gestor.GestorJuego;
-import models.sistemaEstelar.SistemaEstelar;
+import models.equipamiento.Arma;
+import view.ArmaView;
 import view.NaveView;
 
 import java.util.ArrayList;
@@ -55,8 +56,17 @@ public class NaveController {
         return  GestorJuego.getInstancia().getJugador().getNave().toView();
     }
 
-    public void atravesarCinturon(){
-        GestorJuego.getInstancia().getJugador().getNave().atravesarCinturon();
+    public void atravesarCinturon(int poderAtaque){
+        GestorJuego.getInstancia().getJugador().getNave().atravesarCinturon(poderAtaque);
+    }
+
+    public List<ArmaView> getArmasView(){
+        List<Arma> armas = GestorJuego.getInstancia().getJugador().getNave().getArmas();
+        List<ArmaView> armasView = new ArrayList<>();
+        for(Arma arma : armas){
+            armasView.add(arma.toView());
+        }
+        return armasView;
     }
 
 }
