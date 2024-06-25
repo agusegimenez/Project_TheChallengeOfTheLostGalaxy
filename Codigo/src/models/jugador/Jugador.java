@@ -56,7 +56,7 @@ public class Jugador {
 				// Verificar si el índice está dentro del rango de la lista de armas.
 				if (indiceArma >= 0 && indiceArma < nave.getArmas().size()) {
 					Arma armaAVender = nave.getArmas().get(indiceArma);
-					// Sumamos el precio de la arma vendida al total de Uadecoins del jugador
+					// Sumamos el precio del arma vendida al total de Uadecoins del jugador
 					cantidadUadeCoins += armaAVender.getPrecio();
 					// Eliminamos la arma de la lista de armas de la nave
 					nave.getArmas().remove(indiceArma);
@@ -144,7 +144,7 @@ public class Jugador {
 		Arma arma = planetaActual.getArma();
 		ArrayList<Arma> armasNave = this.nave.getArmas(); // Asume que getArmamentos() devuelve la lista de armas de la nave
 
-		// Ordenar la lista de armas de menor a mayor según el poder de la arma
+		// Ordenar la lista de armas de menor a mayor según el poder del arma
 		armasNave.sort(Comparator.comparingInt(Arma::getPoder));
 
 		if (this.cantidadUadeCoins >= arma.getPrecio() && estoyEnPlanetaNeutral() && armasNave.size() < 2) {
@@ -153,7 +153,7 @@ public class Jugador {
 				// Si solo hay una arma, simplemente agregar la nueva arma
 				armasNave.add(arma);
 			} else if (armasNave.size() == 2) {
-				// Si hay 2 armas, reemplazar la arma en el índice 0 (la menos potente)
+				// Si hay 2 armas, reemplazar el arma en el índice 0 (la menos potente)
 				armasNave.set(0, arma);
 			}
 
