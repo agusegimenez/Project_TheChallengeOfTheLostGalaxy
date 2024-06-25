@@ -42,11 +42,13 @@ public class PlanetaEnemigoVista extends  JFrame{
                     if(controller.tieneTesoro(planetaActual.getNombre())){
                         JuegoTerminadoVista juegoTerminado = new JuegoTerminadoVista(jugadorDespuesDePelear);
                     }
+                    dispose();
 
                 }else{
                     //Derrota
                     JOptionPane.showMessageDialog(rootpane,"Fuiste derrotado", "Derrota", JOptionPane.INFORMATION_MESSAGE);
                     new JuegoPerdidoVista().setVisible(true);
+                    dispose();
                 }
             }
         });

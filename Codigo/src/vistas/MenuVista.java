@@ -2,6 +2,7 @@ package vistas;
 
 import controller.JugadorController;
 import controller.MapaController;
+import controller.NaveController;
 import controller.PlanetaController;
 import view.JugadorView;
 import view.PlanetaView;
@@ -29,6 +30,7 @@ public class MenuVista extends JFrame {
         setContentPane(rootpanel);
         PlanetaController planetaController = new PlanetaController();
         JugadorController jugadorController = new JugadorController();
+        NaveController naveController = new NaveController();
 
         viajarAPlanetaButton.addActionListener(new ActionListener() {
             @Override
@@ -36,11 +38,27 @@ public class MenuVista extends JFrame {
                 try {
                     JugadorView jugadorAntesDeViajar = jugadorController.getJugadorView();
                     String seleccionPlaneta = textPlaneta.getText();
-                    PlanetaView planetaVisitado = planetaController.viajarAPlaneta(seleccionPlaneta);
                     if(planetaController.tieneCinturon(seleccionPlaneta)){
+                        // JOptionPane.showMessageDialog(rootpanel,"Necesitar atravesar el Cinturon de Asteroides para trasladarte a este Planeta.", JOptionPane.);
+                        JOptionPane.showMessageDialog(rootpanel,
+                                "Recuerda que necesitas atravesar el Cinturón de Asteroides para trasladarte a este Planeta.",
+                                "Aviso",
+                                JOptionPane.INFORMATION_MESSAGE);
                         new AtravesarCinturonVista(planetaController.getCinturonView(seleccionPlaneta));
+                        if(naveController.getNaveJugadorView().getVida()<=0){
+                            new JuegoPerdidoVista().setVisible(true);
+                            dispose();
+                            return;
+                        }
                     }
-                    JOptionPane.showMessageDialog(rootpanel, "Viajaste con exito", "Exito", JOptionPane.INFORMATION_MESSAGE);
+                    PlanetaView planetaVisitado = planetaController.viajarAPlaneta(seleccionPlaneta);
+                    if(naveController.getNaveJugadorView().getVida()<=0){
+                        new JuegoPerdidoVista().setVisible(true);
+                        dispose();
+                        return;
+                    }else{
+                        JOptionPane.showMessageDialog(rootpanel, "Viajaste con exito", "Exito", JOptionPane.INFORMATION_MESSAGE);
+                    }
 
                     if(planetaVisitado.getNombre().contains("Neutral") ){
                         PlanetaNeutralVista planetaNeutralVista = new PlanetaNeutralVista();

@@ -23,14 +23,17 @@ public class AtravesarCinturonVista extends JFrame {
         NaveController naveController = new NaveController();
 
         cargarPoderDelCinturon(cinturon);
+
         atravesarCinturonButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                naveController.atravesarCinturon(cinturon.getPoderDeAtaque());
                 if(naveController.getNaveJugadorView().getVida() > 0){
-                    naveController.atravesarCinturon(cinturon.getPoderDeAtaque());
                     JOptionPane.showMessageDialog(rootPane, "Se logró atravesar el cinturón con éxito.", "Viaje exitoso", JOptionPane.INFORMATION_MESSAGE);
+                    dispose();
                 }else{
                     new JuegoPerdidoVista().setVisible(true);
+                    dispose();
                 }
             }
         });

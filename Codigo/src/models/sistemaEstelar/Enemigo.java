@@ -31,7 +31,6 @@ public class  Enemigo {
 	public void atacar(Nave nave) {
 		int ataqueEnemigo = getPoderAtaque();
 		nave.recibirDaño(ataqueEnemigo);
-		System.out.println("Se le infringió al models.jugador"+ataqueEnemigo+"puntos de daño");
 	}	
 	
 	public void recibirDaño(int daño) {
@@ -42,9 +41,9 @@ public class  Enemigo {
 		return(this.poderDeAtaque*2);
 	}
 	
-	public void imprimirEstadoEnemigo() {
-		System.out.println("Vida actual enemigo "+this.vida);
-	}
+//	public void imprimirEstadoEnemigo() {
+//		System.out.println("Vida actual enemigo "+this.vida);
+//	}
 
 	public EnemigoView toView(){
 		return new EnemigoView(poderDeAtaque,uadeCoin,vidaMaxima);

@@ -82,7 +82,7 @@ public class Jugador {
 	private void disparar(Enemigo enemigo) {
 		int poderAtaqueNave = nave.getPoderDeAtaque();
 		enemigo.recibirDaño(poderAtaqueNave);
-		System.out.println("Se le infringió al enemigo "+ poderAtaqueNave + " puntos de daño");
+		// System.out.println("Se le infringió al enemigo "+ poderAtaqueNave + " puntos de daño");
 	}
 	
 	public void recargarCombustible(int cantidadCombustible) {
@@ -114,18 +114,18 @@ public class Jugador {
 		while (nave.getVida() > 0 && enemigo.getVida() > 0) {
 			disparar(enemigo);
 			enemigo.atacar(nave);
-			imprimirEstadoActual();
+			// imprimirEstadoActual();
 		}
 		//Verifico victoria si encuentra tesoro y le suma uadeCoins ganadas.
 		if (nave.getVida() > 0) {
 			sumarUadeCoins(enemigo.getUadeCoins(), vidaActual - nave.getVida());
-			System.out.println("Enemigo vencido, vida total perdida: " + (vidaActual - nave.getVida()));
+			//System.out.println("Enemigo vencido, vida total perdida: " + (vidaActual - nave.getVida()));
 			cantidadDeEnemigosDerrotados ++;
-			if (planetaActual.tieneTesoro()) {
-				System.out.println("Encontraste el tesoro, juego terminado");
-			}
-		} else {
-			System.out.println("El models.jugador fue derrotado. Juego terminado.");
+//			if (planetaActual.tieneTesoro()) {
+//				System.out.println("Encontraste el tesoro, juego terminado");
+//			}
+//		} else {
+//			System.out.println("El models.jugador fue derrotado. Juego terminado.");
 		}
 	}
 
@@ -174,22 +174,22 @@ public class Jugador {
 		this.cantidadUadeCoins -= cantidad;
 	}
 	
-	public void imprimirEstadoActual() {
-		System.out.println("Vida actual "+ this.getNave().getVida());
-		System.out.println("Escudo actual "+ this.getNave().getEscudo().getProteccion());
-		System.out.println("Uadecoins totales " + this.cantidadUadeCoins);
-		System.out.println("Poder de ataque de la nave " + this.nave.getPoderDeAtaque());
-		System.out.println("Nombre de la nave " + this.nave.getId());
-		// Imprimir nombre de todas las armas en el array
-		ArrayList<Arma> armasNave = this.nave.getArmas();
-		System.out.println("Nombres de armas:");
-		for (Arma arma : armasNave) {
-			System.out.println("- " + arma.getId());
-		}
-
-		System.out.println("Nombre del escudo " + this.nave.getEscudo().getId());
-		System.out.println("Cantidad de combustible " + this.nave.getCombustible());
-	}
+//	public void imprimirEstadoActual() {
+//		System.out.println("Vida actual "+ this.getNave().getVida());
+//		System.out.println("Escudo actual "+ this.getNave().getEscudo().getProteccion());
+//		System.out.println("Uadecoins totales " + this.cantidadUadeCoins);
+//		System.out.println("Poder de ataque de la nave " + this.nave.getPoderDeAtaque());
+//		System.out.println("Nombre de la nave " + this.nave.getId());
+//		// Imprimir nombre de todas las armas en el array
+//		ArrayList<Arma> armasNave = this.nave.getArmas();
+//		System.out.println("Nombres de armas:");
+//		for (Arma arma : armasNave) {
+//			System.out.println("- " + arma.getId());
+//		}
+//
+//		System.out.println("Nombre del escudo " + this.nave.getEscudo().getId());
+//		System.out.println("Cantidad de combustible " + this.nave.getCombustible());
+//	}
 
 	public void repararNave(){
 		if(planetaActual.soyAliado()){
@@ -204,7 +204,7 @@ public class Jugador {
 			int vidaPerdida = nave.atravesarCinturon(sistemaActual.getCinturonAsteroides().getPoderDelCinturon());
 			sumarUadeCoins(sistemaActual.getCinturonAsteroides().getPoderDelCinturon(), vidaPerdida);
 		}
-		System.out.println("El jugador se ha movido a: " + nuevoSistema.getNombre());
+		// System.out.println("El jugador se ha movido a: " + nuevoSistema.getNombre());
 	}
 
 	public SistemaEstelar comprarInformacion(MapaEstelar mapaEstelar){
