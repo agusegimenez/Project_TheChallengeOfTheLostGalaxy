@@ -56,10 +56,6 @@ public class NaveController {
         return  GestorJuego.getInstancia().getJugador().getNave().toView();
     }
 
-    public void atravesarCinturon(int poderAtaque){
-        GestorJuego.getInstancia().getJugador().getNave().atravesarCinturon(poderAtaque);
-    }
-
     public List<ArmaView> getArmasView(){
         List<Arma> armas = GestorJuego.getInstancia().getJugador().getNave().getArmas();
         List<ArmaView> armasView = new ArrayList<>();

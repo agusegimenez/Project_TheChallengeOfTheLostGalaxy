@@ -38,6 +38,7 @@ public class MenuVista extends JFrame {
                 try {
                     JugadorView jugadorAntesDeViajar = jugadorController.getJugadorView();
                     String seleccionPlaneta = textPlaneta.getText();
+                    PlanetaView planetaVisitado = planetaController.viajarAPlaneta(seleccionPlaneta);
 
                     if(planetaController.tieneCinturon(seleccionPlaneta)){
                         // JOptionPane.showMessageDialog(rootpanel,"Necesitar atravesar el Cinturon de Asteroides para trasladarte a este Planeta.", JOptionPane.);
@@ -46,32 +47,22 @@ public class MenuVista extends JFrame {
                                 "Aviso",
                                 JOptionPane.INFORMATION_MESSAGE);
                         new AtravesarCinturonVista(planetaController.getCinturonView(seleccionPlaneta));
-                        if(naveController.getNaveJugadorView().getVida()<=0){
-                            new JuegoPerdidoVista().setVisible(true);
-                            dispose();
-                            return;
+                    }
+                    if(naveController.getNaveJugadorView().getVida()>=0){
+                        if(planetaVisitado.getNombre().contains("Neutral") ){
+                            PlanetaNeutralVista planetaNeutralVista = new PlanetaNeutralVista();
+                        }else if (planetaVisitado.getNombre().contains("Aliado")) {
+                            PlanetaAliadoVista planetaAliadoVista = new PlanetaAliadoVista();
+                        }else{
+                            PlanetaEnemigoVista planetaEnemigoVista = new PlanetaEnemigoVista(jugadorAntesDeViajar, planetaVisitado);
                         }
-                    }
-                    
-                    PlanetaView planetaVisitado = planetaController.viajarAPlaneta(seleccionPlaneta);
-                    if(naveController.getNaveJugadorView().getVida()<=0){
-                        new JuegoPerdidoVista().setVisible(true);
-                        dispose();
-                        return;
-                    }else{
-                        JOptionPane.showMessageDialog(rootpanel, "Viajaste con exito", "Exito", JOptionPane.INFORMATION_MESSAGE);
-                    }
-
-                    if(planetaVisitado.getNombre().contains("Neutral") ){
-                        PlanetaNeutralVista planetaNeutralVista = new PlanetaNeutralVista();
-                    } else if (planetaVisitado.getNombre().contains("Aliado")) {
-                        PlanetaAliadoVista planetaAliadoVista = new PlanetaAliadoVista();
-                    }else{
-                        PlanetaEnemigoVista planetaEnemigoVista = new PlanetaEnemigoVista(jugadorAntesDeViajar, planetaVisitado);
-                    }
-
-                } catch (IllegalArgumentException exception){
+                        }else{
+                            dispose();
+                        }
+                }catch (IllegalArgumentException exception){
                     JOptionPane.showMessageDialog(rootpanel, "El ID proporcionado es invalido", "ERROR", JOptionPane.ERROR_MESSAGE);
+                }catch (RuntimeException exception){
+                    JOptionPane.showMessageDialog(rootpanel, "Combustible insuficiente", "ERROR", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });

@@ -21,6 +21,7 @@ public class GestorJuego {
 		this.mapaEstelar = new MapaEstelar(generarNumeroDeSistemas()); // Inicializa la lista de todo
 		this.naves = new ArrayList<>();
 		instanciarNaves();
+		crearJugador("");
 		//this.armas = new ArrayList<>();
 		//this.escudos = new ArrayList<>();
 	}
@@ -39,7 +40,8 @@ public class GestorJuego {
 
 	public static void reiniciarInstancia(){
 		instancia = null;
-	}
+		getInstancia();
+ 	}
 
 	public Jugador crearJugador(String id) {
 		Jugador jugador = new Jugador(id);
@@ -72,7 +74,7 @@ public class GestorJuego {
 		crearNaveAegis( 100, 150, 10);
 		crearNavePhantom( 100, 150, 15);
 		crearNaveTitan( 150, 200, 10);
-		crearNaveSwift( 100, 100, 15);
+		crearNaveSwift( 75, 100, 15);
 	}
 
 

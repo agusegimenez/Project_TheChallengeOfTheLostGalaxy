@@ -98,6 +98,9 @@ public class Jugador {
 		this.planetaActual = planeta;
 		this.sistemaActual = sistemaActual;
 		nave.viajarAPlaneta(planeta.getCostoDeCombustible());
+		if(sistemaActual.tieneCinturon()){
+			nave.atravesarCinturon(sistemaActual.getCinturonAsteroides().getPoderDelCinturon());
+		}
 		if(planetaActual.soyHostil()){
 			encuentroConEnemigo();
 		}

@@ -1,5 +1,6 @@
 package vistas;
 
+import controller.JugadorController;
 import controller.NaveController;
 import view.ArmaView;
 import view.NaveView;
@@ -18,6 +19,8 @@ public class EstadoDeLaNaveVista extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
         NaveController controller = new NaveController();
+        JugadorController jugadorController = new JugadorController();
+
 
         JTextArea estado = new JTextArea();
         NaveView nave = controller.getNaveJugadorView();
@@ -27,6 +30,7 @@ public class EstadoDeLaNaveVista extends JFrame {
         estado.append("Combustible restante " + nave.getCombustible() + "\n");
         estado.append("Velocidad " + nave.getVelocidad() + "\n");
         estado.append("Poder de ataque " + nave.getPoderDeAtaque() + "\n");
+        estado.append("UadeCoins " + jugadorController.getJugadorView().getUadeCoins()+ "\n");
         estado.append("Armas: "+ "\n");
         for(ArmaView arma : controller.getArmasView()){
             estado.append(arma.getNombre() + "\n");

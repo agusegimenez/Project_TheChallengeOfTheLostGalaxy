@@ -29,8 +29,7 @@ public class JuegoPerdidoVista extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 jugadorController.reiniciarJuego();
                 dispose();
-
-                new MenuVista().setVisible(true);
+                new SeleccionarNaveVista().setVisible(true);
             }
         });
     }
