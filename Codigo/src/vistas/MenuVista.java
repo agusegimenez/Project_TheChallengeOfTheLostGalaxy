@@ -38,6 +38,7 @@ public class MenuVista extends JFrame {
                 try {
                     JugadorView jugadorAntesDeViajar = jugadorController.getJugadorView();
                     String seleccionPlaneta = textPlaneta.getText();
+
                     if(planetaController.tieneCinturon(seleccionPlaneta)){
                         // JOptionPane.showMessageDialog(rootpanel,"Necesitar atravesar el Cinturon de Asteroides para trasladarte a este Planeta.", JOptionPane.);
                         JOptionPane.showMessageDialog(rootpanel,
@@ -51,6 +52,7 @@ public class MenuVista extends JFrame {
                             return;
                         }
                     }
+                    
                     PlanetaView planetaVisitado = planetaController.viajarAPlaneta(seleccionPlaneta);
                     if(naveController.getNaveJugadorView().getVida()<=0){
                         new JuegoPerdidoVista().setVisible(true);
