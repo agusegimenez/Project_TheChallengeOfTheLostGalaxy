@@ -796,12 +796,11 @@
 											"_parent": {
 												"$ref": "AAAAAAGPna3G4pP0Bjc="
 											},
+											"visible": false,
 											"font": "Arial;13;0",
-											"left": 175.9599609375,
+											"left": 168.72998046875,
 											"top": 221,
-											"width": 13.72998046875,
-											"height": 13,
-											"text": "alt"
+											"height": 13
 										},
 										{
 											"_type": "LabelView",
@@ -812,9 +811,9 @@
 											"font": "Arial;13;1",
 											"left": 149,
 											"top": 221,
-											"width": 20.9599609375,
+											"width": 13.72998046875,
 											"height": 13,
-											"text": "seq"
+											"text": "alt"
 										},
 										{
 											"_type": "UMLInteractionOperandCompartmentView",
@@ -1039,8 +1038,8 @@
 									"left": 152,
 									"top": 240,
 									"width": 120,
-									"height": 53,
-									"text": "es neutral y tengo monedas"
+									"height": 64,
+									"text": "es neutral,tengo monedas y la lista de armas es menor a 2"
 								},
 								{
 									"_type": "UMLSeqMessageView",
@@ -2425,8 +2424,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPnal9WJJ9l5w="
 							},
-							"name": "alt",
-							"interactionOperator": "seq",
+							"interactionOperator": "alt",
 							"operands": [
 								{
 									"_type": "UMLInteractionOperand",
