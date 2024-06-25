@@ -49,22 +49,21 @@ public class Jugador {
 
 	public void venderArma(int indiceArmaUsuario) {
 		if (estoyEnPlanetaNeutral()) {
-			try {
-				// Restamos 1 al índice para adaptarlo a la indexación basada en 0
-				int indiceArma = indiceArmaUsuario - 1;
-
-				// Verificar si el índice está dentro del rango de la lista de armas.
-				if (indiceArma >= 0 && indiceArma < nave.getArmas().size()) {
-					Arma armaAVender = nave.getArmas().get(indiceArma);
-					// Sumamos el precio de la arma vendida al total de Uadecoins del jugador
-					cantidadUadeCoins += armaAVender.getPrecio();
-					// Eliminamos la arma de la lista de armas de la nave
-					nave.getArmas().remove(indiceArma);
-				} else {
-					throw new IllegalArgumentException("Índice de arma inválido. No se puede vender la arma.");
+			// Restamos 1 al índice para adaptarlo a la indexación basada en 0
+			int indiceArma = indiceArmaUsuario - 1;
+			// Verificar si el índice está dentro del rango de la lista de armas.
+			if (indiceArma >= 0 && indiceArma < nave.getArmas().size()) {
+				Arma armaAVender = nave.getArmas().get(indiceArma);
+				// Sumamos el precio de la arma vendida al total de Uadecoins del jugador
+				cantidadUadeCoins += armaAVender.getPrecio();
+				// Eliminamos la arma de la lista de armas de la nave
+				nave.getArmas().remove(indiceArma);
+				if(nave.getArmas().size() == 0){
+					nave.agregarArma(new Arma(10, 0, "Arma Basica"));
 				}
-			} catch (IllegalArgumentException e) {
-				System.out.println(e.getMessage());
+
+			} else {
+				throw new IllegalArgumentException();
 			}
 		}
 	}

@@ -40,14 +40,7 @@ public class MenuVista extends JFrame {
                     String seleccionPlaneta = textPlaneta.getText();
                     PlanetaView planetaVisitado = planetaController.viajarAPlaneta(seleccionPlaneta);
 
-                    if(planetaController.tieneCinturon(seleccionPlaneta)){
-                        // JOptionPane.showMessageDialog(rootpanel,"Necesitar atravesar el Cinturon de Asteroides para trasladarte a este Planeta.", JOptionPane.);
-                        JOptionPane.showMessageDialog(rootpanel,
-                                "Recuerda que necesitas atravesar el Cinturón de Asteroides para trasladarte a este Planeta.",
-                                "Aviso",
-                                JOptionPane.INFORMATION_MESSAGE);
-                        new AtravesarCinturonVista(planetaController.getCinturonView(seleccionPlaneta));
-                    }
+
                     if(naveController.getNaveJugadorView().getVida()>=0){
                         if(planetaVisitado.getNombre().contains("Neutral") ){
                             PlanetaNeutralVista planetaNeutralVista = new PlanetaNeutralVista();
@@ -59,6 +52,16 @@ public class MenuVista extends JFrame {
                         }else{
                             dispose();
                         }
+
+                    if(planetaController.tieneCinturon(seleccionPlaneta)){
+                        // JOptionPane.showMessageDialog(rootpanel,"Necesitar atravesar el Cinturon de Asteroides para trasladarte a este Planeta.", JOptionPane.);
+                        JOptionPane.showMessageDialog(rootpanel,
+                                "Recuerda que necesitas atravesar el Cinturón de Asteroides para trasladarte a este Planeta.",
+                                "Aviso",
+                                JOptionPane.INFORMATION_MESSAGE);
+                        new AtravesarCinturonVista(planetaController.getCinturonView(seleccionPlaneta));
+                    }
+
                 }catch (IllegalArgumentException exception){
                     JOptionPane.showMessageDialog(rootpanel, "El ID proporcionado es invalido", "ERROR", JOptionPane.ERROR_MESSAGE);
                 }catch (RuntimeException exception){
