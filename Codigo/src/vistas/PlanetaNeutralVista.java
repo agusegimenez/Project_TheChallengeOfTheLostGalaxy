@@ -73,7 +73,12 @@ public class PlanetaNeutralVista extends JFrame {
         venderArmaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                try {
+                    String indice = JOptionPane.showInputDialog("Ingrese el indice del arma que desea vender");
+                    controller.venderArma(Integer.parseInt(indice));
+                }catch (NumberFormatException exception){
+                    JOptionPane.showMessageDialog(rootpane, "Indice incorrecto", "Error", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
     }
