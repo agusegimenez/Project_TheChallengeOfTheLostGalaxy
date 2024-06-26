@@ -49,7 +49,6 @@ public class Jugador {
 
 	public void venderArma(int indiceArmaUsuario) {
 		if (estoyEnPlanetaNeutral()) {
-			try {
 				// Restamos 1 al índice para adaptarlo a la indexación basada en 0
 				int indiceArma = indiceArmaUsuario - 1;
 
@@ -60,15 +59,24 @@ public class Jugador {
 					cantidadUadeCoins += armaAVender.getPrecio();
 					// Eliminamos la arma de la lista de armas de la nave
 					nave.getArmas().remove(indiceArma);
+					if(nave.getArmas().size() == 0){
+						nave.agregarArma(new Arma(10,0,"Arma Basica"));
+					}
 				} else {
-					throw new IllegalArgumentException("Índice de arma inválido. No se puede vender la arma.");
+					throw new IllegalArgumentException();
 				}
-			} catch (IllegalArgumentException e) {
-				System.out.println(e.getMessage());
-			}
 		}
 	}
+	public String verArmas() {
+		ArrayList<Arma> armas = this.nave.getArmas();
+		StringBuilder armasInfo = new StringBuilder();
 
+		for (Arma arma : armas) {
+			armasInfo.append(arma.getId()).append(", Poder: ").append(arma.getPoder()).append(", Precio: ").append(arma.getPrecio()).append("\n");
+		}
+
+		return armasInfo.toString();
+	}
 
     public void venderEscudo() {
         if(estoyEnPlanetaNeutral()) {
@@ -176,23 +184,7 @@ public class Jugador {
 	private void restarUadeCoins(int cantidad) {
 		this.cantidadUadeCoins -= cantidad;
 	}
-	
-//	public void imprimirEstadoActual() {
-//		System.out.println("Vida actual "+ this.getNave().getVida());
-//		System.out.println("Escudo actual "+ this.getNave().getEscudo().getProteccion());
-//		System.out.println("Uadecoins totales " + this.cantidadUadeCoins);
-//		System.out.println("Poder de ataque de la nave " + this.nave.getPoderDeAtaque());
-//		System.out.println("Nombre de la nave " + this.nave.getId());
-//		// Imprimir nombre de todas las armas en el array
-//		ArrayList<Arma> armasNave = this.nave.getArmas();
-//		System.out.println("Nombres de armas:");
-//		for (Arma arma : armasNave) {
-//			System.out.println("- " + arma.getId());
-//		}
-//
-//		System.out.println("Nombre del escudo " + this.nave.getEscudo().getId());
-//		System.out.println("Cantidad de combustible " + this.nave.getCombustible());
-//	}
+
 
 	public void repararNave(){
 		if(planetaActual.soyAliado()){

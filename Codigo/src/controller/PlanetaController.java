@@ -45,7 +45,10 @@ public class PlanetaController {
     public PlanetaView getPlanetaActualView(){
         return GestorJuego.getInstancia().getJugador().getPlanetaActual().toView();
     }
-
+    public String verArmas() {
+        String armasInfo = GestorJuego.getInstancia().verArmas();
+        return armasInfo;
+    }
     public int getPrecioInformacion(){
         return GestorJuego.getInstancia().getJugador().getPlanetaActual().getPrecioInformacion();
     }

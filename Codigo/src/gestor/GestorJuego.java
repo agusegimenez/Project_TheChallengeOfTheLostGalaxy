@@ -48,28 +48,10 @@ public class GestorJuego {
 		this.jugador = jugador;
 		return jugador;
 	}
-
-	/* comenté estos metodos ya que ahora trabajamos con el mapa estelar y es él el que genera los planetas
-	public Planeta generarPlanetaNeutral(String id, String idArma, String idEscudo) {
-		Escudo escudo = buscarEscudo(idEscudo);
-		Arma arma = buscarArma(idArma);
-		PlanetaNeutral planeta = new PlanetaNeutral(id, arma, escudo);
-		planetas.add(planeta);
-		return(planeta);
+	public String verArmas() {
+		String armasInfo = this.jugador.verArmas();
+		return armasInfo;
 	}
-
-	public Planeta generarPlanetaHostil(String id) {
-		PlanetaHostil planeta = new PlanetaHostil(id);
-		planetas.add(planeta);
-		return(planeta);
-	}
-
-	public Planeta generarPlanetaAliado(String id){
-		PlanetaAliado planeta = new PlanetaAliado(id);
-		planetas.add(planeta);
-		return(planeta);
-	}
-	 */
 	public void instanciarNaves(){
 		crearNaveAegis( 100, 150, 10);
 		crearNavePhantom( 100, 150, 15);
@@ -147,26 +129,6 @@ public class GestorJuego {
 	public void venderEscudo(){
 		this.jugador.venderEscudo();
 	}
-
-	/*
-	private Arma buscarArma(String idArma) {
-		for (Arma arma : armas) {
-			if(arma.getId().equals(idArma)) {
-				return(arma);
-			}
-		}
-		throw new IllegalArgumentException("No se encontró un arma1 con el ID especificado: " + idArma);
-	}
-
-	private Escudo buscarEscudo(String idEscudo) {
-		for (Escudo escudo : escudos) {
-			if(escudo.getId().equals(idEscudo) ) {
-				return(escudo);
-			}
-		}
-		throw new IllegalArgumentException("No se encontró un escudo con el ID especificado: " + idEscudo);
-	}
-	*/
 
 	public void mostrarMapaEstelar(){
 		mapaEstelar.mostrarSistemas();

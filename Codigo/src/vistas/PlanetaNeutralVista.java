@@ -74,7 +74,9 @@ public class PlanetaNeutralVista extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    String indice = JOptionPane.showInputDialog("Ingrese el indice del arma que desea vender");
+                    String indice = JOptionPane.showInputDialog("Ingrese el indice del arma que desea vender\n"+
+                            "Armas de su inventario:\n"+
+                            controller.verArmas());
                     controller.venderArma(Integer.parseInt(indice));
                 }catch (NumberFormatException exception){
                     JOptionPane.showMessageDialog(rootpane, "Indice incorrecto", "Error", JOptionPane.ERROR_MESSAGE);
