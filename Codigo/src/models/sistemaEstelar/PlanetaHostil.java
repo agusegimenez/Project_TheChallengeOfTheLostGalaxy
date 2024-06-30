@@ -30,21 +30,21 @@ public class PlanetaHostil extends Planeta{
 	public boolean soyAliado(){ return (false);}
 	@Override
 	public Arma getArma() {
-		throw new IllegalArgumentException("No soy un Planeta Neutral");
+		return null;
 	}
 	@Override
 	public Escudo getEscudo() {
-		throw new IllegalArgumentException("No soy un Planeta Neutral");
+		return null;
 	}
 
 	@Override
 	public int getPrecioInformacion() {
-		throw new IllegalArgumentException("No soy aliado");
+		return -1;
 	}
 
 	@Override
-	public void desplegarInformacion(MapaEstelar mapa) {
-		throw new IllegalArgumentException("");
+	public SistemaEstelar desplegarInformacion(MapaEstelar mapa) {
+		return null;
 	}
 
 	private boolean definirSiTieneTesoro() {

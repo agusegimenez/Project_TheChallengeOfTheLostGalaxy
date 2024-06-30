@@ -1,5 +1,7 @@
 package models.equipamiento;
 
+import view.ArmaView;
+
 public class Arma {
 	private int poder;
 	private int uadeCoin;
@@ -22,4 +24,8 @@ public class Arma {
 	public String getId() {
 		return(this.id);
 	}
+	public ArmaView toView(){
+		return new ArmaView(uadeCoin, poder, id );
+	}
+
 }

@@ -14,6 +14,11 @@ public class MapaEstelar {
 
     public MapaEstelar(int cantidadSistemas) {
         this.sistemas = generarSistemas(cantidadSistemas);
+        //Que genere un sistema que si tenga solucion
+
+        while(buscarSistemaConTesoro() == null){
+            this.sistemas = generarSistemas(cantidadSistemas);
+        }
     }
 
     private List<SistemaEstelar> generarSistemas(int numSistemas) {
@@ -26,7 +31,7 @@ public class MapaEstelar {
 
             // Generar planetas aleatoriamente
             for (int j = 1; j <= random.nextInt(5) + 1; j++) {
-                String nombrePlaneta = nombreSistema + " - Planeta " + j;
+                String nombrePlaneta = "Planeta " + j + " S"+i;
                 int tipoPlaneta = random.nextInt(3);
                 Planeta planeta = switch (tipoPlaneta) {
                     case 0 -> new PlanetaAliado(nombrePlaneta + " Aliado");
@@ -67,8 +72,7 @@ public class MapaEstelar {
         if (indice >= 0 && indice < sistemas.size()) {
             return sistemas.get(indice);
         } else {
-            System.out.println("Número de sistema no válido.");
-            return null;
+            throw new IllegalArgumentException();
         }
     }
 
@@ -80,7 +84,7 @@ public class MapaEstelar {
                 return planeta;
             }
         }
-        throw new IllegalArgumentException("Id no encontrado");
+        throw new IllegalArgumentException();
     }
 
     public SistemaEstelar buscarSistemaEnPlaneta(String idPlaneta) {
@@ -91,7 +95,7 @@ public class MapaEstelar {
                 return sistema;
             }
         }
-        throw new IllegalArgumentException("Id no encontrado");
+        throw new IllegalArgumentException();
     }
 
     public SistemaEstelar buscarSistemaConTesoro(){
@@ -113,15 +117,8 @@ public class MapaEstelar {
         }
         throw new IllegalArgumentException("Id incorrecto");
     }
-    //Borrar luego
-    public void agregarPlanetasASistemas(){
-        SistemaEstelar sistemaEstelar1 = sistemas.getFirst();
-        sistemaEstelar1.agregarPlanetas();
-        SistemaEstelar sistemaEstelar2 = sistemas.get(1);
-        sistemaEstelar2.agregarPlanetas();
-    }
-/*
+
     public MapaEstelarView  toView(){
         return(new MapaEstelarView(this.sistemas));
-    }*/
+    }
 }

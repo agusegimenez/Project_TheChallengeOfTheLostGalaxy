@@ -26,12 +26,12 @@ public class PlanetaNeutral extends Planeta{
 
 	@Override
 	public int getPrecioInformacion() {
-		throw new IllegalArgumentException("No soy aliado");
+		return -1;
 	}
 
 	@Override
-	public void desplegarInformacion(MapaEstelar mapa) {
-		throw new IllegalArgumentException("");
+	public SistemaEstelar desplegarInformacion(MapaEstelar mapa) {
+		return null;
 	}
 
 	public void setEscudo(Escudo escudo) {
